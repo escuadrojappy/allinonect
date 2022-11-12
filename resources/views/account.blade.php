@@ -20,7 +20,7 @@
 			<div class="form">
 				<form>
 					<img src="images/logo.png" alt="">
-					<label for="chk" aria-hidden="true">Welcome</label>
+					<label for="chk" aria-hidden="true">Sign Up</label>
 					<p>The system's authorized users are as follows. Please select who you want to gain access from.</p>
 					<button class="btn"><a href="citizen">Citizen</button></a>
 					<button class="btn"><a href="establishment">Establishment</button></a>
