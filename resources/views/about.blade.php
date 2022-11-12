@@ -26,7 +26,7 @@
     <section class="home">
       <video class="video-slide active" src="{{ asset('videos/about.mp4')}}" autoplay muted loop></video>
       <div class="content active">
-        <h1>ALL-IN-ONE.<br><span>WHO WE ARE</span></h1>
+        <h1>ALL-IN-ONE.<br><span>WHO WE ARE 123456</span></h1>
         <p><h3>We are the founders of the system designed to mitigate the effects of the rapidly spreading Covid-19 disease.</h3><br>Our intention is to enhance the current contact tracing system in Cabanatuan City by utilizing web technology and to expand the use of Philippine national identification. We guarantee that this platform will simplify the process for you.<br><br><h3>Come and join us right now.</h3></p>
       </div>
       <div class="media-icons">
