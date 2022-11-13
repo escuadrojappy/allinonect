@@ -40,6 +40,10 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+        'api' => [
+            'driver' => 'passport',
+            'provider' => 'users',
+        ],
     ],
 
     /*
@@ -107,5 +111,19 @@ return [
     */
 
     'password_timeout' => 10800,
+
+    /*
+    |--------------------------------------------------------------------------
+    | Access Token Timeout
+    |--------------------------------------------------------------------------
+    |
+    | Here you may define the amount of seconds before a access token
+    | times out and  refresh token times out
+    |
+     */
+
+    'access_token_timeout' => env('ACCESS_TOKEN_TIMEOUT', 60 * 2), // mins * hours = 2hrs / 120 mins
+    'refresh_token_timeout' => env('REFRESH_TOKEN_TIMEOUT', 60 * 4), // mins * hours = 4 hrs / 240 mins
+    'remember_me_token_timeout' => env('REMEMBER_ME_TOKEN_TIMEOUT', 60 * 24 * 30) // 43200 mins = 1 month (default)
 
 ];
