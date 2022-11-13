@@ -11,11 +11,12 @@
 
     <header>
       <img src="{{ asset('images/logo.png')}}" alt="" id= "logo" >
+      <img src="{{ asset('images/cclogo.png')}}" alt="" id= "logo1" >
       <div class="menu-btn"></div>
       <div class="navigation">
         <div class="navigation-items">
-          <a href="welcome">Home</a>
-          <a href="about">About</a>
+          <a href="welcome" class="under" >Home</a>
+          <a href="about" >About</a>
           <a href="account">Account</a>
           <a href="contact">Contact</a>
           <a href="feedback">Feedback</a>
@@ -24,11 +25,12 @@
     </header>
 
     <section class="home">
-      <img src="{{ asset('images/cclogo.png')}}" alt="" id= "logo" >
-      <video class="video-slide" src="{{ asset('videos/2.mp4')}}" autoplay muted loop></video>
-      <video class="video-slide" src="{{ asset('videos/3.mp4')}}" autoplay muted loop></video>
-      <video class="video-slide" src="{{ asset('videos/4.mp4')}}" autoplay muted loop></video>
-      <video class="video-slide" src="5.mp4" autoplay muted loop></video>
+  
+      <image class="video-slide1" src="{{ 'images/team.jpg'}}" autoplay muted loop></image>
+      <image class="video-slide2" src="{{ 'images/contacttracing.jpg'}}" autoplay muted loop></image>
+      <image class="video-slide" src="{{ 'images/covid-19.jpg'}}" autoplay muted loop></image>
+      <image class="video-slide3" src="{{ 'images/allinthis.png'}}" autoplay muted loop></image>
+      
       <div class="content active">
         <h1>be a part of our<br><span>team</span></h1>
         <p>Participate in our new contact tracing approach by signing up your company and transferring your contact tracing data. This will help our city decrease the number of individuals infected with Covid-19 disease. What precisely are you waiting for? Join us right now!</p>
@@ -74,7 +76,7 @@
 
     //Javacript for video slider navigation
     const btns = document.querySelectorAll(".nav-btn");
-    const slides = document.querySelectorAll(".video-slide");
+    const slides = document.querySelectorAll(".video-slide, .video-slide2, .video-slide1, .video-slide3");
     const contents = document.querySelectorAll(".content");
 
     var sliderNav = function(manual){
