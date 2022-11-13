@@ -1,65 +1,6 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="{{ asset('css/dohdashboard.css') }}">
-    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title>DOH-DASHBOARD</title>
-   </head>
-<body>
-  <div class="sidebar">
-    <div class="logo-details">
-      <i class='bx bx-shield-quarter'></i>
-      <span class="logo_name">All in One </span>
-    </div>
-      <ul class="nav-links">
-        <li>
-          <a href="#" class="active">
-            <i class='bx bx-grid-alt' ></i>
-            <span class="links_name">Dashboard</span>
-          </a>
-        </li>
-        <li>
-          <a href="dohprofile">
-            <i class='bx bx-user' ></i>
-            <span class="links_name">Profile</span>
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <i class='bx bx-cog' ></i>
-            <span class="links_name">Settings</span>
-          </a>
-        </li>
-        <li>
-          <a href="dohaccountrequest">
-            <i class='bx bxs-user-account' ></i>
-            <span class="links_name">Account Request</span>
-          </a>
-        </li>
-        <li>
-          <a href="dohcontactreport">
-            <i class='bx bxs-report' ></i>
-            <span class="links_name">Contact Report</span>
-          </a>
-        </li>
-        <li>
-          <a href="dohmessages">
-            <i class='bx bx-message' ></i>
-            <span class="links_name">Messages</span>
-          </a>
-        </li>
-        <li>
-
-        <li class="log_out">
-          <a href="#">
-            <i class='bx bx-log-out'></i>
-            <span class="links_name">Sign Out</span>
-          </a>
-        </li>
-      </ul>
-  </div>
+@extends('master.mastertemplate')
+@section('content')
+<link rel="stylesheet" href="{{ asset('css/dohdashboard.css') }}"> 
   <section class="home-section">
     <nav>
       <div class="sidebar-button">
@@ -72,7 +13,7 @@
       </div>
       <div class="profile-details">
         <img src="{{ asset('images/doh.png') }}" alt="">
-        <span class="admin_name">Department of Health</span>
+        <span class="admin_name">Department of Health </span>
         <i class='bx bx-chevron-down' ></i>
       </div>
     </nav>
@@ -144,18 +85,17 @@
 
             </ul>
 
-            <ul class="details">
-            <li class="topic">User ID</li>
-            <li><a href="#">1234</a></li>
-            <li><a href="#">6251</a></li>
-            <li><a href="#">1241</a></li>
-            <li><a href="#">6791</a></li>
-            <li><a href="#">4512</a></li>
-            <li><a href="#">1236</a></li>
-            <li><a href="#">7865</a></li>
-            <li><a href="#">2145</a></li>
-
-          </ul>
+              <ul class="details">
+              <li class="topic">User ID</li>
+              <li><a href="#">1234</a></li>
+              <li><a href="#">6251</a></li>
+              <li><a href="#">1241</a></li>
+              <li><a href="#">6791</a></li>
+              <li><a href="#">4512</a></li>
+              <li><a href="#">1236</a></li>
+              <li><a href="#">7865</a></li>
+              <li><a href="#">2145</a></li>
+            </ul>
 
 
           </div>
@@ -209,17 +149,17 @@
     </div>
   </section>
 
-  <script>
-   let sidebar = document.querySelector(".sidebar");
-let sidebarBtn = document.querySelector(".sidebarBtn");
-sidebarBtn.onclick = function() {
+<script>
+    let sidebar = document.querySelector(".sidebar");
+  let sidebarBtn = document.querySelector(".sidebarBtn");
+  sidebarBtn.onclick = function() {
   sidebar.classList.toggle("active");
   if(sidebar.classList.contains("active")){
   sidebarBtn.classList.replace("bx-menu" ,"bx-menu-alt-right");
-}else
+  }else
   sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
-}
- </script>
+  }
+</script>
 
-</body>
-</html>
+
+@endsection

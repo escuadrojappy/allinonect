@@ -1,60 +1,8 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="{{ asset('css/edashboard.css') }}">
-    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title>ESTABLISHMENT-DASHBOARD</title>
-   </head>
-<body>
-  <div class="sidebar">
-    <div class="logo-details">
-      <i class='bx bx-shield-quarter'></i>
-      <span class="logo_name">All in One </span>
-    </div>
-      <ul class="nav-links">
-        <li>
-          <a href="edashboard" class="active">
-            <i class='bx bx-grid-alt' ></i>
-            <span class="links_name">Dashboard</span>
-          </a>
-        </li>
-        <li>
-          <a href="establishmentprofile">
-            <i class='bx bx-user' ></i>
-            <span class="links_name">Profile</span>
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <i class='bx bx-cog' ></i>
-            <span class="links_name">Settings</span>
-          </a>
-        </li>
-        <li>
-          <a href="econtacttracing">
-            <i class='bx bxs-user-account' ></i>
-            <span class="links_name">Contact Tracing</span>
-          </a>
-        </li>
-        <li>
-          <a href="econtactreport">
-            <i class='bx bxs-report' ></i>
-            <span class="links_name">Contact Report</span>
-          </a>
-        </li>
-        
-        <li>
+@extends('master.mastertemplateestablishment')
+@section('content')
+<link rel="stylesheet" href="{{ asset('css/edashboard.css') }}">
 
-        <li class="log_out">
-          <a href="#">
-            <i class='bx bx-log-out'></i>
-            <span class="links_name">Sign Out</span>
-          </a>
-        </li>
-      </ul>
-  </div>
+ 
   <section class="home-section">
     <nav>
       <div class="sidebar-button">
@@ -74,29 +22,29 @@
 
     
     <div class="home-content">
-        <!--
+     
       <div class="overview-boxes">
         <div class="box">
           <div class="right-side">
-            <div class="box-topic">Account Requests</div>
-            <div class="number">876</div>
+            <div class="box-topic">Avg Visitors in a Day</div>
+            <div class="number">6,843</div>
             <div class="indicator">
               <i class='bx bx-up-arrow-alt'></i>
-              <span class="text">Up 20 mins ago</span>
+              <span class="text">Up 1D Ago</span>
             </div>
           </div>
           <i class='bx bxs-face alt cart'></i>
         </div>
         <div class="box">
           <div class="right-side">
-            <div class="box-topic">Messages</div>
-            <div class="number">343</div>
+            <div class="box-topic">Positive Guests in a Week</div>
+            <div class="number">25</div>
             <div class="indicator">
               <i class='bx bx-up-arrow-alt'></i>
-              <span class="text">Up 1hr ago</span>
+              <span class="text">Up 1 Week ago</span>
             </div>
           </div>
-          <i class='bx bxs-chat cart two' ></i>
+          <i class='bx bx-health cart two' ></i>
         </div>
         <div class="box">
           <div class="right-side">
@@ -110,7 +58,7 @@
           <i class='bx bxs-report cart three' ></i>
         </div>
 
-      </div> -->
+      </div> 
 
       <div class="boxes">
         <div class=" box1">
@@ -118,7 +66,7 @@
           <div class="sales-details">
 
           <ul class="details">
-              <li class="topic">VID</li>
+              <li class="topic">ID</li>
               <li><a href="#">1</a></li>
               <li><a href="#">2</a></li>
               <li><a href="#">3</a></li>
@@ -235,8 +183,8 @@
             <a href="#">See All</a>
           </div>
         </div>
-      <!--  
-        <div class="box2">
+ 
+        <!-- <div class="box2">
           <div class="title">ESTABLISHMENTS</div>
           <ul class="establishment">
             <li>
@@ -277,7 +225,7 @@
 
 
           </ul>
-        </div> -->
+        </div>  -->
       </div>
     </div>
   </section>
@@ -294,5 +242,4 @@ sidebarBtn.onclick = function() {
 }
  </script>
 
-</body>
-</html>
+@endsection

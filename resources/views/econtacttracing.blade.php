@@ -1,14 +1,8 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="{{ asset('css/econtactracing.css') }}">
-    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
-    
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title>ESTABLISHMENT-DASHBOARD</title>
-   </head>
-<body>
+@extends('master.mastertemplateestablishment')
+@section('content')
+<link rel="stylesheet" href="{{ asset('css/econtactracing.css') }}">
+   
+   
   <div class="sidebar">
     <div class="logo-details">
       <i class='bx bx-shield-quarter'></i>
@@ -340,6 +334,4 @@ sidebarBtn.onclick = function() {
   sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
 }
  </script>
-
-</body>
-</html>
+@endsection
