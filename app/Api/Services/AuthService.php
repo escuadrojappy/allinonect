@@ -4,6 +4,7 @@ namespace App\Api\Services;
 
 use App\Api\Helpers\Cookie;
 use App\Api\Repositories\AuthRepository;
+use Illuminate\Support\Arr;
 use Illuminate\Http\Request;
 use Illuminate\Auth\AuthenticationException;
 
@@ -45,5 +46,20 @@ class AuthService extends Service
         $cookie = $this->cookie->set($token, config('auth.refresh_token_timeout'));
 
         return response()->json($token)->cookie($cookie);
+    }
+
+    /**
+     * Registration User.
+     *
+     * @param array $request
+     * @return
+     */
+    public function registration(array $request)
+    {
+        $password = Arr::get($request, 'password');
+
+        Arr::set($request, 'password', bcrypt($password));
+
+        return $this->repository->create($request);
     }
 }

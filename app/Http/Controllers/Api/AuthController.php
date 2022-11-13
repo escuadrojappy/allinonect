@@ -4,7 +4,10 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Api\Services\AuthService;
-use App\Http\Requests\LoginRequest;
+use App\Http\Requests\{
+    LoginRequest,
+    RegistrationRequest,
+};
 use Illuminate\Http\Request;
 
 class AuthController extends Controller
@@ -35,6 +38,17 @@ class AuthController extends Controller
     public function login(LoginRequest $request)
     {
         return $this->authService->login($request->validated());
+    }
+
+    /**
+     * Register User.
+     *
+     * @param \App\Http\Requests\RegistrationRequest @request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function registration(RegistrationRequest $request)
+    {
+        return $this->authService->registration($request->validated());
     }
 
     /**
