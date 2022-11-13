@@ -14,8 +14,8 @@
       <div class="menu-btn"></div>
       <div class="navigation">
         <div class="navigation-items">
-          <a href="welcome">Home</a>
-          <a href="about">About</a>
+          <a href="welcome" class="qwe" >Home</a>
+          <a href="about" >About</a>
           <a href="account">Account</a>
           <a href="contact">Contact</a>
           <a href="feedback">Feedback</a>
