@@ -60,12 +60,12 @@ header .navigation .navigation-items a:before{
   
 }
 
-header .navigation .navigation-items a.qwer{
+header .navigation .navigation-items a.under{
   text-decoration: underline;
   /* transition: 0.3s ease; */
 }
 
-header .navigation .navigation-items a:hover:not(.qwer):before{
+header .navigation .navigation-items a:hover:not(.under):before{
   width: 100%;
 }
 

@@ -15,7 +15,7 @@
       <div class="navigation">
         <div class="navigation-items">
           <a href="welcome">Home</a>
-          <a href="about"  class="qwer" >About</a>
+          <a href="about"  class="under" >About</a>
           <a href="account">Account</a>
           <a href="contact">Contact</a>
           <a href="feedback">Feedback</a>
