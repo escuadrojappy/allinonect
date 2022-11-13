@@ -24,7 +24,7 @@
 					<p>The system's authorized users are as follows. Please select who you want to gain access from.</p>
 					<button class="btn"><a href="citizen">Citizen</button></a>
 					<button class="btn"><a href="establishment">Establishment</button></a>
-					<button class="btn"><a href="doh">Department of Health</button></a>
+					<button class="btn"><a href="login/admin">Department of Health</button></a>
 				</form>
 			</div>
 
