@@ -3,6 +3,7 @@
 namespace App\Exceptions;
 
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Support\Facades\Log;
 use Throwable;
 
 class Handler extends ExceptionHandler
@@ -44,7 +45,17 @@ class Handler extends ExceptionHandler
     public function register()
     {
         $this->reportable(function (Throwable $e) {
-            //
+            Log::error($e);
+        });
+
+        $this->renderable(function (Throwable  $e, $request) {
+            $statusCode = 500;
+            $messageError = $e->getMessage();
+
+            if ($e instanceof \Illuminate\Auth\AuthenticationException) {
+                $statusCode = 401;
+                return response()->json(['status' => false, 'message' => $messageError], $statusCode);
+            }
         });
     }
 }
