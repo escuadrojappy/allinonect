@@ -1,70 +1,10 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="{{ asset('css/econtactracing.css') }}">
-    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title>DOH</title>
-   </head>
-<body>
+@extends('master.mastertemplate')
+@section('content')
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 
-  <div class="sidebar">
-    <div class="logo-details">
-      <i class='bx bx-shield-quarter'></i>
-      <span class="logo_name">All in One </span>
-    </div>
-      <ul class="nav-links">
-        <li>
-          <a href="dohdashboard">
-            <i class='bx bx-grid-alt' ></i>
-            <span class="links_name">Dashboard</span>
-          </a>
-        </li>
-        <li>
-          <a href="dohprofile">
-            <i class='bx bx-user' ></i>
-            <span class="links_name">Profile</span>
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <i class='bx bx-cog' ></i>
-            <span class="links_name">Settings</span>
-          </a>
-        </li>
-        <li>
-          <a href="dohaccountrequest">
-            <i class='bx bxs-user-account' ></i>
-            <span class="links_name">Account Request</span>
-          </a>
-        </li>
-        <li>
-          <a href="dohcontactreport">
-            <i class='bx bxs-report' ></i>
-            <span class="links_name">Contact Report</span>
-          </a>
-        </li>
-        <li>
-            <a href="dohmessages" class="active">
-              <i class='bx bxs-report' ></i>
-              <span class="links_name">Messages</span>
-            </a>
-          </li>
-        
-        <li>
 
-        <li class="log_out">
-          <a href="#">
-            <i class='bx bx-log-out'></i>
-            <span class="links_name">Sign Out</span>
-          </a>
-        </li>
-      </ul>
-  </div>
-  <section class="home-section">
+<section class="home-section"> 
+  <link rel="stylesheet" href="{{ asset('css/econtactracing.css') }}">
     <nav>
       <div class="sidebar-button">
         <i class='bx bx-menu sidebarBtn'></i>
@@ -82,9 +22,8 @@
     </nav>
 
     
-    <div class="home-content">
+  <div class="home-content">
         
-
       <div class="boxes">
         <div class=" box1">
           <div class="title"><b>Department of Health</b></div>
@@ -151,10 +90,8 @@
             
 
 
-          </div>
-          <!-- <div class="button">
-            <a href="#">See All</a>
-          </div> -->
+         </div>
+       
         </div>
 
         
@@ -342,6 +279,4 @@ $(`#btnMessage`).click(() => {
   });
 
  </script>
-
-</body>
-</html>
+@endsection

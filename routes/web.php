@@ -50,11 +50,11 @@ Route::get('/citizen', function () {
 });
 
 Route::get('/dohdashboard', function () {
-    return view('dohdashboard');
+    return view('dohdashboard', ['title' => 'Dashboard']);
 });
 
 Route::get('/edashboard', function () {
-    return view('edashboard');
+    return view('edashboard', ['title' => 'Dashboard']);
 });
 
 Route::get('/cdashboard', function () {
@@ -62,11 +62,11 @@ Route::get('/cdashboard', function () {
 });
 
 Route::get('/econtactreport', function () {
-    return view('econtactreport');
+    return view('econtactreport', ['title' => 'Contact Report']);
 });
 
 Route::get('/econtacttracing', function () {
-    return view('econtacttracing');
+    return view('econtacttracing' , ['title' => 'Contact Tracing']);
 });
 
 Route::get('/csettings', function () {
@@ -74,11 +74,11 @@ Route::get('/csettings', function () {
 });
 
 Route::get('/dohmessages', function () {
-    return view('dohmessages');
+    return view('dohmessages', ['title' => 'Messages']);
 });
 
 Route::get('/dohcontactreport', function () {
-    return view('dohcontactreport');
+    return view('dohcontactreport', ['title' => 'Contact Report']);
 });
 
 Route::get('/dohprofile', function () {
