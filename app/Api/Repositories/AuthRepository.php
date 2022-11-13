@@ -3,6 +3,7 @@
 namespace App\Api\Repositories;
 
 use App\Models\User;
+use App\Api\Helpers\ApiResponseHandler;
 use Illuminate\Support\Arr;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\{
@@ -12,6 +13,13 @@ use Illuminate\Support\Facades\{
 
 class AuthRepository extends Repository
 {
+    /**
+     * The Api Response Handler Instance.
+     *
+     * @var String
+     */
+    protected $apiResponseHandler;
+
     /**
      * Oauth token endpoint
      *
@@ -23,10 +31,14 @@ class AuthRepository extends Repository
      * Create Model Instance.
      *
      * @param \App\Models\User $user
+     * @param \App\Helpers\ApiResponseHandler $apiResponseHandler
      */
-    public function __construct(User $user)
-    {
+    public function __construct(
+        User $user,
+        ApiResponseHandler $apiResponseHandler
+    ) {
         $this->model = $user;
+        $this->apiResponseHandler = $apiResponseHandler;
     }
 
     /**
@@ -60,6 +72,8 @@ class AuthRepository extends Repository
         ];
 
         $response = Http::asForm()->post($url, $params);
+        
+        $this->apiResponseHandler->check($response);
 
         $token = json_decode($response->body(), true);
 
@@ -86,6 +100,8 @@ class AuthRepository extends Repository
         ];
 
         $response = Http::asForm()->post($url, $params);
+
+        $this->apiResponseHandler->check($response);
 
         $token = json_decode($response->body(), true);
 

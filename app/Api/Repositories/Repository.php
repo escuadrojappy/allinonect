@@ -21,4 +21,15 @@ class Repository
     {
         return $this->model;
     }
+
+    /**
+     * Insert Repository Instance.
+     *
+     * @param array $request
+     * @return \Illuminate\Database\Eloquent\Model
+     */
+    public function create(array $request)
+    {
+        return $this->model->create($request);
+    }
 }

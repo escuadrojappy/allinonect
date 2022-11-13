@@ -2,7 +2,7 @@
 
 namespace App\Providers;
 
-// use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Gate;
 use Laravel\Passport\Passport;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 
@@ -15,6 +15,7 @@ class AuthServiceProvider extends ServiceProvider
      */
     protected $policies = [
         // 'App\Models\Model' => 'App\Policies\ModelPolicy',
+        \App\Models\Establishments::class => \App\Policies\RegistrationPolicy::class,
     ];
 
     /**
@@ -31,5 +32,8 @@ class AuthServiceProvider extends ServiceProvider
 
         Passport::tokensExpireIn(now()->addMinutes(config('auth.access_token_timeout')));
         Passport::refreshTokensExpireIn(now()->addMinutes(config('auth.refresh_token_timeout')));
+
+        // Authorization Policy
+        Gate::define('registration', [\App\Policies\AuthPolicy::class, 'registration']);
     }
 }
