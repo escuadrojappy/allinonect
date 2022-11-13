@@ -8,10 +8,17 @@
 }
 
 #logo {
+  position: relative;
   width: 80px;
   height: 80px;
-  margin-right: 250px;
+ 
   
+}
+#logo1 {
+  position: relative;
+  width: 65px;
+  height: 65px;
+  right: 300px;;
 }
 header{
   z-index: 999;
@@ -200,8 +207,12 @@ section{
 }
 
 .video-slide{
-  position: absolute;
-  width: 100%;
+  position: absolute ;
+  width: 30%;
+  height: 80%;
+  left: 1260px;
+  bottom: 70px;
+  border-radius: 10%;
   clip-path: circle(0% at 0 50%);
 }
 
