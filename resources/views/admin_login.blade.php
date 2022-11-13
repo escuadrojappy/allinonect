@@ -36,9 +36,9 @@
 					params[name] = value
 				})
 
-				$.post(`${apiUrl}auth/login`, JSON.stringify(params)).then((result) => {
+				$.post(`${apiUrl}auth/login`, params).done((result) => {
 					console.log(result)
-				}).catch((error) => {
+				}).fail((error) => {
 					console.log(error)
 				})
 
