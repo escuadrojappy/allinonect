@@ -15,13 +15,13 @@
 	<link rel="stylesheet" type="text/css" href="slide navbar style.css">
 <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
 </head>
-<body style="background: url(hospital.jpg);background-repeat:no-repeat;background-size:100% 100%;">
+<body style="background: url({{ asset('images/hospital.jpg')}});background-repeat:no-repeat;background-size:100% 100%;">
 	<div class="main">
 		<input type="checkbox" id="chk" aria-hidden="true">
 
 			<div class="signup">
 				<form>
-					<img src="images/doh.png" alt="">
+				<img src="{{ asset('images/doh.png')}}" alt="" id= "logo" >
 					<label>Department of Health</label>
 					<p>Administrator Account</p>
 					<input type="text" name="txt" placeholder="Username" required="">

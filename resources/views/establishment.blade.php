@@ -15,13 +15,13 @@
 	<link rel="stylesheet" type="text/css" href="slide navbar style.css">
 <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
 </head>
-<body style="background: url(establishment.jpg);background-repeat:no-repeat;background-size:100% 110%;">
+<body style="background: url({{ asset('images/establishment.jpg')}});background-repeat:no-repeat;background-size:100% 110%;">
 	<div class="main">
 		<input type="checkbox" id="chk" aria-hidden="true">
 
 			<div class="signup">
 				<form>
-					<img src="images/Establishment.png" alt="">
+				<img src="{{ asset('images/Establishment.png')}}" alt="" id= "logo" >
 					<label class="label1" for="chk" aria-hidden="true">Establishment</label>
 					<input type="text" name="txt" placeholder="Username" required="">
 					<input type="email" name="email" placeholder="Email" required="">
