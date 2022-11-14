@@ -14,7 +14,7 @@
 	<link rel="stylesheet" type="text/css" href="slide navbar style.css">
 <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
 </head>
-<body style="background: url({{ asset('images/users.jpg')}});background-repeat:no-repeat;background-size:100% 130%;">
+<body style="background-color: rgb(131, 127, 116)">
 	<div class="main">
 		<input type="checkbox" id="chk" aria-hidden="true">
 			<div class="form">

@@ -11,11 +11,11 @@
 
     <header>
       <img src="{{ asset('images/logo.png')}}" alt="" id= "logo" >
-      <img src="{{ asset('images/cclogo.png')}}" alt="" id= "logo1" >
+      {{-- <img src="{{ asset('images/cclogo.png')}}" alt="" id= "logo1" > --}}
       <div class="menu-btn"></div>
       <div class="navigation">
         <div class="navigation-items">
-          <a href="welcome" class="under" >Home</a>
+          <a href="welcome" >Home</a>
           <a href="about" >About</a>
           <a href="account">Account</a>
           <a href="contact">Contact</a>
@@ -24,13 +24,14 @@
       </div>
     </header>
 
+    
     <section class="home">
   
-      <image class="video-slide1" src="{{ 'images/team.jpg'}}" autoplay muted loop></image>
-      <image class="video-slide2" src="{{ 'images/contacttracing.jpg'}}" autoplay muted loop></image>
-      <image class="video-slide" src="{{ 'images/covid-19.jpg'}}" autoplay muted loop></image>
-      <image class="video-slide3" src="{{ 'images/allinthis.png'}}" autoplay muted loop></image>
-      
+      <img src="{{asset('images/1.png')}}" class="video-slide1 active">
+      <img src="{{asset('images/2.png')}}" class="video-slide2">
+      <img src="{{asset('images/3.png')}}" class="video-slide3">
+      <img src="{{asset('images/4.png')}}" class="video-slide1">
+
       <div class="content active">
         <h1>be a part of our<br><span>team</span></h1>
         <p>Participate in our new contact tracing approach by signing up your company and transferring your contact tracing data. This will help our city decrease the number of individuals infected with Covid-19 disease. What precisely are you waiting for? Join us right now!</p>
@@ -44,7 +45,7 @@
       <div class="content">
         <h1>COVID-19.<br><span>Pandemic</span></h1>
         <p>COVID-19 is a respiratory disease caused by the coronavirus SARS-CoV-2, which was discovered in 2019. The virus spreads primarily through respiratory droplets from person to person. Unfortunately, the virus has not yet been eradicated. As of October 2022, there were 10,120 confirmed cases in the Philippines.</p>
-        <a href="account">Explore</a>
+        <a href="account" id="a3">Explore</a>
       </div>
       <div class="content">
         <h1>We're all in this<br><span>Together</span></h1>
