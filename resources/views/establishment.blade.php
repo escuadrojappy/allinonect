@@ -3,47 +3,61 @@
 <head>
   <meta charset="UTF-8">
   <title>Contact Tracing</title>
-  <link rel="stylesheet" href="{{ asset('css/establishment.css') }}">
+	<link rel="stylesheet" href="{{ asset('css/establishment.css') }}">
+	<link rel="stylesheet" href="{{ asset('/css/libraries/jquery-confirm.min.css') }}">
+	<script src="{{ asset('/js/common.js') }}"></script>
+	<script src="{{ asset('/js/jquery-3.6.1.min.js') }}"></script>
+	<script src="{{ asset('/js/jquery-confirm.min.js') }}"></script>
+	<link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
 
 </head>
-<body>
 
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Slide Navbar</title>
-	<link rel="stylesheet" type="text/css" href="slide navbar style.css">
-<link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
-</head>
 <body style="background-color: rgb(131, 127, 116)">
 	<div class="main">
 		<input type="checkbox" id="chk" aria-hidden="true">
 
 			<div class="signup">
-				<form>
+				<form id="registrationForm">
 				<img src="{{ asset('images/Establishment.png')}}" alt="" id= "logo" >
 					<label class="label1" for="chk" aria-hidden="true">Establishment</label>
-					<input type="text" name="txt" placeholder="Username" required="">
-					<input type="email" name="email" placeholder="Email" required="">
-					<input type="password" name="pswd" placeholder="Password" required="">
-					<input type="txt" name="txt" placeholder="Business Name" required="">
-					<input type="txt" name="txt" placeholder="Permit Number" required="">
-					<button class="btn"><a href="edashboard">Sign up</button></a>
+					<input type="email" name="email" placeholder="Email" id="email" required>
+					<input type="text" name="name" placeholder="Business Name" id="business_name" required>
+					<textarea name="business_address" rows="3" placeholder="Business Address" id="business_address" required></textarea>
+					<input type="number" name="contact_number" placeholder="Contact Number" id="contact_number" required>
+					<button type="submit" class="btn">Sign up</button>
+					<button type="reset" class="btn-reset">Reset</button>
 				</form>
 			</div>
 
-			<div class="login">
+			{{-- <div class="login">
 				<form>
 					<label class="label2" for="chk" aria-hidden="true">Sign In</label>
 					<input type="email" name="email" placeholder="Email" required="" class='login1'>
-					<input type="password" name="pswd" placeholder="Password" required="" class="login2">
-					<button class="btn"><a href="edashboard">Submit</button></a>
+					<input type="password" name="password" placeholder="Password" required="" class="login2">
+					<button class="btn">Submit</button>
 				</form>
-			</div>
+			</div> --}}
 	</div>
-</body>
-</html>
 
-
+	<script>
+		$(document).ready(function () {
+			$(document).on('submit', '#registrationForm', function (e){
+				e.preventDefault()
+				var params = {
+					email: $('#email').val(),
+					name: $('#business_name').val(),
+					address: $('#business_address').val(),
+					contact_number: $('#contact_number').val(),
+					role_id: 2
+				}
+				$.post(`${apiUrl}auth/registration`, params).done((result) => {
+                    alert('Successfully Created!')
+					$( '#registrationForm' )[0].reset()
+                }).fail((error) => {
+                    alert(error.responseJSON.message)
+                })
+			})
+		}) 
+	</script>
 </body>
 </html>

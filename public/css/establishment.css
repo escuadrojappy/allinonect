@@ -33,6 +33,18 @@ img {
   margin-right: auto;
   display: block;
 }
+
+textarea {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+	background: #e0dede;
+	width: 228px;
+	-webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
 .label1{
 	color: rgb(255, 255, 255);
 	font-size: 30px;
@@ -127,4 +139,7 @@ button:hover{
 #chk:checked ~ .signup label{
 	transform: scale(.6);
 
+}
+.btn-reset {
+	visibility: hidden;
 }
