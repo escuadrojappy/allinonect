@@ -25,9 +25,11 @@ class RegistrationRequest extends FormRequest
     public function rules()
     {
         return [
-            'email' => ['required', 'email', 'max:255', 'unique:users,email'],
-            'password' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'email', 'max:255', 'unique:App\Models\User,email'],
             'role_id' => ['required', 'numeric', 'in:2'],
+            'name' => ['required', 'max:255'],
+            'address' => ['required', 'max:255'],
+            'contact_number' => ['required', 'numeric', 'digits:11'],
         ];
     }
 }

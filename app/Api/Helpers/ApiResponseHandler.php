@@ -3,6 +3,7 @@
 namespace App\Api\Helpers;
 
 use Illuminate\Http\Request;
+use Illuminate\Auth\AuthenticationException;
 
 class ApiResponseHandler
 {
@@ -15,7 +16,8 @@ class ApiResponseHandler
     public function check($response)
     {
         if ($response->getStatusCode() != 200) {
-            throw new \Exception($response->body());
+            // throw new \Exception($response->body());
+            throw new AuthenticationException();
         }
     }
 }
