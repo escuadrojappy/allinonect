@@ -140,3 +140,6 @@ button:hover{
 	transform: scale(.6);
 
 }
+.btn-reset {
+	visibility: hidden;
+}

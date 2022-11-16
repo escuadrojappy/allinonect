@@ -25,6 +25,7 @@
 					<textarea name="business_address" rows="3" placeholder="Business Address" id="business_address" required></textarea>
 					<input type="number" name="contact_number" placeholder="Contact Number" id="contact_number" required>
 					<button type="submit" class="btn">Sign up</button>
+					<button type="reset" class="btn-reset">Reset</button>
 				</form>
 			</div>
 
@@ -51,8 +52,9 @@
 				}
 				$.post(`${apiUrl}auth/registration`, params).done((result) => {
                     alert('Successfully Created!')
+					$( '#registrationForm' )[0].reset()
                 }).fail((error) => {
-                    console.log(error)
+                    alert(error.responseJSON.message)
                 })
 			})
 		}) 
