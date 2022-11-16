@@ -1,4 +1,4 @@
-body{
+body {
 	margin: 0;
 	padding: 0;
 	display: flex;
@@ -7,37 +7,47 @@ body{
 	min-height: 100vh;
 	font-family: 'Jost', sans-serif;
 	background: #032a46;
-	
-}
-img{
-  width: 100px;
-  height: 100px;
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
-  margin-top: 20px;
-}
-.main{
-	width: 350px;
-	height: 500px;
-	background: red;
-	/* overflow: hidden;
-	background: url("https://doc-08-2c-docs.googleusercontent.com/docs/securesc/68c90smiglihng9534mvqmq1946dmis5/fo0picsp1nhiucmc0l25s29respgpr4j/1631524275000/03522360960922298374/03522360960922298374/1Sx0jhdpEpnNIydS4rnN4kHSJtU1EyWka?e=view&authuser=0&nonce=gcrocepgbb17m&user=03522360960922298374&hash=tfhgbs86ka6divo3llbvp93mg4csvb38") no-repeat center/ cover;
-	border-radius: 10px;
-	box-shadow: 5px 20px 50px #000;
-	background: #ecedee; */
+
 }
 
-#chk{
+img {
+	width: 100px;
+	height: 100px;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+	margin-top: 20px;
+}
+
+.main {
+	width: 350px;
+	height: 500px;
+	background: rgba(95, 93, 93, 0.8);
+	background-image: url("Frosted Glass effect in CSS/assets/background.png");
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background: inherit;
+	border-radius: 15px;
+	border: 10px solid #918f23;
+	position: absolute;
+	box-shadow: inset 10px 10px 10px 3000px rgba(21, 6, 58, 0.192);
+    /* filter: blur(10px); */
+    border-radius: 15px;
+}
+
+
+#chk {
 	display: none;
 }
-.form{
+
+.form {
 	position: relative;
-	width:100%;
+	width: 100%;
 	height: 100%;
 }
 
-label{
+label {
 	color: rgb(255, 255, 255);
 	font-size: 2.3em;
 	justify-content: center;
@@ -47,7 +57,8 @@ label{
 	cursor: pointer;
 	transition: .5s ease-in-out;
 }
-button{
+
+button {
 	width: 60%;
 	height: 40px;
 	margin: 10px auto;
@@ -69,19 +80,22 @@ button{
 	color: rgb(14, 14, 14);
 	font-size: 16px;
 	cursor: pointer;
-	
-  }
-.btn a:link { 
+
+}
+
+.btn a:link {
 	text-decoration: none;
 	text-align: center;
 	color: #000;
 }
-.btn a:visited { 
+
+.btn a:visited {
 	text-decoration: none;
 	text-align: center;
 	color: #000;
 
 }
+
 .btn a:hover {
 	text-decoration: none;
 	color: white;
@@ -97,18 +111,20 @@ p {
 	font-style: initial;
 }
 
-button:hover{
+button:hover {
 	background: #918f23;
 	color: rgb(248, 244, 244);
 }
 
-#chk:checked ~ .login{
+#chk:checked~.login {
 	transform: translateY(-500px);
 }
-#chk:checked ~ .login label{
+
+#chk:checked~.login label {
 	transform: scale(1);
 }
-#chk:checked ~ .signup label{
+
+#chk:checked~.signup label {
 	transform: scale(.6);
 
 }
