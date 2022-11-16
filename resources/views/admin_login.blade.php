@@ -39,8 +39,33 @@
 				$.post(`${apiUrl}auth/login`, params).done((result) => {
 					console.log(result)
 				}).fail((error) => {
-					console.log(error)
+					if (error.status == 401) {
+						$.confirm({
+							title: 'Encountered an error!',
+							content: 'Please match your registered email address and password.',
+							type: 'red',
+							typeAnimated: true,
+							buttons: {
+								tryAgain: {
+									text: 'Try again',
+									btnClass: 'btn-red',
+									action: function(){
+									}
+								},
+								close: function () {
+								}
+							}
+						});
+						// $.alert({
+						// 	title: error.responseJSON.message,
+						// 	content: 'Please match your registered email address and password.',
+						// 	boxWidth: '300px',
+						// 	useBootstrap: false 
+						// })
+					}
+					
 				})
+
 
 				// console.log(`${apiUrl}registration`)
 			})
