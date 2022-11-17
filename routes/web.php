@@ -18,15 +18,15 @@ Route::get('/', function () {
 });
 
 Route::get('welcome', function () {
-    return view('welcome');
+    return view('welcome', ['title' => 'Home']);
 });
 
 Route::get('/about', function () {
-    return view('about');
+    return view('about', ['title' => 'About']);
 });
 
 Route::get('/account', function () {
-    return view('account');
+    return view('account', ['title' => 'Account'] );
 });
 
 Route::get('/feedback', function () {
