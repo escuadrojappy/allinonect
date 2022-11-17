@@ -18,7 +18,7 @@
   position: relative;
   width: 65px;
   height: 65px;
-  right: 300px;;
+  margin-right: 870px;
 }
 header{
   z-index: 999;
@@ -215,10 +215,10 @@ section{
 
 @media (min-width: 1024px) {
 .video-slide{
-  position: absolute ;
-  width: 550px;
-  max-width: 100%;
-  right: 150px;
+  position: absolute;
+  width: 30%;
+  right: 130px;
+  width: 30%;
   height: 550px;
   margin-left: 590px;
   margin-bottom: -50px;
