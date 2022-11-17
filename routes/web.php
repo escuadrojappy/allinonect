@@ -45,6 +45,10 @@ Route::get('/doh', function () {
     return view('doh');
 });
 
+Route::get('/login/admin', function () {
+    return view('admin_login', ['title' => 'Admin Login']);
+});
+
 Route::get('/citizen', function () {
     return view('citizen');
 });

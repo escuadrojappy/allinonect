@@ -6,7 +6,7 @@ body{
 	align-items: center;
 	min-height: 100vh;
 	font-family: 'Jost', sans-serif;
-	background: #032a46;
+	/* background: #032a46; */
 }
 .main{
 	width: 350px;

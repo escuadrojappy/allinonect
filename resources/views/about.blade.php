@@ -11,23 +11,24 @@
 
     <header>
       <img src="{{ asset('images/logo.png')}}" alt="" id= "logo" >
+      <!-- <img src="{{ asset('images/cclogo.png')}}" alt="" id= "logo1" >  -->
       <div class="menu-btn"></div>
       <div class="navigation">
         <div class="navigation-items">
           <a href="welcome">Home</a>
-          <a href="about">About</a>
+          <a href="about"  class="under" >About</a>
           <a href="account">Account</a>
           <a href="contact">Contact</a>
-          <a href="feedback">Feedbacks>??????</a>
+          <a href="feedback">Feedback</a>
         </div>
       </div>
     </header>
 
     <section class="home">
-      <video class="video-slide active" src="{{ asset('videos/about.mp4')}}" autoplay muted loop></video>
-      <div class="content active">
+    <img class="video-slide" src="{{ asset('images/about.png')}}" >
+      <div class="content">
         <h1>ALL-IN-ONE.<br><span>WHO WE ARE </span></h1>
-        <p><h3>We are the founders of the system designed to mitigate the effects of the rapidly spreading Covid-19 disease.</h3><br>Our intention is to enhance the current contact tracing system in Cabanatuan City by utilizing web technology and to expand the use of Philippine national identification. We guarantee that this platform will simplify the process for you.<br><br><h3>Come and join us right now.</h3></p>
+        <p><h3>We are the founders of the system designed to mitigate the effects of the rapidly spreading Covid-19 disease.</h3><br><p>Our intention is to enhance the current contact tracing system in Cabanatuan City by utilizing web technology and to expand the use of Philippine national identification. We guarantee that this platform will simplify the process for you.</p><br><h3>Come and join us right now.</h3></p>
       </div>
       <div class="media-icons">
         <a href="#"><i class="fab fa-facebook-f"></i></a>
