@@ -11,7 +11,7 @@
 
     <header>
       <img src="{{ asset('images/logo.png')}}" alt="" id= "logo" >
-      <img src="{{ asset('images/cclogo.png')}}" alt="" id= "logo1" > 
+      <!-- <img src="{{ asset('images/cclogo.png')}}" alt="" id= "logo1" >  -->
       <div class="menu-btn"></div>
       <div class="navigation">
         <div class="navigation-items">

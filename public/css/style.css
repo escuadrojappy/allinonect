@@ -9,19 +9,17 @@
 
 #logo {
   position: relative;
-  width: 80px;
-  height: 80px;
+  width: 100px;
+  height: 100px;
 }
 
-#logo1 {
+/* #logo1 {
   position: relative;
   width: 65px;
   height: 65px;
   margin-right: 870px;
 
-
-
-}
+} */
 header{
   z-index: 999;
   position: absolute;
