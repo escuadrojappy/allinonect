@@ -213,9 +213,12 @@ section{
   transform: scale(1.2);
 }
 
+@media (min-width: 1024px) {
 .video-slide{
   position: absolute ;
   width: 550px;
+  max-width: 100%;
+  right: 150px;
   height: 550px;
   margin-left: 590px;
   margin-bottom: -50px;
@@ -225,6 +228,7 @@ section{
   clip-path: circle(150% at 0 50%);
   transition: 2s ease;
   transition-property: clip-path;
+}
 }
 
 @media (max-width: 1040px){

@@ -11,12 +11,12 @@
 
     <header>
       <img src="{{ asset('images/logo.png')}}" alt="" id= "logo" >
-      
+      <img src="{{ asset('images/cclogo.png')}}" alt="" id= "logo1" > 
       <div class="menu-btn"></div>
       <div class="navigation">
         <div class="navigation-items">
           <a href="welcome">Home</a>
-          <a href="about"  class="active" >About</a>
+          <a href="about"  class="under" >About</a>
           <a href="account">Account</a>
           <a href="contact">Contact</a>
           <a href="feedback">Feedback</a>
