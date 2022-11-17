@@ -47,7 +47,7 @@
 							typeAnimated: true,
 							buttons: {
 								tryAgain: {
-									text: 'Try again',
+									text: 'Try again!',
 									btnClass: 'btn-red',
 									action: function(){
 									}
