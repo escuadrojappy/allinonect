@@ -14,7 +14,7 @@
 	<link rel="stylesheet" type="text/css" href="slide navbar style.css">
 <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
 </head>
-<body style="background-image: url('bgbgacc.jpg')">
+<body style="background: url(bgbgacc.jpg);background-repeat:no-repeat;background-size:100% 122%;">
 	<div class="main">
 		{{-- <input type="checkbox" id="chk" aria-hidden="true"> --}}
 			{{-- <div class="form">
