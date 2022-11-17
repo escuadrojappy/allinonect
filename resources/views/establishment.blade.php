@@ -15,7 +15,7 @@
 	<link rel="stylesheet" type="text/css" href="slide navbar style.css">
 <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
 </head>
-<body style="background-color: rgb(131, 127, 116)">
+<body style="background: url('accountbg.jpg')">
 	<div class="main">
 		<input type="checkbox" id="chk" aria-hidden="true">
 
