@@ -41,10 +41,6 @@ Route::get('/establishment', function () {
     return view('establishment');
 });
 
-Route::get('/doh', function () {
-    return view('doh');
-});
-
 Route::get('/login/admin', function () {
     return view('admin_login', ['title' => 'Admin Login']);
 });
