@@ -10,8 +10,7 @@
           <a href="welcome" class="under">Home </a>
           <a href="about" >About</a>
           <a href="account">Account</a>
-          <a href="contact">Contact</a>
-          <a href="feedback">Feedback</a>
+          <a href="contact">Contact Us</a>
         </div>
       </div>
     </header>
