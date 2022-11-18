@@ -5,7 +5,7 @@
     </div>
       <ul class="nav-links">
         <li>
-          <a href="edashboard" class="active">
+          <a href="edashboard" class="{{ Request::is('edashboard') ? 'active' : '' }}">
             <i class='bx bx-grid-alt' ></i>
             <span class="links_name">Dashboard</span>
           </a>
@@ -23,13 +23,13 @@
           </a>
         </li>
         <li>
-          <a href="econtacttracing">
+          <a href="econtacttracing" class="{{ Request::is('econtacttracing') ? 'active' : '' }}">
             <i class='bx bxs-user-account' ></i>
             <span class="links_name">Contact Tracing</span>
           </a>
         </li>
         <li>
-          <a href="econtactreport">
+          <a href="econtactreport" class="{{ Request::is('econtactreport') ? 'active' : '' }}">
             <i class='bx bxs-report' ></i>
             <span class="links_name">Contact Report</span>
           </a>
