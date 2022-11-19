@@ -26,8 +26,7 @@
 			<a href="welcome" >Home</a>
 			<a href="about" >About</a>
 			<a href="account" class="under">Account</a>
-			<a href="contact">Contact</a>
-			<a href="feedback">Feedback</a>
+			<a href="contact">Contact Us</a>
 		  </div>
 		</div>
 	  </header>
@@ -61,15 +60,15 @@
 					{{-- <div class="topic-text">Send us a message</div> --}}
 				
 					<div class="input-box">
-					  <button class="btn"><a href="citizen">Are you a resident of Cabanatuan City?</button></a>
+					  <button class="btn"><a href="citizen">For Cabanatuan City Resident</button></a>
 					</div>
 			
 					<div class="input-box">
-						<button class="btn"><a href="establishment">Are you a business owner?</button></a>
+						<button class="btn"><a href="establishment">For Business Owner</button></a>
 					</div>
 			
 					<div class="input-box">	
-						<button class="btn"><a href="login/admin">Are you a staff of the health department?</button></a>
+						<button class="btn"><a href="login/admin">For Department of Health</button></a>
 					</div>
 					{{-- <div class="btn">
 					  <button type="submit">Send</button>
