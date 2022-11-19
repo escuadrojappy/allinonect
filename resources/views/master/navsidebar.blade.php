@@ -4,15 +4,15 @@
       <i class='bx bx-shield-quarter'></i>
       <span class="logo_name">All in One </span>
     </div>
-      <ul class="nav-links">
+      <ul class="nav-links ">
         <li>
-          <a href="dohdashboard" >
+          <a href="dohdashboard" class="{{ Request::is('dohdashboard') ? 'active' : '' }}">
             <i class='bx bx-grid-alt' ></i>
             <span class="links_name">Dashboard</span>
           </a>
         </li>
         <li>
-          <a href="dohprofile" >
+          <a href="dohprofile">
             <i class='bx bx-user' ></i>
             <span class="links_name">Profile</span>
           </a>
@@ -30,13 +30,13 @@
           </a>
         </li>
         <li>
-          <a href="dohcontactreport">
+          <a href="dohcontactreport" class="{{ Request::is('dohcontactreport') ? 'active' : '' }}">
             <i class='bx bxs-report' ></i>
             <span class="links_name">Contact Report</span>
           </a>
         </li>
         <li>
-          <a href="dohmessages">
+          <a href="dohmessages" class="{{ Request::is('dohmessages') ? 'active' : '' }}">
             <i class='bx bx-message' ></i>
             <span class="links_name">Messages</span>
           </a>
