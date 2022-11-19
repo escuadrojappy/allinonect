@@ -36,16 +36,15 @@ body{
   padding: 20px 60px 30px 40px;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 
-
-
-
-
-
+}
+.content .right-side .icon{
+ width: 20%;
 }
 .container .content{
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 10px;
 }
 .container .content .left-side{
   width: 25%;
@@ -87,7 +86,8 @@ body{
 }
 .container .content .right-side{
   width: 75%;
-  margin-left: 75px;
+  margin-left: 45px;
+  padding: 10px;
 }
 .content .right-side .topic-text{
   font-size: 23px;
