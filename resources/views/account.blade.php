@@ -26,8 +26,7 @@
 			<a href="welcome" >Home</a>
 			<a href="about" >About</a>
 			<a href="account" class="under">Account</a>
-			<a href="contact">Contact</a>
-			<a href="feedback">Feedback</a>
+			<a href="contact">Contact Us</a>
 		  </div>
 		</div>
 	  </header>
