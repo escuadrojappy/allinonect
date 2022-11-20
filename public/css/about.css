@@ -92,7 +92,6 @@ section{
 }
 
 .home:before{
-  z-index: 777;
   content: '';
   position: absolute;
   background: rgba(1, 15, 39, 0.3);
