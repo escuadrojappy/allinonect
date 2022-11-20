@@ -92,3 +92,24 @@ Route::get('/establishmentprofile', function () {
 Route::get('/dohaccountrequest', function () {
     return view('dohaccountrequest');
 });
+
+
+Route::get('/admin/dashboard', function () {
+    return view('admin_contents/dashboard', ['title' => 'Dashboard']);
+});
+
+Route::get('/admin/useraccounts/establishment', function () {
+    return view('admin_contents/establishment', ['title' => 'Establishments']);
+});
+
+Route::get('/admin/useraccounts/visitor', function () {
+    return view('admin_contents/visitor', ['title' => 'Visitor']);
+});
+
+Route::get('/admin/contactreport', function () {
+    return view('admin_contents/contact_report', ['title' => 'Contact Report']);
+});
+
+Route::get('/admin/setting', function () {
+    return view('admin_contents/setting', ['title' => 'Contact Report']);
+});
