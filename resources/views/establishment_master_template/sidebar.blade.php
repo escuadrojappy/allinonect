@@ -6,13 +6,13 @@
                 <img src="{{ asset('/dashboard/images/doh-logo.png') }}" width="48" height="48" alt="User" />
             </div>
             <div class="info-container">
-                <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Department of Health</div>
-                <div class="email">cho_cabanatuan@yahoo.com</div>
+                <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Name of Establishment</div>
+                <div class="email">email@gmail.com</div>
                 <div class="btn-group user-helper-dropdown">
                     <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
                     <ul class="dropdown-menu pull-right">
                         <li>
-                            <a href="/allinonect/public/login/admin">
+                            <a href="/allinonect/public/login/establishment">
                                 <i class="material-icons">
                                     input
                                 </i>
@@ -28,8 +28,8 @@
         <div class="menu">
             <ul class="list">
                 <li class="header">MENU</li>
-                <li class="{{ Request::is('admin/dashboard') ? 'active' : '' }}">
-                    <a href="/allinonect/public/admin/dashboard">
+                <li class="{{ Request::is('establishment/dashboard') ? 'active' : '' }}">
+                    <a href="/allinonect/public/establishment/dashboard">
                         <i class="material-icons">dashboard</i>
                         <span>Dashboard</span>
                     </a>
@@ -95,27 +95,20 @@
                 <li>
                     <a href="javascript:void(0);" class="menu-toggle">
                         <i class="material-icons">people</i>
-                        <span>User Accounts</span>
+                        <span>Contacts</span>
                     </a>
                     <ul class="ml-menu">
                         <li>
-                            <a href="/allinonect/public/admin/useraccounts/establishment">Establishments</a>
+                            <a href="/allinonect/public/establishment/contacts/contactreport">Contact Report</a>
                         </li>
                         <li>
-                            <a href="/allinonect/public/admin/useraccounts/visitor">Visitors</a>
+                            <a href="/allinonect/public/establishment/contacts/contacttracing">Contact Tracing</a>
                         </li>
                     </ul>
                 </li>
 
-                <li class="{{ Request::is('admin/contactreport') ? 'active' : '' }}">
-                    <a href="/allinonect/public/admin/contactreport">
-                        <i class="material-icons">import_contacts</i>
-                        <span>Contact Report</span>
-                    </a>
-                </li>
-
-                <li class="{{ Request::is('admin/setting') ? 'active' : '' }}">
-                    <a href="/allinonect/public/admin/setting">
+                <li class="{{ Request::is('establishment/setting') ? 'active' : '' }}">
+                    <a href="/allinonect/public/establishment/setting">
                         <i class="material-icons">settings</i>
                         <span>Settings</span>
                     </a>

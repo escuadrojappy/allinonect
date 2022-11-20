@@ -111,5 +111,21 @@ Route::get('/admin/contactreport', function () {
 });
 
 Route::get('/admin/setting', function () {
-    return view('admin_contents/setting', ['title' => 'Contact Report']);
+    return view('admin_contents/setting', ['title' => 'Settings']);
+});
+
+Route::get('/establishment/dashboard', function () {
+    return view('establishment_contents/dashboard', ['title' => 'Establishment Dashboard']);
+});
+
+Route::get('/establishment/contacts/contactreport', function () {
+    return view('establishment_contents/contact_report', ['title' => 'Establishment Contact Report']);
+});
+
+Route::get('/establishment/contacts/contacttracing', function () {
+    return view('establishment_contents/contact_tracing', ['title' => 'Contact Tracing']);
+});
+
+Route::get('/establishment/setting', function () {
+    return view('establishment_contents/setting', ['title' => 'Settings']);
 });
