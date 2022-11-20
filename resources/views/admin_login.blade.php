@@ -38,7 +38,7 @@
 
 				$.post(`${apiUrl}auth/login`, params).done((result) => {
 					console.log(result)
-					location.href = '/allinonect/public/dohdashboard'
+					location.href = '/allinonect/public/admin/dashboard'
 				}).fail((error) => {
 					if (error.status == 401) {
 						$.confirm({
