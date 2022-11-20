@@ -1,7 +1,6 @@
 
 @extends('masterwelcome.masterwelcometemplate')
 @section('content')
-
 <link rel="stylesheet" href="{{ asset('css/about.css') }}">
 
 <script type="text/javascript">

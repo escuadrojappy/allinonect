@@ -26,4 +26,6 @@ Route::prefix('auth')->group(function () {
         Route::post('registration', 'AuthController@registration');
         Route::post('test', 'AuthController@test');
     });
+
 });
+Route::apiResource('contact', 'ContactController');
