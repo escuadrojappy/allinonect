@@ -55,6 +55,7 @@ body{
   justify-content: center;
   margin-top: 15px;
   position: relative;
+ 
 }
 .content .left-side::before{
   content: '';
@@ -125,7 +126,7 @@ body{
 button{
   color: white;
 }
- .right-side .btn button[type="submit"]{ */
+ .right-side .btn button[type="submit"]{ 
   color: #fff;
   font-size: 18px;
   outline: none;
@@ -137,7 +138,7 @@ button{
   transition: all 0.3s ease;
   text-transform: uppercase;
 }
- .btn button[type="submit"]:hover{ */
+ .btn button[type="submit"]:hover{ 
   background: #5029bc;
 }
 
