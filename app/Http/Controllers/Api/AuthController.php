@@ -65,6 +65,5 @@ class AuthController extends Controller
         // ]
         // \App\Models\User::create($reques)
         return \App\Models\User::all();
-        return view('page', 'users', App\Models\User::all());
     }
 }

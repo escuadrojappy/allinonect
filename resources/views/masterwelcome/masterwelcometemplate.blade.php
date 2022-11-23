@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
     <head>    
-    @include('masterwelcome.header2')
+        @include('masterwelcome.header2')
     </head>
     <body>
         @yield('content')

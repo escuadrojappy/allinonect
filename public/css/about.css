@@ -59,7 +59,7 @@ header .navigation .navigation-items a{
 header .navigation .navigation-items a:before{
   content: '';
   position: absolute;
-  /* background: #fff; */
+  background: #fff;
   width: 0;
   height: 3px;
   bottom: 0;
@@ -92,6 +92,7 @@ section{
 }
 
 .home:before{
+  z-index: 777;
   content: '';
   position: absolute;
   background: rgba(1, 15, 39, 0.3);
@@ -308,7 +309,4 @@ section{
     font-size: 3em;
     line-height: 60px;
   }
-}
-body {
-  background-color: #021d31;
 }

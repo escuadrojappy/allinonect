@@ -2,6 +2,15 @@
 <html>
     <head>
         @include('admin_master_template.head')
+        <style>
+            .btn-modal-add {
+                margin-top: -5px;
+            }
+
+            .modal .modal-header .modal-title {
+                color: black;
+            }
+        </style>
     </head>
     <body class="theme-green">
         <!-- Page Loader -->
