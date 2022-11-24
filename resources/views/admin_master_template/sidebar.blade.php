@@ -28,7 +28,7 @@
         <div class="menu">
             <ul class="list">
                 <li class="header">MENU</li>
-                <li class="active">
+                <li class="{{ Request::is('admin/dashboard') ? 'active' : '' }}">
                     <a href="/allinonect/public/admin/dashboard">
                         <i class="material-icons">dashboard</i>
                         <span>Dashboard</span>
@@ -107,14 +107,14 @@
                     </ul>
                 </li>
 
-                <li class="">
+                <li class="{{ Request::is('admin/contactreport') ? 'active' : '' }}">
                     <a href="/allinonect/public/admin/contactreport">
                         <i class="material-icons">import_contacts</i>
                         <span>Contact Report</span>
                     </a>
                 </li>
 
-                <li class="">
+                <li class="{{ Request::is('admin/setting') ? 'active' : '' }}">
                     <a href="/allinonect/public/admin/setting">
                         <i class="material-icons">settings</i>
                         <span>Settings</span>

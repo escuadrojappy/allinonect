@@ -32,4 +32,6 @@ Route::prefix('establishments')->group(function () {
     Route::middleware(['verify.password'])->group(function () {
         Route::post('search', 'EstablishmentController@search'); 
     });
+
 });
+Route::apiResource('contact', 'ContactController');

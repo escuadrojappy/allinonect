@@ -51,6 +51,11 @@ class AdminSearchRequest extends FormRequest
                 'nullable',
                 'string',
             ],
+            'draw' => [
+                'required',
+                'min:1',
+                'numeric',
+            ],
         ];
     }
 }

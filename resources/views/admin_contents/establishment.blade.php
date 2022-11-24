@@ -24,7 +24,7 @@
                                         <th>Business Address</th>
                                         <th>Email Address</th>
                                         <th>Contact Number</th>
-                                        <th>Actions</th>
+                                        <th style="width: 10%">Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody></tbody>
@@ -37,50 +37,13 @@
     </div>
 
     <script>
-        $(function () {
-            $('.dataTable').DataTable({
-                responsive: true,
-                processing: true,
-                serverSide: true,
-                search: {
-                    return: true,
-                },
-                columns: [
-                    { data: 'name' },
-                    { data: 'address' },
-                    { data: 'email' },
-                    { data: 'contact_number' },
-                ],
-                ajax: {
-                    url: `${apiUrl}establishments/search`,
-                    type: 'POST',
-                    data: function (params) {
-                        var columnIndex = params.order[0].column
-                        params.order[0].column = params.columns[columnIndex].data
-                        params.per_page = params.length
-                        params.page = (params.start / params.length) + 1
-                        params.order = params.order[0]
-                        params.search = params.search.value
-                        console.log(params)
-                        // d.myKey = 'myValue';
-                        // d.custom = $('#myInput').val();
-                        // etc
-                    },
-                    initComplete: function () {
-                        console.log('asdasd')
-                    }
-                },
-                // "lengthChange": false
-            });
+        var columns = [
+            { data: 'name', name: 'name' },
+            { data: 'address', name: 'address' },
+            { data: 'email', name: 'users.email' },
+            { data: 'contact_number', name: 'contact_number' }
+        ]
 
-            //Exportable table
-            // $('.js-exportable').DataTable({
-            //     dom: 'Bfrtip',
-            //     responsive: true,
-            //     buttons: [
-            //         'copy', 'csv', 'excel', 'pdf', 'print'
-            //     ]
-            // });
-        });
+        initDataTable('.dataTable', columns, 'establishments/search')
     </script>
 @endsection

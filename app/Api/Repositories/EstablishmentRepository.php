@@ -3,12 +3,12 @@
 namespace App\Api\Repositories;
 
 use App\Models\Establishment;
-use App\Api\Traits\Searchable;
+use App\Api\Traits\QueryBuilder;
 use Illuminate\Support\Arr;
 
 class EstablishmentRepository extends Repository
 {
-    use Searchable;
+    use QueryBuilder;
 
     /**
      * Searchable Fields.
@@ -16,19 +16,23 @@ class EstablishmentRepository extends Repository
      * @var array
      */
     protected $searchableFields = [
+        'establishments.id',
         'name',
         'address',
-        'user.email',
+        'users.email',
         'contact_number',
     ];
 
     /**
-     * Searchable Fields.
+     * Joined Tables.
      *
      * @var array
      */
-    protected $relationFields = [
-        'user',
+    protected $joinTables = [
+        'users' => [
+            'columns' => ['users.id', 'establishments.user_id'],
+            'type' => 'left_join',
+        ],
     ];
 
     /**

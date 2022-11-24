@@ -26,6 +26,10 @@ class EstablishmentService extends Service
      */
     public function search(array $request)
     {
-        return $this->establishmentRepository->search($request);
+        $result = $this->establishmentRepository->search($request);
+
+        $response = $this->dataTableResponse($result, $request);
+
+        return response()->json($response);
     }
 }

@@ -27,7 +27,7 @@
 <!-- Custom Css -->
 <link href="{{ asset('/dashboard/css/style.css') }}" rel="stylesheet">
 
-<!-- Custom Css -->
+<!-- Jquery Confirm CSS -->
 <link href="{{ asset('/css/libraries/jquery-confirm.min.css') }}" rel="stylesheet">
 
 <!-- Sweet Alert Css -->
@@ -39,14 +39,14 @@
 <!-- Jquery Core Js -->
 <script src="{{ asset('/dashboard/plugins/jquery/jquery.min.js') }}"></script>
 
+<!-- Select Plugin Js -->
+{{-- <script src="{{ asset('/dashboard/plugins/bootstrap-select/js/bootstrap-select.js') }}"></script> --}}
+
 <!-- Jquery CountTo Plugin Js -->
 <script src="{{ asset('/dashboard/plugins/jquery-countto/jquery.countTo.js') }}"></script>
 
 <!-- Bootstrap Core Js -->
 <script src="{{ asset('/dashboard/plugins/bootstrap/js/bootstrap.js') }}"></script>
-
-<!-- Select Plugin Js -->
-<script src="{{ asset('/dashboard/plugins/bootstrap-select/js/bootstrap-select.js') }}"></script>
 
 <!-- Slimscroll Plugin Js -->
 <script src="{{ asset('/dashboard/plugins/jquery-slimscroll/jquery.slimscroll.js') }}"></script>
