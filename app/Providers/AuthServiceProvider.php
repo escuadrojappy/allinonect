@@ -15,7 +15,7 @@ class AuthServiceProvider extends ServiceProvider
      */
     protected $policies = [
         // 'App\Models\Model' => 'App\Policies\ModelPolicy',
-        \App\Models\Establishments::class => \App\Policies\RegistrationPolicy::class,
+        // \App\Models\Establishments::class => \App\Policies\RegistrationPolicy::class,
     ];
 
     /**
@@ -34,6 +34,6 @@ class AuthServiceProvider extends ServiceProvider
         Passport::refreshTokensExpireIn(now()->addMinutes(config('auth.refresh_token_timeout')));
 
         // Authorization Policy
-        Gate::define('registration', [\App\Policies\AuthPolicy::class, 'registration']);
+        Gate::define('is_admin', [\App\Policies\AuthPolicy::class, 'is_admin']);
     }
 }

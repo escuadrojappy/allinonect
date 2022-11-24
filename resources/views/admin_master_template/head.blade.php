@@ -21,8 +21,17 @@
 <!-- Morris Chart Css-->
 <link href="{{ asset('/dashboard/plugins/morrisjs/morris.css') }}" rel="stylesheet" />
 
+<!-- JQuery DataTable Css -->
+<link href="{{ asset('/dashboard/plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css') }}" rel="stylesheet">
+
 <!-- Custom Css -->
 <link href="{{ asset('/dashboard/css/style.css') }}" rel="stylesheet">
+
+<!-- Jquery Confirm CSS -->
+<link href="{{ asset('/css/libraries/jquery-confirm.min.css') }}" rel="stylesheet">
+
+<!-- Sweet Alert Css -->
+{{-- <link href="{{ asset('/dashboard/plugins/sweetalert/sweetalert.css') }}" rel="stylesheet" /> --}}
 
 <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
 <link href="{{ asset('/dashboard/css/themes/all-themes.css') }}" rel="stylesheet" /> 
@@ -30,17 +39,41 @@
 <!-- Jquery Core Js -->
 <script src="{{ asset('/dashboard/plugins/jquery/jquery.min.js') }}"></script>
 
+<!-- Select Plugin Js -->
+{{-- <script src="{{ asset('/dashboard/plugins/bootstrap-select/js/bootstrap-select.js') }}"></script> --}}
+
+<!-- Jquery CountTo Plugin Js -->
+<script src="{{ asset('/dashboard/plugins/jquery-countto/jquery.countTo.js') }}"></script>
+
 <!-- Bootstrap Core Js -->
 <script src="{{ asset('/dashboard/plugins/bootstrap/js/bootstrap.js') }}"></script>
-
-<!-- Select Plugin Js -->
-<script src="{{ asset('/dashboard/plugins/bootstrap-select/js/bootstrap-select.js') }}"></script>
 
 <!-- Slimscroll Plugin Js -->
 <script src="{{ asset('/dashboard/plugins/jquery-slimscroll/jquery.slimscroll.js') }}"></script>
 
+<!-- Jquery Validation Plugin Css -->
+<script src="{{ asset('/dashboard/plugins/jquery-validation/jquery.validate.js') }}"></script>
+
+<!-- Sweet Alert Plugin Js -->
+{{-- <script src="{{ asset('/dashboard/plugins/sweetalert/sweetalert.min.js') }}"></script> --}}
+
+<!-- Waves Effect Plugin Js -->
+<script src="{{ asset('/js/jquery-confirm.min.js') }}"></script>
+
 <!-- Waves Effect Plugin Js -->
 <script src="{{ asset('/dashboard/plugins/node-waves/waves.js') }}"></script>
+
+<!-- Jquery DataTable Plugin Js -->
+{{-- <script src="{{ asset('/dashboard/plugins/jquery-datatable/jquery.dataTables.js') }}"></script> --}}
+<script src="{{ asset('/js/jquery.dataTables-1.13.1.min.js') }}"></script>
+<script src="{{ asset('/dashboard/plugins/jquery-datatable/skin/bootstrap/js/dataTables.bootstrap.js') }}"></script>
+<script src="{{ asset('/dashboard/plugins/jquery-datatable/extensions/export/dataTables.buttons.min.js') }}"></script>
+<script src="{{ asset('/dashboard/plugins/jquery-datatable/extensions/export/buttons.flash.min.js') }}"></script>
+<script src="{{ asset('/dashboard/plugins/jquery-datatable/extensions/export/jszip.min.js') }}"></script>
+<script src="{{ asset('/dashboard/plugins/jquery-datatable/extensions/export/pdfmake.min.js') }}"></script>
+<script src="{{ asset('/dashboard/plugins/jquery-datatable/extensions/export/vfs_fonts.js') }}"></script>
+<script src="{{ asset('/dashboard/plugins/jquery-datatable/extensions/export/buttons.html5.min.js') }}"></script>
+<script src="{{ asset('/dashboard/plugins/jquery-datatable/extensions/export/buttons.print.min.js') }}"></script>
 
 <!-- Jquery CountTo Plugin Js -->
 <script src="{{ asset('/dashboard/plugins/jquery-countto/jquery.countTo.js') }}"></script>
@@ -64,7 +97,9 @@
 
 <!-- Custom Js -->
 <script src="{{ asset('/dashboard/js/admin.js') }}"></script>
-<script src="{{ asset('/dashboard/js/pages/index.js') }}"></script>
 
 <!-- Demo Js -->
 <script src="{{ asset('/dashboard/js/demo.js') }}"></script>
+
+<!-- Common Js -->
+<script src="{{ asset('/js/common.js') }}"></script>
