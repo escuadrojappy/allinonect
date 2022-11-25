@@ -12,6 +12,14 @@
                     <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
                     <ul class="dropdown-menu pull-right">
                         <li>
+                            <a href="/allinonect/public/admin/my_profile">
+                                <i class="material-icons">
+                                    person
+                                </i>
+                                My Profile
+                            </a>
+                        </li>
+                        <li>
                             <a href="/allinonect/public/login/admin">
                                 <i class="material-icons">
                                     input
