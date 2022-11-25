@@ -52,7 +52,7 @@
 					<div class="address details">
 					  <i class="fas fa-map-marker-alt"></i>
 					  <img src="{{ asset('images/icon.png')}}" alt="" id= "logo" >
-					  <label for="chk" aria-hidden="true">Create an Account</label>
+					  <label for="chk" aria-hidden="true">Sign In</label>
 					<p>The All-in-One Contact Tracing System authorized users are as follows. Please select who you want to gain access from.</p>
 					</div>
 				  </div>
@@ -64,7 +64,7 @@
 					</div>
 			
 					<div class="input-box">
-						<button class="btn"><a href="establishment">For Business Owner</button></a>
+						<button class="btn"><a href="login/establishment">For Business Owner</button></a>
 					</div>
 			
 					<div class="input-box">	
