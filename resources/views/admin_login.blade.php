@@ -1,18 +1,32 @@
 @extends('master.logins')
 
 @section('content')
+
 	<link rel="stylesheet" href="{{ asset('css/doh.css') }}">
+	<link rel="stylesheet" href="{{ asset('css/style.css') }}">
 	<link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
 	<style>
 		
 	</style>
+	<header>
+      <img src="{{ asset('images/logo.png')}}" alt="" id= "logo" >
+      <div class="menu-btn"></div>
+      <div class="navigation">
+        <div class="navigation-items">
+          <a href="/allinonect/public/welcome">Home </a>
+          <a href="/allinonect/public/about">About</a>
+          <a href="/account" class="under">Account</a>
+          <a href="/allinonect/public/contact">Contact Us</a>
+        </div>
+      </div>
+    </header>
 
 	<div class="bg-login">
 		<div class="main">
 			<input type="checkbox" id="chk" aria-hidden="true">
 			<div class="signup">
 				<form id="login-form">
-					<img src="{{ asset('images/doh.png') }}" alt="">
+					<img src="{{ asset('images/doh.png') }}" class="logoestablishment">
 					<label>Department of Health</label>
 					<p>Administrator Account</p>
 					<input type="email" name="email" placeholder="Email" required>
