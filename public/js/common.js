@@ -16,6 +16,25 @@ function post (endpoint, params) {
     })
 }
 
+function put (endpoint, params) {
+    return $.ajax({
+        url: endpoint,
+        type: 'PUT',
+        data: JSON.stringify(params),
+        contentType:"application/json",
+        dataType: 'json'
+    })
+}
+
+function destroy (endpoint) {
+    return $.ajax({
+        url: endpoint,
+        type: 'DELETE',
+        contentType:"application/json",
+        dataType: 'json'
+    })
+}
+
 /*
 |--------------------------------------------------------------------------
 | Alert Helpers
@@ -54,6 +73,26 @@ function errorAlert (title, content, action=null) {
     })
 }
 
+function confirmAlert (title, content, action) {
+    $.confirm({
+        title,
+        content,
+        buttons: {
+            yes: {
+                text: 'Yes',
+                btnClass: 'btn-green',
+                keys: ['enter'],
+                action
+            },
+            no: {
+                text: 'No',
+                btnClass: 'btn-red',
+                keys: ['esc'],
+            }
+        }
+    });
+}
+
 /*
 |--------------------------------------------------------------------------
 | Form Helpers
@@ -90,8 +129,25 @@ function rollBackButtons (formId) {
     `)
 }
 
+function clearFormFields (formId) {
+    $(`${formId} input, textarea`).each((key, element) => {
+        if ($(element).attr('readonly')) {
+            $(element).prop('readonly', false)
+        }
+        if ($(element).parent().hasClass('focused')) {
+            $(element).parent().removeClass('focused')
+        }
+        $(element).val('')
+    })
+}
+
+/*
+|--------------------------------------------------------------------------
+| Data Table Helpers
+|--------------------------------------------------------------------------
+*/
+
 function initDataTable (element, columns, url) {
-    console.log(...columns)
     $(element).DataTable({
         pagingType: 'full_numbers',
         destroy: true,
@@ -118,11 +174,15 @@ function initDataTable (element, columns, url) {
             {
                 orderable: false,
                 render: function (data, type, row, meta) {
+                    var attributes = ''
+                    $.each(row, (key, value) => {
+                        attributes += `${key}="${value}" `
+                    })
                     return `
-                        <button type="button" class="btn btn-success waves-effect" id="${row.id}">
+                        <button type="button" class="btn btn-success waves-effect edit" ${attributes}>
                             <i class="material-icons">mode_edit</i>
                         </button>
-                        <button type="button" class="btn btn-danger waves-effect" id="${row.id}">
+                        <button type="button" class="btn btn-danger waves-effect delete" ${attributes}>
                             <i class="material-icons">delete</i>
                         </button>
                     `

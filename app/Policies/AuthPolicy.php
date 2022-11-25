@@ -35,8 +35,19 @@ class AuthPolicy
      *
      * @return bool
      */
-    public function is_admin($user)
+    public function isAdmin($user)
     {
         return Arr::get($user, 'role_id') == config('models.roles.admin');
     }
+
+    /**
+     * Is Admin Policy.
+     *
+     * @return bool
+     */
+    public function isAdminOrEstablishment($user)
+    {
+        return Arr::get($user, 'role_id') == config('models.roles.admin') || Arr::get($user, 'role_id') == config('models.roles.establishment');
+    }
+    
 }

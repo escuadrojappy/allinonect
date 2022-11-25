@@ -22,7 +22,7 @@ class EstablishmentService extends Service
      * Search Establishment.
      *
      * @param array $request
-     * @return
+     * @return \Illuminate\Http\JsonResponse
      */
     public function search(array $request)
     {
@@ -31,5 +31,32 @@ class EstablishmentService extends Service
         $response = $this->dataTableResponse($result, $request);
 
         return response()->json($response);
+    }
+
+    /**
+     * Update Establishment.
+     *
+     * @param int $id
+     * @param array $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function update($id, array $request)
+    {
+        $update = $this->establishmentRepository->update($id, $request);
+
+        return response()->json($update);
+    }
+
+     /**
+     * Destory Establishment.
+     *
+     * @param int $id
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function destroy($id)
+    {
+        $destroy = $this->establishmentRepository->destroy($id);
+
+        return response()->json($destroy);
     }
 }

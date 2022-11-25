@@ -107,6 +107,12 @@ trait QueryBuilder {
             }
         }
 
+        if ($this->hasSoftDelete) {
+            $this->query = $this->query->where(function ($query) {
+                $query->whereNull($this->table. '.deleted_at');
+            });
+        }
+
         return $this;
     }
 

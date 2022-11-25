@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Api\Services\AuthService;
-use App\Http\Requests\{
+use App\Http\Requests\Auth\{
     LoginRequest,
     RegistrationRequest,
 };
@@ -32,7 +32,7 @@ class AuthController extends Controller
     /**
      * Login User.
      *
-     * @param \App\Http\Requests\LoginRequest @request
+     * @param \App\Http\Requests\Auth\LoginRequest @request
      * @return \Illuminate\Http\JsonResponse
      */
     public function login(LoginRequest $request)
@@ -43,7 +43,7 @@ class AuthController extends Controller
     /**
      * Register User.
      *
-     * @param \App\Http\Requests\RegistrationRequest @request
+     * @param \App\Http\Requests\Auth\RegistrationRequest @request
      * @return \Illuminate\Http\JsonResponse
      */
     public function registration(RegistrationRequest $request)
