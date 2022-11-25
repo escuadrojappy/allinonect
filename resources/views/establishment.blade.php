@@ -1,22 +1,59 @@
-<!DOCTYPE html>
-<html lang="en" >
-<head>
-  <meta charset="UTF-8">
-  <title>Contact Tracing</title>
-	<link rel="stylesheet" href="{{ asset('css/establishment.css') }}">
+@extends('masterwelcome.masterwelcometemplate')
+@section('content')
+    
+
+    {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css" /> --}}
+    <link rel="stylesheet" href="{{ asset('/css/libraries/jquery-confirm.min.css') }}">
+    <script src="{{ asset('/js/common.js') }}"></script>
+   
+    
+    <script
+      src="https://code.jquery.com/jquery-3.6.1.min.js"
+      integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+      crossorigin="anonymous"
+    >
+    </script>
+    <link rel="stylesheet" href="{{ asset('css/about.css') }}">
+
+    <header>
+      <img src="{{ asset('images/logo.png')}}" alt="" id= "logo" >
+      <div class="menu-btn"></div>
+      <div class="navigation">
+        <div class="navigation-items">
+          <a href="/allinonect/public/welcome">Home </a>
+          <a href="/allinonect/public/about">About</a>
+          <a href="/account" class="under">Account</a>
+          <a href="/allinonect/public/contact">Contact Us</a>
+        </div>
+      </div>
+    </header>
+  
+	<link rel="stylesheet" href="{{ asset('css/doh.css') }}">
 	<link rel="stylesheet" href="{{ asset('/css/libraries/jquery-confirm.min.css') }}">
-	<script src="{{ asset('/js/common.js') }}"></script>
-	<script src="{{ asset('/js/jquery-3.6.1.min.js') }}"></script>
-	<script src="{{ asset('/js/jquery-confirm.min.js') }}"></script>
 	<link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
 
-</head>
-
-<body style="background-color: rgb(131, 127, 116)">
 	<div class="main">
 		<input type="checkbox" id="chk" aria-hidden="true">
 
-			<div class="signup">
+		<div class="bg-login">
+			<div class="main">
+				<input type="checkbox" id="chk" aria-hidden="true">
+				<div class="signup">
+					<form id="login-form">
+						<img src=" {{ asset('images/Establishment.png') }}" alt="" id="logo">
+						<label>Establishment</label>
+						<p>Business Premises</p>
+						<input type="email" name="email" placeholder="Email" required>
+						<input type="password" name="password" placeholder="Password" required>
+						<button type="submit" class="btn">
+							Sign In
+						</button>
+					</form>
+				</div>
+			</div>
+		</div>
+
+			{{-- <div class="signup">
 				<form id="registrationForm">
 				<img src="{{ asset('images/Establishment.png')}}" alt="" id= "logo" >
 					<label class="label1" for="chk" aria-hidden="true">Establishment</label>
@@ -27,7 +64,7 @@
 					<button type="submit" class="btn">Sign up</button>
 					<button type="reset" class="btn-reset">Reset</button>
 				</form>
-			</div>
+			</div> --}}
 
 			{{-- <div class="login">
 				<form>
@@ -59,5 +96,4 @@
 			})
 		}) 
 	</script>
-</body>
-</html>
+@endsection

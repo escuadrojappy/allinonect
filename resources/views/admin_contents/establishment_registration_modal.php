@@ -32,8 +32,8 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-link col-teal waves-effect">SAVE CHANGES</button>
-                    <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">CLOSE</button>
+                    <button type="submit" class="btn btn-link col-teal waves-effect">Register</button>
+                    <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">Close</button>
                 </div>
             </form>
         </div>
