@@ -38,7 +38,7 @@
 
 				$.post(`${apiUrl}auth/login`, params).done((result) => {
 					console.log(result)
-					location.href = '/allinonect/public/dohdashboard'
+					location.href = '/allinonect/public/admin/dashboard'
 				}).fail((error) => {
 					if (error.status == 401) {
 						$.confirm({
@@ -48,7 +48,7 @@
 							typeAnimated: true,
 							buttons: {
 								tryAgain: {
-									text: 'Try again',
+									text: 'Try again!',
 									btnClass: 'btn-red',
 									action: function(){
 									}

@@ -34,11 +34,11 @@ Route::get('/feedback', function () {
 });
 
 Route::get('/contact', function () {
-    return view('contact');
+    return view('contact' , ['title' => 'Contact Us']);
 });
 
-Route::get('/establishment', function () {
-    return view('establishment');
+Route::get('/login/establishment', function () {
+    return view('establishment', ['title' => 'Establishment Sign In']);
 });
 
 Route::get('/login/admin', function () {
@@ -91,4 +91,45 @@ Route::get('/establishmentprofile', function () {
 
 Route::get('/dohaccountrequest', function () {
     return view('dohaccountrequest');
+});
+
+
+Route::get('/admin/dashboard', function () {
+    return view('admin_contents/dashboard', ['title' => 'Dashboard']);
+});
+
+Route::get('/admin/useraccounts/establishment', function () {
+    return view('admin_contents/establishment', ['title' => 'Establishments']);
+});
+
+Route::get('/admin/useraccounts/visitor', function () {
+    return view('admin_contents/visitor', ['title' => 'Visitor']);
+});
+
+Route::get('/admin/contactreport', function () {
+    return view('admin_contents/contact_report', ['title' => 'Contact Report']);
+});
+
+Route::get('/admin/setting', function () {
+    return view('admin_contents/setting', ['title' => 'Settings']);
+});
+
+Route::get('/establishment/dashboard', function () {
+    return view('establishment_contents/dashboard', ['title' => 'Establishment Dashboard']);
+});
+
+Route::get('/establishment/contacts/contactreport', function () {
+    return view('establishment_contents/contact_report', ['title' => 'Establishment Contact Report']);
+});
+
+Route::get('/establishment/contacts/contacttracing', function () {
+    return view('establishment_contents/contact_tracing', ['title' => 'Contact Tracing']);
+});
+
+Route::get('/establishment/setting', function () {
+    return view('establishment_contents/setting', ['title' => 'Settings']);
+});
+
+Route::get('/admin/my_profile', function () {
+    return view('admin_contents/my_profile', ['title' => 'My Profile']);
 });

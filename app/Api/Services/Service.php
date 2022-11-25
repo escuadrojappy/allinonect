@@ -2,6 +2,8 @@
 
 namespace App\Api\Services;
 
+use Illuminate\Support\Arr;
+
 abstract class Service
 {
     /**
@@ -18,5 +20,24 @@ abstract class Service
     public function repository()
     {
         return $this->repository;
+    }
+
+    /**
+     * The DataTable response.
+     *
+     * @param \Illuminate\Pagination\LengthAwarePaginator $result
+     * @param array $request
+     * @return array
+     */
+    public function dataTableResponse($result, $request)
+    {
+        $result = $result->toArray();
+
+        return [
+            'data' => Arr::get($result, 'data'),
+            'draw' => Arr::get($request, 'draw'),
+            'recordsTotal' => Arr::get($result, 'to') ? Arr::get($result, 'to') : 0,
+            'recordsFiltered' => Arr::get($result, 'total'),
+        ];
     }
 }
