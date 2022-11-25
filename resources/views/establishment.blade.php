@@ -2,19 +2,12 @@
 @section('content')
     
 
-    {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css" /> --}}
     <link rel="stylesheet" href="{{ asset('/css/libraries/jquery-confirm.min.css') }}">
     <script src="{{ asset('/js/common.js') }}"></script>
    
-    
-    <script
-      src="https://code.jquery.com/jquery-3.6.1.min.js"
-      integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
-      crossorigin="anonymous"
-    >
     </script>
-    <link rel="stylesheet" href="{{ asset('css/about.css') }}">
-
+  
+	
     <header>
       <img src="{{ asset('images/logo.png')}}" alt="" id= "logo" >
       <div class="menu-btn"></div>
@@ -27,11 +20,12 @@
         </div>
       </div>
     </header>
-  
+	
+	<link rel="stylesheet" href="{{ asset('css/style.css') }}">
 	<link rel="stylesheet" href="{{ asset('css/doh.css') }}">
 	<link rel="stylesheet" href="{{ asset('/css/libraries/jquery-confirm.min.css') }}">
 	<link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
-
+	
 	<div class="main">
 		<input type="checkbox" id="chk" aria-hidden="true">
 
@@ -40,7 +34,7 @@
 				<input type="checkbox" id="chk" aria-hidden="true">
 				<div class="signup">
 					<form id="login-form">
-						<img src=" {{ asset('images/Establishment.png') }}" alt="" id="logo">
+						<img src=" {{ asset('images/Establishment.png') }}" alt="" class="logoestablishment">
 						<label>Establishment</label>
 						<p>Business Premises</p>
 						<input type="email" name="email" placeholder="Email" required>
@@ -75,6 +69,8 @@
 				</form>
 			</div> --}}
 	</div>
+
+			
 
 	<script>
 		$(document).ready(function () {

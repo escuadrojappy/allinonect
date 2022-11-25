@@ -21,14 +21,14 @@ body{
 #chk{
 	display: none;
 }
-img {
-	width: 120px;
-	height: 120px;
-	margin-top: 40px;
-	margin-left: auto;
-  	margin-right: auto;
-  	display: block;
-	border-radius: 50%;
+.logoestablishment {
+	width: 120px !important;
+	height: 120px !important;
+	margin-top: 40px !important;
+	margin-left: auto !important;
+  	margin-right: auto !important;
+  	display: block !important;
+	border-radius: 50% !important;
   }
 .signup{
 	position: relative;
@@ -52,7 +52,7 @@ p{
 }
 input{
 	width: 60%;
-	height: 20px;
+	/* height: 20px; */
 	background: #e0dede;
 	justify-content: center;
 	display: flex;
