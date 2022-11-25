@@ -85,8 +85,8 @@ function formLoader (formId) {
 
 function rollBackButtons (formId) {
     $(`${formId} .modal-footer`).html(`
-        <button type="submit" class="btn btn-link col-teal waves-effect">SAVE CHANGES</button>
-        <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">CLOSE</button>
+        <button type="submit" class="btn btn-link col-teal waves-effect">Register</button>
+        <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">Close</button>
     `)
 }
 

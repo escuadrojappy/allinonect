@@ -37,8 +37,8 @@ Route::get('/contact', function () {
     return view('contact' , ['title' => 'Contact Us']);
 });
 
-Route::get('/establishment', function () {
-    return view('establishment');
+Route::get('/login/establishment', function () {
+    return view('establishment', ['title' => 'Establishment Sign In']);
 });
 
 Route::get('/login/admin', function () {
