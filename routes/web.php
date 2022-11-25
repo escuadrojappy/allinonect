@@ -129,3 +129,7 @@ Route::get('/establishment/contacts/contacttracing', function () {
 Route::get('/establishment/setting', function () {
     return view('establishment_contents/setting', ['title' => 'Settings']);
 });
+
+Route::get('/admin/my_profile', function () {
+    return view('admin_contents/my_profile', ['title' => 'My Profile']);
+});
