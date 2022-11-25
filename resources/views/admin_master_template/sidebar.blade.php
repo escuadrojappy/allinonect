@@ -1,7 +1,7 @@
 <section>
     <aside id="leftsidebar" class="sidebar">
         <!-- User Info -->
-        <div class="user-info">
+        <div class="user-info leftcolor">
             <div class="image">
                 <img src="{{ asset('/dashboard/images/doh-logo.png') }}" width="48" height="48" alt="User" />
             </div>
@@ -11,6 +11,14 @@
                 <div class="btn-group user-helper-dropdown">
                     <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
                     <ul class="dropdown-menu pull-right">
+                        <li>
+                            <a href="/allinonect/public/admin/my_profile">
+                                <i class="material-icons">
+                                    person
+                                </i>
+                                My Profile
+                            </a>
+                        </li>
                         <li>
                             <a href="/allinonect/public/login/admin">
                                 <i class="material-icons">
@@ -91,17 +99,17 @@
                             </ul>
                         </li>
                     </ul>
-                </li> --}}
-                <li>
+                </li > --}}
+                <li class="{{ Request::is('admin/useraccounts/establishment') ? 'active' : '' }} {{ Request::is('admin/useraccounts/visitor') ? 'active' : '' }}">
                     <a href="javascript:void(0);" class="menu-toggle">
                         <i class="material-icons">people</i>
                         <span>User Accounts</span>
                     </a>
                     <ul class="ml-menu">
-                        <li>
+                        <li class="{{ Request::is('admin/useraccounts/establishment') ? 'active' : '' }}">
                             <a href="/allinonect/public/admin/useraccounts/establishment">Establishments</a>
                         </li>
-                        <li>
+                        <li class="{{ Request::is('admin/useraccounts/visitor') ? 'active' : '' }}">
                             <a href="/allinonect/public/admin/useraccounts/visitor">Visitors</a>
                         </li>
                     </ul>
