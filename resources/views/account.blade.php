@@ -2,7 +2,7 @@
 <html lang="en" >
 <head>
   <meta charset="UTF-8">
-  <title>Contact Tracing</title>
+  <title>Account</title>
   <link rel="stylesheet" href="{{ asset('css/account.css') }}">
 
 </head>

@@ -10,7 +10,7 @@
                 <div class="card">
                     <div class="header bg-green">
                         <h2>
-                        List of all establishemnts.
+                        Establishments <small>List of all establishements.</small>
                         </h2>
                         <ul class="header-dropdown m-r--5">
                             <button type="button" class="btn bg-teal btn-circle-lg waves-effect waves-circle waves-float btn-modal-add" data-toggle="modal" data-target="#establishment-registration-modal">

@@ -1,22 +1,50 @@
-<!DOCTYPE html>
-<html lang="en" >
-<head>
-  <meta charset="UTF-8">
-  <title>Contact Tracing</title>
-  <link rel="stylesheet" href="{{ asset('css/citizen.css') }}">
+@extends('masterwelcome.masterwelcometemplate')
+@section('content')
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
 
-</head>
-<body>
+  <link rel="stylesheet" href="{{ asset('/css/libraries/jquery-confirm.min.css') }}">
+  <script src="{{ asset('/js/common.js') }}"></script>
 
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Slide Navbar</title>
-	<link rel="stylesheet" type="text/css" href="slide navbar style.css">
-<link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
-</head>
-<body >
+    <header>
+      <img src="{{ asset('images/logo.png')}}" alt="" id= "logo" >
+      <div class="menu-btn"></div>
+      <div class="navigation">
+        <div class="navigation-items">
+          <a href="/allinonect/public/welcome">Home </a>
+          <a href="/allinonect/public/about">About</a>
+          <a href="/allinonect/public/account" class="under">Account</a>
+          <a href="/allinonect/public/contact">Contact Us</a>
+        </div>
+      </div>
+    </header>
+	
+	<link rel="stylesheet" href="{{ asset('css/style.css') }}">
+	<link rel="stylesheet" href="{{ asset('css/doh.css') }}">
+	<link rel="stylesheet" href="{{ asset('/css/libraries/jquery-confirm.min.css') }}">
+	<link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
+	
 	<div class="main">
+		<input type="checkbox" id="chk" aria-hidden="true">
+
+		<div class="bg-login">
+			<div class="main">
+				<input type="checkbox" id="chk" aria-hidden="true">
+				<div class="signup">
+					<form id="login-form">
+						<img src=" {{ asset('images/citizen.png') }}" alt="" class="logoestablishment">
+						<label>Citizen</label>
+						<p>Visitor's Sign In</p>
+						<input type="email" name="email" placeholder="Email" required>
+						<input type="password" name="password" placeholder="Password" required>
+						<button type="submit" class="btn">
+							Sign In
+						</button>
+					</form>
+				</div>
+			</div>
+		</div>
+
+	{{-- <div class="main">
 		<input type="checkbox" id="chk" aria-hidden="true">
 
 			<div class="signup">
@@ -41,10 +69,4 @@
 					<button class="btn"><a href="cdashboard">Submit</button></a>
 				</form>
 			</div>
-	</div>
-</body>
-</html>
-
-
-</body>
-</html>
+	</div> --}}
