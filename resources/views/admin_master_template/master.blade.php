@@ -87,10 +87,12 @@
             opacity: 1;
             }
 
-
-         
- 
-
+            .topcolor{
+                background: #0A2558;
+            }
+            .leftcolor{
+                background: #0c387a !important;
+            }
         </style>
     </head>
     <body class="theme-green">
