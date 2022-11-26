@@ -23,7 +23,15 @@ Route::prefix('auth')->group(function () {
     
     // Verify Password Grant Token
     Route::middleware(['verify.password'])->group(function () {
-        Route::post('registration', 'AuthController@registration');
-        Route::post('test', 'AuthController@test');
+        Route::post('registration', 'AuthController@registration'); 
     });
+    Route::post('test', 'AuthController@test');
 });
+
+Route::prefix('establishments')->group(function () {
+    Route::middleware(['verify.password'])->group(function () {
+        Route::post('search', 'EstablishmentController@search'); 
+    });
+
+});
+Route::apiResource('contact', 'ContactController');

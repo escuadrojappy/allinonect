@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+
 body {
 	margin: 0;
 	padding: 0;
@@ -6,9 +8,74 @@ body {
 	align-items: center;
 	min-height: 100vh;
 	font-family: 'Jost', sans-serif;
-	background: #032a46;
+	background: #021d31;
 
 }
+
+#logo1 {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  margin-right: 390px;
+}
+
+header{
+  z-index: 999;
+  position: absolute;
+  top: -14px;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 200px;
+  transition: 0.5s ease;
+}
+
+header .brand{
+  color: #fff;
+  font-size: 1.5em;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+header .navigation{
+  position: relative;
+}
+
+header .navigation .navigation-items a{
+  position: relative;
+  color: #fff;
+  font-size: 1em;
+  font-weight: 500;
+  text-decoration: none;
+  margin-left: 30px;
+  transition: 0.3s ease;
+}
+
+header .navigation .navigation-items a:before{
+  content: ''; 
+  position: absolute; 
+  background: #fff;
+  width: 0;
+  height: 3px;
+  bottom: 0;
+  left: 0;
+  transition: 0.3s ease; 
+}
+
+header .navigation .navigation-items a.under{ 
+  text-decoration: underline;
+  /* transition: 0.3s ease; */
+}
+
+header .navigation .navigation-items a:hover:not(.under):before{
+  width: 100%;
+}
+
+
+
 
 img {
 	width: 100px;
@@ -19,24 +86,45 @@ img {
 	margin-top: 20px;
 }
 
-.main {
-	width: 350px;
-	height: 500px;
-	background: rgba(95, 93, 93, 0.8);
+/* .main {
+  margin-top: 80px;
+	width: 890px;
+	height: 350px;
+	background-color: rgba(211, 206, 206, 0.8);
 	background-image: url("Frosted Glass effect in CSS/assets/background.png");
 	background-size: cover;
 	background-repeat: no-repeat;
+  padding: 8px;
 	background-attachment: fixed;
 	background: inherit;
 	border-radius: 15px;
-	border: 10px solid #918f23;
-	position: absolute;
+	/* border: 10px solid #918f23; */
+	/* position: absolute;
 	box-shadow: inset 10px 10px 10px 3000px rgba(21, 6, 58, 0.192);
     /* filter: blur(10px); */
-    border-radius: 15px;
+    /* border-radius: 15px;
+} */
+
+.left-side{
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 15px;
+  position: relative;
+}
+.right-side{
+	width: 75%;
+  margin-left: 75px;
 }
 
-
+.input-box{
+	height: 50px;
+  width: 100%;
+  margin: 12px 0;
+}
 #chk {
 	display: none;
 }
@@ -59,7 +147,7 @@ label {
 }
 
 button {
-	width: 60%;
+	width: 120%;
 	height: 40px;
 	margin: 10px auto;
 	justify-content: center;
@@ -80,8 +168,13 @@ button {
 	color: rgb(14, 14, 14);
 	font-size: 16px;
 	cursor: pointer;
+  margin-right: 10px;
 
 }
+.btn{
+  margin-top: 20px;
+}
+
 
 .btn a:link {
 	text-decoration: none;
@@ -127,4 +220,191 @@ button:hover {
 #chk:checked~.signup label {
 	transform: scale(.6);
 
+}
+
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins" , sans-serif;
+}
+
+.container .post{
+  display:  none;
+
+}
+.container .qwe{
+  font-size: 30px;
+  color: black;
+  font-weight: 500;
+  text-align: center;
+  display: grid;
+
+}
+
+body{
+  /* min-height: 100vh;
+  width: 100%;
+  background: #113153;
+  display: flex;
+  align-items: center;
+  justify-content: center; */
+
+}
+.container{
+  margin-top: 80px;
+	width: 890px;
+	height: 350px;
+	background-color: rgba(211, 206, 206, 0.8);
+	background-image: url("Frosted Glass effect in CSS/assets/background.png");
+	background-size: cover;
+	background-repeat: no-repeat;
+  padding: 8px;
+	background-attachment: fixed;
+	background: inherit;
+	border-radius: 15px;
+	/* border: 10px solid #918f23; */
+	position: absolute;
+	box-shadow: inset 10px 10px 10px 3000px rgba(21, 6, 58, 0.192);
+    /* filter: blur(10px); */
+    border-radius: 15px;
+}
+
+.container .content{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.container .content .left-side{
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 15px;
+  position: relative;
+}
+.content .left-side::before{
+  content: '';
+  position: absolute;
+  height: 90%;
+  width: 2px;
+  left: 385px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #afafb6;
+}
+.content .left-side .details{
+  margin: 14px;
+  text-align: center;
+}
+.content .left-side .details p{
+  margin-top: 5px;
+  text-align: center;
+}
+.content .left-side .details .topic{
+  font-size: 18px;
+  font-weight: 500;
+}
+.content .left-side .details .text-one,
+.content .left-side .details .text-two{
+  font-size: 14px;
+  color: #afafb6;
+}
+.container .content .right-side{
+  width: 50%;
+  /* margin-left: 40px; */
+}
+.content .right-side .topic-text{
+  font-size: 23px;
+  font-weight: 600;
+  color: #3e2093;
+}
+.right-side .input-box .btn{
+  /* margin: 12px 0; */
+  margin-bottom: 10px;
+  margin-left: -80px;
+}
+.input-box button .btn #btn1{
+  /* margin: 12px 0; */
+  margin-bottom: 10px;
+}
+
+/* .right-side .input-box input,
+.right-side .input-box textarea{
+  height: 100%;
+  width: 100%;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  background: #F0F1F8;
+  border-radius: 6px;
+  padding: 0 15px;
+  resize: none;
+} */
+.right-side .message-box{
+  min-height: 110px;
+
+}
+.right-side .input-box textarea{
+  padding-top: 6px;
+}
+.right-side .btn{
+  display: inline-block;
+  margin-top: 12px;
+}
+button{
+  color: white;
+}
+ .right-side .btn button[type="submit"]{ */
+  color: #fff;
+  font-size: 18px;
+  outline: none;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  background: #3e2093;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+}
+ .btn button[type="submit"]:hover{ */
+  background: #5029bc;
+}
+
+@media (max-width: 950px) {
+  .container{
+    width: 90%;
+    padding: 30px 40px 40px 35px ;
+  }
+  .container .content .right-side{
+   width: 75%;
+   margin-left: 55px;
+}
+}
+@media (max-width: 820px) {
+  .container{
+    margin: 40px 0;
+    height: 100%;
+  }
+  .container .content{
+    flex-direction: column-reverse;
+  }
+ .container .content .left-side{
+   width: 100%;
+   flex-direction: row;
+   margin-top: 40px;
+   justify-content: center;
+   flex-wrap: wrap;
+ }
+ .container .content .left-side::before{
+   display: none;
+ }
+ .container .content .right-side{
+   width: 100%;
+   margin-left: 0;
+ }
 }

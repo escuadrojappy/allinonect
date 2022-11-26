@@ -14,7 +14,7 @@ class RegistrationRequest extends FormRequest
      */
     public function authorize()
     {
-        return Gate::authorize('registration');
+        return Gate::authorize('is_admin');
     }
 
     /**

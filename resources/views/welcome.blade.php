@@ -1,30 +1,20 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Tracing</title>
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
-  </head>
-  <body>
+@extends('masterwelcome.masterwelcometemplate')
+@section('content')
 
-    <header>
+<link rel="stylesheet" href="{{ asset('css/style.css') }}">
+<header>
       <img src="{{ asset('images/logo.png')}}" alt="" id= "logo" >
-      {{-- <img src="{{ asset('images/cclogo.png')}}" alt="" id= "logo1" > --}}
       <div class="menu-btn"></div>
       <div class="navigation">
         <div class="navigation-items">
-          <a href="welcome" >Home</a>
+          <a href="welcome" class="under">Home </a>
           <a href="about" >About</a>
           <a href="account">Account</a>
-          <a href="contact">Contact</a>
-          <a href="feedback">Feedback</a>
+          <a href="contact">Contact Us</a>
         </div>
       </div>
     </header>
 
-    
     <section class="home">
   
       <img src="{{asset('images/1.png')}}" class="video-slide1 active">
@@ -104,6 +94,5 @@
       });
     });
     </script>
-
-  </body>
-</html>
+    
+@endsection

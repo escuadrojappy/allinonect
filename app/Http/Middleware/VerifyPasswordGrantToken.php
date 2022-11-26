@@ -74,7 +74,7 @@ class VerifyPasswordGrantToken
      */
     protected function verifyPasswordGrandToken(Request $request, $token)
     {
-        $user = auth()->guard('api')->user();
+        $user = auth('api')->user();
 
         if ($user) {
             auth()->login($user);
@@ -82,8 +82,12 @@ class VerifyPasswordGrantToken
         }
 
         $refreshToken = $this->authRepository->getTokenViaRefreshToken(Arr::get($token, 'refresh_token'));
-        
+
         if (!Arr::has($refreshToken, 'refresh_token')) throw new AuthenticationException();
+
+        $request->headers->set('Authorization', "Bearer {$refreshToken['access_token']}");
+        
+        auth()->login(auth('api')->user());
 
         return $refreshToken;
     }

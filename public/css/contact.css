@@ -36,16 +36,15 @@ body{
   padding: 20px 60px 30px 40px;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 
-
-
-
-
-
+}
+.content .right-side .icon{
+ width: 20%;
 }
 .container .content{
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 10px;
 }
 .container .content .left-side{
   width: 25%;
@@ -56,6 +55,7 @@ body{
   justify-content: center;
   margin-top: 15px;
   position: relative;
+ 
 }
 .content .left-side::before{
   content: '';
@@ -87,7 +87,8 @@ body{
 }
 .container .content .right-side{
   width: 75%;
-  margin-left: 75px;
+  margin-left: 45px;
+  padding: 10px;
 }
 .content .right-side .topic-text{
   font-size: 23px;
@@ -125,7 +126,7 @@ body{
 button{
   color: white;
 }
- .right-side .btn button[type="submit"]{ */
+ .right-side .btn button[type="submit"]{ 
   color: #fff;
   font-size: 18px;
   outline: none;
@@ -137,7 +138,7 @@ button{
   transition: all 0.3s ease;
   text-transform: uppercase;
 }
- .btn button[type="submit"]:hover{ */
+ .btn button[type="submit"]:hover{ 
   background: #5029bc;
 }
 
