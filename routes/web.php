@@ -38,7 +38,7 @@ Route::get('/contact', function () {
 });
 
 Route::get('/login/establishment', function () {
-    return view('establishment', ['title' => 'Establishment Sign In']);
+    return view('establishment', ['title' => 'Establishment Login']);
 });
 
 Route::get('/login/admin', function () {
@@ -46,7 +46,7 @@ Route::get('/login/admin', function () {
 });
 
 Route::get('/citizen', function () {
-    return view('citizen');
+    return view('citizen', ['title' => 'Citizen Login']);
 });
 
 Route::get('/dohdashboard', function () {
