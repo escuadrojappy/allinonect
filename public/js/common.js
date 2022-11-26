@@ -107,8 +107,7 @@ function resetForm (formId) {
 }
 
 function formLoader (formId) {
-    $(`${formId} .modal-footer`).html('')
-    $(`${formId} .modal-footer`).prepend(`
+    $(`${formId} .modal-footer`).html(`
         <div class="preloader pl-size-xs">
             <div class="spinner-layer pl-grey">
                 <div class="circle-clipper left">

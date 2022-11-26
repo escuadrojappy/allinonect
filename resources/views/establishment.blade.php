@@ -1,13 +1,8 @@
 @extends('masterwelcome.masterwelcometemplate')
 @section('content')
-    
-
     <link rel="stylesheet" href="{{ asset('/css/libraries/jquery-confirm.min.css') }}">
     <script src="{{ asset('/js/common.js') }}"></script>
-   
-    </script>
-  
-	
+
     <header>
       <img src="{{ asset('images/logo.png')}}" alt="" id= "logo" >
       <div class="menu-btn"></div>
