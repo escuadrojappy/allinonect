@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Api\Services\EstablishmentService;
 use App\Http\Requests\Search\AdminSearchRequest;
 use App\Http\Requests\Establishment\{
-    DestroyEstablishment,
+    DestroyEstablishmentRequest,
     UpdateEstablishmentRequest,
 };
 
@@ -57,10 +57,10 @@ class EstablishmentController extends Controller
      * Destroy Establishment.
      *
      * @param int $id
-     * @param \App\Http\Requests\Establishment\DestroyEstablishment @request
+     * @param \App\Http\Requests\Establishment\DestroyEstablishmentRequest @request
      * @return \Illuminate\Http\JsonResponse
      */
-    public function destroy($id, DestroyEstablishment $request)
+    public function destroy($id, DestroyEstablishmentRequest $request)
     {
         return $this->establishmentService->destroy($id);
     }

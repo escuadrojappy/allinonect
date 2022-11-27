@@ -1,4 +1,5 @@
 var apiUrl = 'http://localhost/allinonect/public/api/'
+var webUrl = 'http://localhost/allinonect/public/'
 
 /*
 |--------------------------------------------------------------------------
@@ -15,6 +16,16 @@ function post (endpoint, params) {
         dataType: 'json'
     })
 }
+
+function get (endpoint) {
+    return $.ajax({
+        url: endpoint,
+        type: 'GET',
+        contentType:"application/json",
+        dataType: 'json'
+    })
+}
+
 
 function put (endpoint, params) {
     return $.ajax({

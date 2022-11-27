@@ -42,4 +42,16 @@ class Cookie
             true, // httpOnly
         );
     }
+
+    public function forget() {
+        return cookie(
+            'token',
+            null,
+            -1,
+            '/',
+            null, // domain
+            config('app.env') != 'local', // secure,
+            true, // httpOnly
+        );
+    }
 }
