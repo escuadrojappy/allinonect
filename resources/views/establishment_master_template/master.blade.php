@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        @include('admin_master_template.head')
+        @include('establishment_master_template.head')
     </head>
     <body class="theme-indigo">
         <!-- Page Loader -->

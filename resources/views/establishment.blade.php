@@ -1,4 +1,5 @@
-@extends('masterwelcome.masterwelcometemplate')
+@extends('master.logins')
+@include('master.header2')
 @section('content')
     <link rel="stylesheet" href="{{ asset('/css/libraries/jquery-confirm.min.css') }}">
     <script src="{{ asset('/js/common.js') }}"></script>
@@ -41,50 +42,40 @@
 				</div>
 			</div>
 		</div>
-
-			{{-- <div class="signup">
-				<form id="registrationForm">
-				<img src="{{ asset('images/Establishment.png')}}" alt="" id= "logo" >
-					<label class="label1" for="chk" aria-hidden="true">Establishment</label>
-					<input type="email" name="email" placeholder="Email" id="email" required>
-					<input type="text" name="name" placeholder="Business Name" id="business_name" required>
-					<textarea name="business_address" rows="3" placeholder="Business Address" id="business_address" required></textarea>
-					<input type="number" name="contact_number" placeholder="Contact Number" id="contact_number" required>
-					<button type="submit" class="btn">Sign up</button>
-					<button type="reset" class="btn-reset">Reset</button>
-				</form>
-			</div> --}}
-
-			{{-- <div class="login">
-				<form>
-					<label class="label2" for="chk" aria-hidden="true">Sign In</label>
-					<input type="email" name="email" placeholder="Email" required="" class='login1'>
-					<input type="password" name="password" placeholder="Password" required="" class="login2">
-					<button class="btn">Submit</button>
-				</form>
-			</div> --}}
 	</div>
 
 			
 
 	<script>
 		$(document).ready(function () {
-			$(document).on('submit', '#registrationForm', function (e){
-				e.preventDefault()
-				var params = {
-					email: $('#email').val(),
-					name: $('#business_name').val(),
-					address: $('#business_address').val(),
-					contact_number: $('#contact_number').val(),
-					role_id: 2
-				}
-				$.post(`${apiUrl}auth/registration`, params).done((result) => {
-                    alert('Successfully Created!')
-					$( '#registrationForm' )[0].reset()
-                }).fail((error) => {
-                    alert(error.responseJSON.message)
+            $(document).on('submit', '#login-form', function (e) {
+                e.preventDefault()
+                var params = {}
+                $('#login-form input').each((key, element) => {
+                    var name = $(element).attr('name')
+                    var value = $(element).val()
+                    params[name] = value
                 })
-			})
-		}) 
+				post(`${apiUrl}auth/login`, params).done(({ user }) => {
+                    if (user.role_id !== 2) {
+                        errorAlert(
+                            'Encountered an error!',
+                            'Unauthorized User',
+                            () => {
+                                get(`${apiUrl}auth/logout`).done(() => {
+                                    location.href = webUrl + 'login/establishment'
+                                })
+                            }
+                        )
+                    } else {
+                        location.href = webUrl + 'establishment/dashboard'
+                    }
+                }).fail((error) => {
+                    if (error.status == 401) {
+                        errorAlert('Encountered an error!', 'Please match your registered email address and password.')
+                    }
+                })
+            })
+        })
 	</script>
 @endsection
