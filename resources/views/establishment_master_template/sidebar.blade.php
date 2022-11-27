@@ -3,7 +3,7 @@
         <!-- User Info -->
         <div class="user-info">
             <div class="image">
-                <img src="{{ asset('/dashboard/images/doh-logo.png') }}" width="48" height="48" alt="User" />
+                <img src="{{ asset('/dashboard/images/doh-logo.png') }}" width="48" height="48" alt="User" class="establishment-logo" />
             </div>
             <div class="info-container">
                 <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Name of Establishment</div>
@@ -20,7 +20,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="/allinonect/public/login/establishment">
+                            <a class="logout">
                                 <i class="material-icons">
                                     input
                                 </i>
@@ -72,3 +72,14 @@
         <!-- #Footer -->
     </aside>
 </section>
+
+<script>
+    $(document).on('click', '.logout', function (e) {
+        e.preventDefault()
+        get(`${apiUrl}auth/logout`).done(() => {
+            location.href = webUrl + 'login/establishment'
+        }).fail((error) => {
+            console.log(error)
+        })
+    })
+</script>

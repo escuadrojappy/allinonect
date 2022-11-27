@@ -43,9 +43,6 @@
 			</div>
 		</div>
 	</div>
-
-			
-
 	<script>
 		$(document).ready(function () {
             $(document).on('submit', '#login-form', function (e) {
