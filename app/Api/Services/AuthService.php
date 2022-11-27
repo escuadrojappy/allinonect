@@ -46,10 +46,22 @@ class AuthService extends Service
     }
 
     /**
+     * Authenticated User.
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function auth()
+    {
+        $auth = $this->repository->auth();
+
+        return response()->json($auth);
+    }
+
+    /**
      * Login User.
      *
      * @param array $request
-     * @return
+     * @return \Illuminate\Http\JsonResponse
      */
     public function login(array $request)
     {
@@ -61,14 +73,33 @@ class AuthService extends Service
 
         $cookie = $this->cookie->set($token, config('auth.refresh_token_timeout'));
 
-        return response()->json($token)->cookie($cookie);
+        $response = [
+            'user' => $this->repository->auth(),
+            'token' => $token,
+        ];
+
+        return response()->json($response)->cookie($cookie);
+    }
+
+    /**
+     * Logout User.
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function logout()
+    {
+        $logout = $this->repository->logout();
+
+        $cookie = $this->cookie->forget();
+
+        return response()->json($logout)->cookie($cookie);
     }
 
     /**
      * Registration User.
      *
      * @param array $request
-     * @return
+     * @return \Illuminate\Http\JsonResponse
      */
     public function registration(array $request)
     {

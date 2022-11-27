@@ -51,39 +51,25 @@
 					params[name] = value
 				})
 
-				$.post(`${apiUrl}auth/login`, params).done((result) => {
-					console.log(result)
-					location.href = '/allinonect/public/admin/dashboard'
+				post(`${apiUrl}auth/login`, params).done(({ user }) => {
+					if (user.role_id !== 1) {
+						errorAlert(
+							'Encountered an error!',
+							'Unauthorized User',
+							() => {
+								get(`${apiUrl}auth/logout`).done(() => {
+									location.href = webUrl + 'login/admin'
+								})
+							}
+						)
+					} else {
+						location.href = webUrl + 'admin/dashboard'
+					}
 				}).fail((error) => {
 					if (error.status == 401) {
-						$.confirm({
-							title: 'Encountered an error!',
-							content: 'Please match your registered email address and password.',
-							type: 'red',
-							typeAnimated: true,
-							buttons: {
-								tryAgain: {
-									text: 'Try again!',
-									btnClass: 'btn-red',
-									action: function(){
-									}
-								},
-								close: function () {
-								}
-							}
-						});
-						// $.alert({
-						// 	title: error.responseJSON.message,
-						// 	content: 'Please match your registered email address and password.',
-						// 	boxWidth: '300px',
-						// 	useBootstrap: false 
-						// })
+						errorAlert('Encountered an error!', 'Please match your registered email address and password.')
 					}
-					
 				})
-
-
-				// console.log(`${apiUrl}registration`)
 			})
 		})
 	</script>

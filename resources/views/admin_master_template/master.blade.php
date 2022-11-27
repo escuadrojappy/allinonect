@@ -4,7 +4,7 @@
         @include('admin_master_template.head')
         <style>
             .btn-modal-add {
-                margin-top: -15px;
+                margin-top: -5px;
             }
 
             .modal .modal-header .modal-title {

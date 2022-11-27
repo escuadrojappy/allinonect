@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Laravel\Sanctum\HasApiTokens;
+use Laravel\Passport\HasApiTokens;
 use DateTimeInterface;
 
 class User extends Authenticatable
@@ -56,5 +56,14 @@ class User extends Authenticatable
     public function establishment()
     {
         return $this->hasOne(Establishment::class);
+    }
+
+    /**
+     * Get Establishment.
+     * 
+     */
+    public function admin()
+    {
+        return $this->hasOne(Admin::class);
     }
 }

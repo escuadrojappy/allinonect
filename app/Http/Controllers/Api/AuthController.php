@@ -30,6 +30,16 @@ class AuthController extends Controller
     }
 
     /**
+     * Get Authenticated User.
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function index()
+    {
+        return $this->authService->auth();
+    }
+
+    /**
      * Login User.
      *
      * @param \App\Http\Requests\Auth\LoginRequest @request
@@ -38,6 +48,16 @@ class AuthController extends Controller
     public function login(LoginRequest $request)
     {
         return $this->authService->login($request->validated());
+    }
+
+    /**
+     * Logout User.
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function logout()
+    {
+        return $this->authService->logout();
     }
 
     /**

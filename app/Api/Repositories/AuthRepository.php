@@ -10,6 +10,10 @@ use Illuminate\Support\Facades\{
     Auth,
     Http,
 };
+use Laravel\Passport\{
+    TokenRepository,
+    RefreshTokenRepository,
+};
 
 class AuthRepository extends Repository
 {
@@ -40,6 +44,40 @@ class AuthRepository extends Repository
         $this->model = $user;
         $this->apiResponseHandler = $apiResponseHandler;
     }
+
+    /**
+     * Authenticated User.
+     *
+     * @return \App\Models\User
+     */
+    public function auth()
+    {
+        $user = Auth::user();
+        $roleId = Arr::get($user, 'role_id');
+        
+        switch ($roleId) {
+            case 1:
+                return $user->load('admin');
+                break;
+            case 2:
+                return $user->load('establishment');
+                break;
+            case 3:
+                return $user->load('visitor');
+                break;
+          }
+    }
+
+    /**
+     * Logout user.
+     *
+     * @return bool
+     */
+    public function logout()
+    {
+        return Auth::user()->token()->revoke();
+    }
+
 
     /**
      * Validate the user.

@@ -4,7 +4,11 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\User;
+use Illuminate\Support\Arr;
+use App\Models\{
+    User,
+    Admin,
+};
 
 class UserSeeder extends Seeder
 {
@@ -15,7 +19,7 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        User::firstOrCreate(
+        $user = User::firstOrCreate(
             [
                 'email' => 'admin@gmail.com',
             ],
@@ -23,6 +27,16 @@ class UserSeeder extends Seeder
                 'email' => 'admin@gmail.com',
                 'password' => bcrypt('test@123'),
                 'role_id' => 1,
+            ]
+        );
+
+        Admin::firstOrCreate(
+            [
+                'user_id' => Arr::get($user, 'id'),
+            ],
+            [
+                'name' => 'Super Admin',
+                'address' => 'All in one contact tracing',
             ]
         );
     }
