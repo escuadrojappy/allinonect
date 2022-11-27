@@ -2,6 +2,13 @@
 <html>
     <head>
         @include('establishment_master_template.head')
+        <style>
+
+            .establishment-logo{
+                visibility: hidden;
+            }
+
+            </style>
     </head>
     <body class="theme-indigo">
         <!-- Page Loader -->
