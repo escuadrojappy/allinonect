@@ -87,7 +87,7 @@ class AuthService extends Service
 
             $paramsEstablishment = [
                 'name' => Arr::get($request, 'name'),
-                'address' => Arr::get($request, 'name'),
+                'address' => Arr::get($request, 'address'),
                 'contact_number' => Arr::get($request, 'contact_number'),
                 'user_id' => Arr::get($user, 'id'),
             ];

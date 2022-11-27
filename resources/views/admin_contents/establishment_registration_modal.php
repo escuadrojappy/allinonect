@@ -52,20 +52,38 @@
             contact_number: $('#contact_number').val(),
             role_id: 2
         }
-        $.post(`${apiUrl}auth/registration`, params).done((result) => {
-            successAlert(
-                'Success!',
-                'Successfully Registered Establishment.',
-                () => { 
-                    resetForm('#establishment-registration-form')
-                    $('#establishment-registration-modal').modal('toggle')
-                    initDataTable('.dataTable', columns, 'establishments/search')
-                }
-            )
-        }).fail((error) => {
-            errorAlert('Error!', error.responseJSON.message)
-        }).always(() => {
-            rollBackButtons('#establishment-registration-form')
-        })
+        if (create) {
+            post(`${apiUrl}auth/registration`, params).done((result) => {
+                successAlert(
+                    'Success!',
+                    'Successfully Registered Establishment.',
+                    () => { 
+                        clearFormFields('#establishment-registration-form')
+                        $('#establishment-registration-modal').modal('toggle')
+                        initDataTable('.dataTable', columns, 'establishments/search')
+                    }
+                )
+            }).fail((error) => {
+                errorAlert('Error!', error.responseJSON.message)
+            }).always(() => {
+                rollBackButtons('#establishment-registration-form')
+            })
+        } else {
+            put(`${apiUrl}establishments/${editId}`, params).done((result) => {
+                successAlert(
+                    'Success!',
+                    'Successfully Updated Establishment.',
+                    () => { 
+                        clearFormFields('#establishment-registration-form')
+                        $('#establishment-registration-modal').modal('toggle')
+                        initDataTable('.dataTable', columns, 'establishments/search')
+                    }
+                )
+            }).fail((error) => {
+                errorAlert('Error!', error.responseJSON.message)
+            }).always(() => {
+                rollBackButtons('#establishment-registration-form')
+            })
+        }
     })
 </script>

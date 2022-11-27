@@ -34,6 +34,7 @@ class AuthServiceProvider extends ServiceProvider
         Passport::refreshTokensExpireIn(now()->addMinutes(config('auth.refresh_token_timeout')));
 
         // Authorization Policy
-        Gate::define('is_admin', [\App\Policies\AuthPolicy::class, 'is_admin']);
+        Gate::define('is_admin', [\App\Policies\AuthPolicy::class, 'isAdmin']);
+        Gate::define('is_admin_or_establishment', [\App\Policies\AuthPolicy::class, 'isAdminOrEstablishment']);
     }
 }
