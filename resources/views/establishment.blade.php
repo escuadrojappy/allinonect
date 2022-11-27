@@ -10,7 +10,7 @@
         <div class="navigation-items">
           <a href="/allinonect/public/welcome">Home </a>
           <a href="/allinonect/public/about">About</a>
-          <a href="/account" class="under">Account</a>
+          <a href="/allinonect/public/account" class="under">Account</a>
           <a href="/allinonect/public/contact">Contact Us</a>
         </div>
       </div>
