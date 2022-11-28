@@ -60,7 +60,7 @@
 					{{-- <div class="topic-text">Send us a message</div> --}}
 				
 					<div class="input-box">
-					  <button class="btn"><a href="citizen">For Cabanatuan City Resident</button></a>
+					  <button class="btn"><a href="login/citizen">For Cabanatuan City Resident</button></a>
 					</div>
 			
 					<div class="input-box">

@@ -45,7 +45,7 @@ Route::get('/login/admin', function () {
     return view('admin_login', ['title' => 'Admin Login']);
 });
 
-Route::get('/citizen', function () {
+Route::get('/login/citizen', function () {
     return view('citizen', ['title' => 'Citizen Login']);
 });
 
@@ -134,6 +134,9 @@ Route::get('/admin/my_profile', function () {
     return view('admin_contents/my_profile', ['title' => 'My Profile']);
 });
 
+Route::get('/citizen/dashboard', function () {
+    return view('visitor_contents/dashboard', ['title' => 'Visitors']);
+});
 Route::get('/establishment/my_profile', function () {
     return view('establishment_contents/my_profile', ['title' => 'My Profile']);
 });
