@@ -12,13 +12,23 @@
                     <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
                     <ul class="dropdown-menu pull-right">
                         <li>
-                            <a href="/allinonect/public/establishment/setting">
+                            <a href="/allinonect/public/establishment/my_profile">
                                 <i class="material-icons">
-                                    settings
+                                    person
                                 </i>
-                                Setting
+                                My Profile
                             </a>
                         </li>
+
+                        <li>
+                            <a href="/allinonect/public/establishment/change_password">
+                                <i class="material-icons">
+                                    https
+                                </i>
+                                Change Password
+                            </a>
+                        </li>
+
                         <li>
                             <a class="logout">
                                 <i class="material-icons">
@@ -27,6 +37,7 @@
                                 Sign Out
                             </a>
                         </li>
+
                     </ul>
                 </div>
             </div>
