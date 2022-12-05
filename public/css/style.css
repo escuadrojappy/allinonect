@@ -7,7 +7,13 @@
   font-family: "Poppins", sans-serif;
 }
 
-#logo {
+body{
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.logo {
   position: relative;
   width: 100px;
   height: 100px;
@@ -87,6 +93,8 @@ section{
   justify-content: center;
   flex-direction: column;
   background: #021d31;
+  flex: 1;
+  overflow: scroll;
 }
 
 .home:before{
@@ -363,7 +371,7 @@ section{
   }
 }
 
-@media (max-width: 560px){
+@media (max-width: 768px){
   .home .content h1{
     font-size: 3em;
     line-height: 60px;
@@ -372,3 +380,10 @@ section{
 html {
     background-color: #021d31;
 }
+
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  .home .content h1{
+    font-size: 12px;
+    margin-left: 20px;
+  }
+ }
