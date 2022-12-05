@@ -98,8 +98,23 @@
             .leftcolor{
                 background: #0c387a !important;
             }
+            
+            .qrr-canvas {
+                margin: auto;
+            }
+            
+            #qrr-output-data {
+                word-break: break-word;
+                white-space: pre-wrap;
             }
 
+            #qrr-canvas {
+                width: 100%;
+            }
+
+            #qr-code-submit {
+                width: 100%;
+            }
             </style>
     </head>
     <body class="theme-indigo">

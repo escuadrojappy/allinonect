@@ -12,6 +12,9 @@
 <!-- Bootstrap Core Css -->
 <link href="{{ asset('/dashboard/plugins/bootstrap/css/bootstrap.css') }}" rel="stylesheet">
 
+<!-- qrcode-reader core CSS file -->
+{{-- <link rel="stylesheet" href="{{ asset('/js/qrcode/dist/css/qrcode-reader.css') }}"> --}}
+
 <!-- Waves Effect Css -->
 <link href="{{ asset('/dashboard/plugins/node-waves/waves.css') }}" rel="stylesheet" />
 
@@ -94,6 +97,9 @@
 
 <!-- Sparkline Chart Plugin Js -->
 <script src="{{ asset('/dashboard/plugins/jquery-sparkline/jquery.sparkline.js') }}"></script>
+
+<!-- qrcode-reader core JS file -->
+<script src="{{ asset('/js/qrcode/dist/js/qrcode-reader.js') }}"></script>
 
 <!-- Custom Js -->
 <script src="{{ asset('/dashboard/js/admin.js') }}"></script>

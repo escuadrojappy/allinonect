@@ -36,5 +36,6 @@ class AuthServiceProvider extends ServiceProvider
         // Authorization Policy
         Gate::define('is_admin', [\App\Policies\AuthPolicy::class, 'isAdmin']);
         Gate::define('is_admin_or_establishment', [\App\Policies\AuthPolicy::class, 'isAdminOrEstablishment']);
+        Gate::define('is_establishment', [\App\Policies\AuthPolicy::class, 'isEstablishment']);
     }
 }

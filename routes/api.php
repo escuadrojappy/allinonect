@@ -22,7 +22,7 @@ Route::prefix('auth')->group(function () {
     Route::post('login', 'AuthController@login');
     
     // Verify Password Grant Token
-    Route::middleware(['verify.password'])->group(function () {
+    Route::middleware(['verify.password', 'identify.user'])->group(function () {
         Route::get('/', 'AuthController@index'); 
         Route::get('logout', 'AuthController@logout'); 
         Route::post('registration', 'AuthController@registration');
@@ -31,10 +31,14 @@ Route::prefix('auth')->group(function () {
 });
 
 Route::prefix('establishments')->group(function () {
-    Route::middleware(['verify.password'])->group(function () {
+    Route::middleware(['verify.password', 'identify.user'])->group(function () {
         Route::post('search', 'EstablishmentController@search');
         Route::put('{id}', 'EstablishmentController@update');
         Route::delete('{id}', 'EstablishmentController@destroy');
+
+        Route::prefix('visitor')->group(function () {
+            Route::post('scan', 'EstablishmentController@scan');
+        });
     });
 });
 Route::apiResource('contact', 'ContactController');

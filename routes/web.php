@@ -140,3 +140,7 @@ Route::get('/citizen/dashboard', function () {
 Route::get('/establishment/my_profile', function () {
     return view('establishment_contents/my_profile', ['title' => 'My Profile']);
 });
+
+Route::get('/establishment/qrscanner', function () {
+    return view('establishment_contents/scanner', ['title' => 'Qr Scanner']);
+});
