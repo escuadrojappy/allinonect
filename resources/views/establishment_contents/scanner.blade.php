@@ -6,7 +6,7 @@
             <div class="card">
                 <div class="header">
                     <h2>
-                        QR Scanner <small>Scan Visitor here...</small>
+                        QR Code Scanner <small>Scan Visitors here...</small>
                     </h2>
                 </div>
                 <div class="body">
