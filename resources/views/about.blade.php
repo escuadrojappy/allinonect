@@ -1,85 +1,7 @@
-
-{{-- @extends('masterwelcome.masterwelcometemplate')
+@extends('masterwelcome.masterwelcometemplate')
 @section('content')
-<link rel="stylesheet" href="{{ asset('css/about.css') }}">
+<link rel="stylesheet" href="">
 
-<script type="text/javascript">
-    //Javacript for responsive navigation menu
-    const menuBtn = document.querySelector(".menu-btn");
-    const navigation = document.querySelector(".navigation");
-
-    menuBtn.addEventListener("click", () => {
-      menuBtn.classList.toggle("active");
-      navigation.classList.toggle("active");
-    });
-
-    //Javacript for video slider navigation
-    const btns = document.querySelectorAll(".nav-btn");
-    const slides = document.querySelectorAll(".video-slide");
-    const contents = document.querySelectorAll(".content");
-
-    var sliderNav = function(manual){
-      btns.forEach((btn) => {
-        btn.classList.remove("active");
-      });
-
-      slides.forEach((slide) => {
-        slide.classList.remove("active");
-      });
-
-      contents.forEach((content) => {
-        content.classList.remove("active");
-      });
-
-      btns[manual].classList.add("active");
-      slides[manual].classList.add("active");
-      contents[manual].classList.add("active");
-    }
-
-    btns.forEach((btn, i) => {
-      btn.addEventListener("click", () => {
-        sliderNav(i);
-      });
-    });
-    </script>
-<header>
-      <img src="{{ asset('images/logo.png')}}" alt="" id= "logo" >
-      <div class="menu-btn"></div>
-      <div class="navigation">
-        <div class="navigation-items">
-          <a href="welcome" >Home </a>
-          <a href="about" class="under">About</a>
-          <a href="account">Account</a>
-          <a href="contact">Contact Us</a>
-        </div>
-      </div>
-    </header> --}}
-
-{{-- @extends('masterwelcome.masterwelcometemplate')
-@section('content')
-
-<meta name=”viewport” content=”width=device-width, initial-scale=1.0">
-<link rel=”stylesheet” href=”css/bootstrap.css”>
-<link rel=”stylesheet” href=”css/bootstrap-responsive.css”>
-
-<link rel="stylesheet" href="{{ asset('css/style.css') }}">
-
-<header>
-      <img src="{{ asset('images/logo.png')}}" alt="" id= "logo" >
-      <div class="menu-btn"></div>
-      <div class="navigation">
-        <div class="navigation-items">
-          <a href="welcome" class="under">Home </a>
-          <a href="about" >About</a>
-          <a href="account">Account</a>
-          <a href="contact">Contact Us</a>
-        </div>
-      </div>
-    </header> --}}
-
-    <!doctype html>
-    <html lang="en">
-    
     <head>
         <!-- Required meta tags -->
         <meta charset="utf-8">
@@ -244,7 +166,4 @@
             integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous">
         </script>
         -->
-    </body>
-    
-    </html>
-    
+@endsection
