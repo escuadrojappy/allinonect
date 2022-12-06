@@ -174,7 +174,7 @@
                                     methodology, we utilise web technology to perform contact tracing more efficiently
                                     and accurately.
                                 </p>
-                                <a href="account" class="btn btn-secondary">Explore</a>
+                                {{-- <a href="account" class="btn btn-secondary">Explore</a> --}}
                             </div>
                         </div>
                     </div>
@@ -194,7 +194,7 @@
                                     discovered in 2019. The virus spreads primarily through respiratory droplets from
                                     person to person. Unfortunately, the virus has not yet been eradicated.
                                 </p>
-                                <a href="account" class="btn btn-secondary">Explore</a>
+                                {{-- <a href="account" class="btn btn-secondary">Explore</a> --}}
                             </div>
                         </div>
                     </div>
@@ -214,7 +214,7 @@
                                     have been exposed. The most effective method of preventing rapid Covid-19 disease
                                     transmission. Your participation will improve the efficiency of contact tracing.
                                 </p>
-                                <a href="account" class="btn btn-secondary">Explore</a>
+                                {{-- <a href="account" class="btn btn-secondary">Explore</a> --}}
                             </div>
                         </div>
                     </div>
