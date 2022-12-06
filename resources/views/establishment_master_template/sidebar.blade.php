@@ -67,7 +67,12 @@
                         </li>
                     </ul>
                 </li>
-                
+                <li class="{{ Request::is('establishment/qrscanner') ? 'active' : '' }}">
+                    <a href="/allinonect/public/establishment/qrscanner">
+                        <i class="material-icons">qr_code_scanner</i>
+                        <span>QR Code Scanner</span>
+                    </a>
+                </li>
             </ul>
         </div>
         <!-- #Menu -->

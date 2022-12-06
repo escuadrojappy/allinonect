@@ -1,5 +1,5 @@
-var apiUrl = 'http://192.168.100.28/allinonect/public/api/'
-var webUrl = 'http://192.168.100.28/allinonect/public/'
+var apiUrl = 'http://localhost/allinonect/public/api/'
+var webUrl = 'http://localhost/allinonect/public/'
 
 /*
 |--------------------------------------------------------------------------
