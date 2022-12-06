@@ -161,7 +161,7 @@
 
                 <div class="row">
                     <div class="col-lg-4 col-md-12 mb-4">
-                        <div class="card">
+                        <div class="card ">
                             <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
                                 <img src="images/2.png" class="img-fluid" />
                                 <a href="#!">
