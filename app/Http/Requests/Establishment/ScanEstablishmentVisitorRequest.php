@@ -5,7 +5,7 @@ namespace App\Http\Requests\Establishment;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateEstablishmentRequest extends FormRequest
+class ScanEstablishmentVisitorRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -14,7 +14,7 @@ class UpdateEstablishmentRequest extends FormRequest
      */
     public function authorize()
     {
-        return Gate::authorize('is_admin_or_establishment', $this->instance());
+        return Gate::authorize('is_establishment');
     }
 
     /**
@@ -25,9 +25,8 @@ class UpdateEstablishmentRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => ['required', 'max:255'],
-            'address' => ['required', 'max:255'],
-            'contact_number' => ['required', 'numeric', 'digits:11'],
+            'establishment_id' => ['required', 'numeric', 'exists:App\Models\Establishment,id'],
+            'qrcode_result' => ['required', 'json'],
         ];
     }
 }

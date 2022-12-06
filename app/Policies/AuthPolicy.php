@@ -45,9 +45,22 @@ class AuthPolicy
      *
      * @return bool
      */
-    public function isAdminOrEstablishment($user)
+    public function isAdminOrEstablishment($user, $request)
     {
-        return Arr::get($user, 'role_id') == config('models.roles.admin') || Arr::get($user, 'role_id') == config('models.roles.establishment');
+        if (!Arr::get($user, 'role_id') == config('models.roles.admin')) return false;
+
+        if (Arr::get($user, 'role_id') == config('models.roles.establishment')) {
+            return !(Arr::get($request, 'id') != Arr::get($user, 'id'));
+        }
     }
-    
+
+    /**
+     * Is Establishment Policy.
+     *
+     * @return bool
+     */
+    public function isEstablishment($user)
+    {
+        return Arr::get($user, 'role_id') == config('models.roles.establishment');
+    }
 }

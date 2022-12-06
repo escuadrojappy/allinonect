@@ -13,16 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('visitors', function (Blueprint $table) {
+        Schema::create('visitor_health_statuses', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('user_id');
-            $table->string('first_name');
-            $table->string('middle_name');
-            $table->string('last_name');
-            $table->date('birthdate');
-            $table->string('place_of_birth');
-            $table->string('contact_number')->nullable();
-            $table->string('philsys_card_number');
+            $table->string('visitor_id');
+            $table->tinyInteger('covid_result');
+            $table->datetime('birthdate');
+            $table->text('remarks');
             $table->timestamps();
             $table->softDeletes();
         });
@@ -35,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('visitors');
+        Schema::dropIfExists('visitor_health_statuses');
     }
 };
