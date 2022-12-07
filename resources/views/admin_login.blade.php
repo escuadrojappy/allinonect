@@ -9,7 +9,7 @@
 	<style>
 		
 	</style>
-	<header>
+	{{-- <header>
       <img src="{{ asset('images/logo.png')}}" alt="" id= "logo" >
       <div class="menu-btn"></div>
       <div class="navigation">
@@ -20,7 +20,7 @@
           <a href="/allinonect/public/contact">Contact Us</a>
         </div>
       </div>
-    </header>
+    </header> --}}
 
 	<div class="bg-login">
 		<div class="main">

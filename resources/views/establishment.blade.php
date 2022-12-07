@@ -4,7 +4,7 @@
     <link rel="stylesheet" href="{{ asset('/css/libraries/jquery-confirm.min.css') }}">
     <script src="{{ asset('/js/common.js') }}"></script>
 
-    <header>
+    {{-- <header>
       <img src="{{ asset('images/logo.png')}}" alt="" id= "logo" >
       <div class="menu-btn"></div>
       <div class="navigation">
@@ -15,7 +15,7 @@
           <a href="/allinonect/public/contact">Contact Us</a>
         </div>
       </div>
-    </header>
+    </header> --}}
 	
 	<link rel="stylesheet" href="{{ asset('css/style.css') }}">
 	<link rel="stylesheet" href="{{ asset('css/doh.css') }}">
@@ -32,7 +32,7 @@
 					<form id="login-form">
 						<img src=" {{ asset('images/Establishment.png') }}" alt="" class="logoestablishment">
 						<label>Establishment</label>
-						<p>Business Premises</p>
+						<p>Cabanatuan City</p>
 						<input type="email" name="email" placeholder="Email" required>
 						<input type="password" name="password" placeholder="Password" required>
 						<button type="submit" class="btn">
