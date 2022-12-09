@@ -14,7 +14,7 @@ class UpdateEstablishmentRequest extends FormRequest
      */
     public function authorize()
     {
-        return Gate::authorize('is_admin_or_establishment');
+        return Gate::authorize('is_admin_or_establishment', $this->instance());
     }
 
     /**

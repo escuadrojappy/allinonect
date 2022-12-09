@@ -9,6 +9,7 @@ use App\Http\Requests\Search\AdminSearchRequest;
 use App\Http\Requests\Establishment\{
     DestroyEstablishmentRequest,
     UpdateEstablishmentRequest,
+    ScanEstablishmentVisitorRequest,
 };
 
 class EstablishmentController extends Controller
@@ -51,6 +52,17 @@ class EstablishmentController extends Controller
     public function update($id, UpdateEstablishmentRequest $request)
     {
         return $this->establishmentService->update($id, $request->validated());
+    }
+
+    /**
+     * Scan Visitor.
+     *
+     * @param \App\Http\Requests\Establishment\ScanEstablishmentVisitorRequest @request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function scan(ScanEstablishmentVisitorRequest $request)
+    {
+        return $this->establishmentService->scan($request->validated());
     }
 
     /**
