@@ -140,7 +140,6 @@
         e.preventDefault()
         if (qrr.checkCode) {
           apiScanner(qrr.checkCode.data).then((result) => {
-            console.log(result)
             // 
           }).catch((error) => {
             console.log(error)

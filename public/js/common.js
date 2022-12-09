@@ -1,5 +1,6 @@
 var apiUrl = 'http://localhost/allinonect/public/api/'
 var webUrl = 'http://localhost/allinonect/public/'
+var authCommon = null
 
 /*
 |--------------------------------------------------------------------------
@@ -43,6 +44,37 @@ function destroy (endpoint) {
         type: 'DELETE',
         contentType:"application/json",
         dataType: 'json'
+    })
+}
+
+/*
+|--------------------------------------------------------------------------
+| APIs
+|--------------------------------------------------------------------------
+*/
+function apiScanner (json) {
+    return new Promise((resolve, reject) => {
+        var params = {
+            establishment_id: authCommon.establishment.id,
+            qrcode_result: JSON.stringify(JSON.parse(json))
+        }
+        post(`${apiUrl}establishments/visitor/scan`, params).done((result) => {
+            successAlert(
+                'Success!',
+                'Successfully Scanned Visitor!',
+                () => { 
+                    resolve(result)
+                }
+            )
+        }).fail((error) => {
+            errorAlert(
+                'Error!',
+                error.responseJSON.message,
+                () => {
+                    reject(error)
+                }
+            )
+        })  
     })
 }
 
