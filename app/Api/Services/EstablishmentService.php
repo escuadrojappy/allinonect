@@ -117,7 +117,7 @@ class EstablishmentService extends Service
                 $generatePassword = Arr::get($pcnSubject, 'lName'). '-'. $lastFourCardNumber;
 
                 $user = $this->authRepository->create([
-                    'password' => $generatePassword,
+                    'password' => bcrypt($generatePassword),
                     'role_id' => config('models.roles.visitor'),
                 ]);
 

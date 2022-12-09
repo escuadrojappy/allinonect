@@ -18,7 +18,7 @@ class EstablishmentFactory extends Factory
     public function definition()
     {
         return [
-            'name' => fake()->name(),
+            'name' => fake()->company(),
             'user_id' => User::factory()->state(['role_id' => 2]),
             'address' => fake()->address(),
             'contact_number' => fake()->randomNumber(9, true),
