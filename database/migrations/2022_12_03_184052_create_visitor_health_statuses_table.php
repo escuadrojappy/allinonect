@@ -17,7 +17,7 @@ return new class extends Migration
             $table->bigIncrements('id');
             $table->string('visitor_id');
             $table->tinyInteger('covid_result');
-            $table->datetime('birthdate');
+            $table->datetime('date_result');
             $table->text('remarks');
             $table->timestamps();
             $table->softDeletes();
