@@ -6,9 +6,17 @@
 	<link rel="stylesheet" href="{{ asset('css/doh.css') }}">
 	<link rel="stylesheet" href="{{ asset('css/style.css') }}">
 	<link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
+
 	<style>
-		
+		a {
+	text-decoration: none;
+	display: inline-block;
+	color:white; }
+	
+  a:hover {
+	color: #b8b537;}
 	</style>
+
 	{{-- <header>
       <img src="{{ asset('images/logo.png')}}" alt="" id= "logo" >
       <div class="menu-btn"></div>
@@ -24,6 +32,7 @@
 
 	<div class="bg-login">
 		<div class="main">
+			<a href="#" style="font-size:26px;" onclick="history.back()" class="fa">&#xf191;</a>
 			<input type="checkbox" id="chk" aria-hidden="true">
 			<div class="signup">
 				<form id="login-form">
