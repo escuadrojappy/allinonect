@@ -18,6 +18,18 @@
       </div>
     </header> --}}
 	
+	<style>
+a {
+	text-decoration: none;
+	display: inline-block;
+	color:white;
+  }
+  
+  a:hover {
+	color: #b8b537;
+  }
+</style>
+
 	<link rel="stylesheet" href="{{ asset('css/style.css') }}">
 	<link rel="stylesheet" href="{{ asset('css/doh.css') }}">
 	<link rel="stylesheet" href="{{ asset('/css/libraries/jquery-confirm.min.css') }}">
@@ -28,6 +40,7 @@
 
 		<div class="bg-login">
 			<div class="main">
+			<a href="#" style="font-size:26px;" onclick="history.back()" class="fa">&#xf191;</a>
 				<input type="checkbox" id="chk" aria-hidden="true">
 				<div class="signup">
 					<form id="login-form">
@@ -45,6 +58,7 @@
 		</div>
 
 	{{-- <div class="main">
+		
 		<input type="checkbox" id="chk" aria-hidden="true">
 
 			<div class="signup">
