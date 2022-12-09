@@ -137,3 +137,11 @@ button:hover{
 	transform: scale(.6);
 
 }
+
+a {
+	text-decoration: none;
+	display: inline-block;
+	color:white; }
+	
+  a:hover {
+	color: #b8b537;}
