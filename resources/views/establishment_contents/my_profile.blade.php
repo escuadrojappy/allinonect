@@ -1,6 +1,6 @@
 @extends('establishment_master_template.master')
 @section('content')
-    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="card">
             <div class="header bg-indigo">
                 <h2>
@@ -37,4 +37,9 @@
             </div>
         </div>
     </div>
+
+
+
+
+
 @endsection

@@ -1,4 +1,6 @@
 var apiUrl = 'http://localhost/allinonect/public/api/'
+var webUrl = 'http://localhost/allinonect/public/'
+var authCommon = null
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +15,66 @@ function post (endpoint, params) {
         data: JSON.stringify(params),
         contentType:"application/json",
         dataType: 'json'
+    })
+}
+
+function get (endpoint) {
+    return $.ajax({
+        url: endpoint,
+        type: 'GET',
+        contentType:"application/json",
+        dataType: 'json'
+    })
+}
+
+
+function put (endpoint, params) {
+    return $.ajax({
+        url: endpoint,
+        type: 'PUT',
+        data: JSON.stringify(params),
+        contentType:"application/json",
+        dataType: 'json'
+    })
+}
+
+function destroy (endpoint) {
+    return $.ajax({
+        url: endpoint,
+        type: 'DELETE',
+        contentType:"application/json",
+        dataType: 'json'
+    })
+}
+
+/*
+|--------------------------------------------------------------------------
+| APIs
+|--------------------------------------------------------------------------
+*/
+function apiScanner (json) {
+    return new Promise((resolve, reject) => {
+        var params = {
+            establishment_id: authCommon.establishment.id,
+            qrcode_result: JSON.stringify(JSON.parse(json))
+        }
+        post(`${apiUrl}establishments/visitor/scan`, params).done((result) => {
+            successAlert(
+                'Success!',
+                'Successfully Scanned Visitor!',
+                () => { 
+                    resolve(result)
+                }
+            )
+        }).fail((error) => {
+            errorAlert(
+                'Error!',
+                error.responseJSON.message,
+                () => {
+                    reject(error)
+                }
+            )
+        })  
     })
 }
 
@@ -54,6 +116,26 @@ function errorAlert (title, content, action=null) {
     })
 }
 
+function confirmAlert (title, content, action) {
+    $.confirm({
+        title,
+        content,
+        buttons: {
+            yes: {
+                text: 'Yes',
+                btnClass: 'btn-green',
+                keys: ['enter'],
+                action
+            },
+            no: {
+                text: 'No',
+                btnClass: 'btn-red',
+                keys: ['esc'],
+            }
+        }
+    });
+}
+
 /*
 |--------------------------------------------------------------------------
 | Form Helpers
@@ -68,8 +150,7 @@ function resetForm (formId) {
 }
 
 function formLoader (formId) {
-    $(`${formId} .modal-footer`).html('')
-    $(`${formId} .modal-footer`).prepend(`
+    $(`${formId} .modal-footer`).html(`
         <div class="preloader pl-size-xs">
             <div class="spinner-layer pl-grey">
                 <div class="circle-clipper left">
@@ -90,8 +171,25 @@ function rollBackButtons (formId) {
     `)
 }
 
+function clearFormFields (formId) {
+    $(`${formId} input, textarea`).each((key, element) => {
+        if ($(element).attr('readonly')) {
+            $(element).prop('readonly', false)
+        }
+        if ($(element).parent().hasClass('focused')) {
+            $(element).parent().removeClass('focused')
+        }
+        $(element).val('')
+    })
+}
+
+/*
+|--------------------------------------------------------------------------
+| Data Table Helpers
+|--------------------------------------------------------------------------
+*/
+
 function initDataTable (element, columns, url) {
-    console.log(...columns)
     $(element).DataTable({
         pagingType: 'full_numbers',
         destroy: true,
@@ -118,11 +216,15 @@ function initDataTable (element, columns, url) {
             {
                 orderable: false,
                 render: function (data, type, row, meta) {
+                    var attributes = ''
+                    $.each(row, (key, value) => {
+                        attributes += `${key}="${value}" `
+                    })
                     return `
-                        <button type="button" class="btn btn-success waves-effect" id="${row.id}">
+                        <button type="button" class="btn btn-success waves-effect edit" ${attributes}>
                             <i class="material-icons">mode_edit</i>
                         </button>
-                        <button type="button" class="btn btn-danger waves-effect" id="${row.id}">
+                        <button type="button" class="btn btn-danger waves-effect delete" ${attributes}>
                             <i class="material-icons">delete</i>
                         </button>
                     `

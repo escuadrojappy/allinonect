@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('last_name');
             $table->date('birthdate');
             $table->string('place_of_birth');
-            $table->string('contact_number');
+            $table->string('contact_number')->nullable();
             $table->string('philsys_card_number');
             $table->timestamps();
             $table->softDeletes();

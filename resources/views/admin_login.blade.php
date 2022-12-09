@@ -6,10 +6,18 @@
 	<link rel="stylesheet" href="{{ asset('css/doh.css') }}">
 	<link rel="stylesheet" href="{{ asset('css/style.css') }}">
 	<link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
+
 	<style>
-		
+		a {
+	text-decoration: none;
+	display: inline-block;
+	color:white; }
+	
+  a:hover {
+	color: #b8b537;}
 	</style>
-	<header>
+
+	{{-- <header>
       <img src="{{ asset('images/logo.png')}}" alt="" id= "logo" >
       <div class="menu-btn"></div>
       <div class="navigation">
@@ -20,10 +28,11 @@
           <a href="/allinonect/public/contact">Contact Us</a>
         </div>
       </div>
-    </header>
+    </header> --}}
 
 	<div class="bg-login">
 		<div class="main">
+			<a href="#" style="font-size:26px;" onclick="history.back()" class="fa">&#xf191;</a>
 			<input type="checkbox" id="chk" aria-hidden="true">
 			<div class="signup">
 				<form id="login-form">
@@ -51,39 +60,25 @@
 					params[name] = value
 				})
 
-				$.post(`${apiUrl}auth/login`, params).done((result) => {
-					console.log(result)
-					location.href = '/allinonect/public/admin/dashboard'
+				post(`${apiUrl}auth/login`, params).done(({ user }) => {
+					if (user.role_id !== 1) {
+						errorAlert(
+							'Encountered an error!',
+							'Unauthorized User',
+							() => {
+								get(`${apiUrl}auth/logout`).done(() => {
+									location.href = webUrl + 'login/admin'
+								})
+							}
+						)
+					} else {
+						location.href = webUrl + 'admin/dashboard'
+					}
 				}).fail((error) => {
 					if (error.status == 401) {
-						$.confirm({
-							title: 'Encountered an error!',
-							content: 'Please match your registered email address and password.',
-							type: 'red',
-							typeAnimated: true,
-							buttons: {
-								tryAgain: {
-									text: 'Try again!',
-									btnClass: 'btn-red',
-									action: function(){
-									}
-								},
-								close: function () {
-								}
-							}
-						});
-						// $.alert({
-						// 	title: error.responseJSON.message,
-						// 	content: 'Please match your registered email address and password.',
-						// 	boxWidth: '300px',
-						// 	useBootstrap: false 
-						// })
+						errorAlert('Encountered an error!', 'Please match your registered email address and password.')
 					}
-					
 				})
-
-
-				// console.log(`${apiUrl}registration`)
 			})
 		})
 	</script>

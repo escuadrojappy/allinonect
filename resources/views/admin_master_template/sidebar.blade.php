@@ -20,7 +20,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="/allinonect/public/login/admin">
+                            <a class="logout">
                                 <i class="material-icons">
                                     input
                                 </i>
@@ -144,3 +144,14 @@
         <!-- #Footer -->
     </aside>
 </section>
+
+<script>
+    $(document).on('click', '.logout', function (e) {
+        e.preventDefault()
+        get(`${apiUrl}auth/logout`).done(() => {
+            location.href = webUrl + 'login/admin'
+        }).fail((error) => {
+            console.log(error)
+        })
+    })
+</script>

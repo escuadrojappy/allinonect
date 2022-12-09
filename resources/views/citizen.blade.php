@@ -5,7 +5,7 @@
   <link rel="stylesheet" href="{{ asset('/css/libraries/jquery-confirm.min.css') }}">
   <script src="{{ asset('/js/common.js') }}"></script>
 
-    <header>
+    {{-- <header>
       <img src="{{ asset('images/logo.png')}}" alt="" id= "logo" >
       <div class="menu-btn"></div>
       <div class="navigation">
@@ -16,8 +16,20 @@
           <a href="/allinonect/public/contact">Contact Us</a>
         </div>
       </div>
-    </header>
+    </header> --}}
 	
+	<style>
+a {
+	text-decoration: none;
+	display: inline-block;
+	color:white;
+  }
+  
+  a:hover {
+	color: #b8b537;
+  }
+</style>
+
 	<link rel="stylesheet" href="{{ asset('css/style.css') }}">
 	<link rel="stylesheet" href="{{ asset('css/doh.css') }}">
 	<link rel="stylesheet" href="{{ asset('/css/libraries/jquery-confirm.min.css') }}">
@@ -28,12 +40,13 @@
 
 		<div class="bg-login">
 			<div class="main">
+			<a href="#" style="font-size:26px;" onclick="history.back()" class="fa">&#xf191;</a>
 				<input type="checkbox" id="chk" aria-hidden="true">
 				<div class="signup">
 					<form id="login-form">
 						<img src=" {{ asset('images/citizen.png') }}" alt="" class="logoestablishment">
-						<label>Citizen</label>
-						<p>Visitor's Sign In</p>
+						<label>Citizens</label>
+						<p>Cabanatuan City</p>
 						<input type="email" name="email" placeholder="Email" required>
 						<input type="password" name="password" placeholder="Password" required>
 						<button type="submit" class="btn">
@@ -45,6 +58,7 @@
 		</div>
 
 	{{-- <div class="main">
+		
 		<input type="checkbox" id="chk" aria-hidden="true">
 
 			<div class="signup">

@@ -3,7 +3,7 @@
         <!-- User Info -->
         <div class="user-info">
             <div class="image">
-                <img src="{{ asset('/dashboard/images/doh-logo.png') }}" width="48" height="48" alt="User" />
+                <img src="{{ asset('/dashboard/images/doh-logo.png') }}" width="48" height="48" alt="User" class="establishment-logo" />
             </div>
             <div class="info-container">
                 <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Name of Establishment</div>
@@ -12,21 +12,32 @@
                     <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
                     <ul class="dropdown-menu pull-right">
                         <li>
-                            <a href="/allinonect/public/establishment/setting">
+                            <a href="/allinonect/public/establishment/my_profile">
                                 <i class="material-icons">
-                                    settings
+                                    person
                                 </i>
-                                Setting
+                                My Profile
                             </a>
                         </li>
+
                         <li>
-                            <a href="/allinonect/public/login/establishment">
+                            <a href="/allinonect/public/establishment/change_password">
+                                <i class="material-icons">
+                                    https
+                                </i>
+                                Change Password
+                            </a>
+                        </li>
+
+                        <li>
+                            <a class="logout">
                                 <i class="material-icons">
                                     input
                                 </i>
                                 Sign Out
                             </a>
                         </li>
+
                     </ul>
                 </div>
             </div>
@@ -56,7 +67,12 @@
                         </li>
                     </ul>
                 </li>
-                
+                <li class="{{ Request::is('establishment/qrscanner') ? 'active' : '' }}">
+                    <a href="/allinonect/public/establishment/qrscanner">
+                        <i class="material-icons">qr_code_scanner</i>
+                        <span>QR Code Scanner</span>
+                    </a>
+                </li>
             </ul>
         </div>
         <!-- #Menu -->
@@ -72,3 +88,14 @@
         <!-- #Footer -->
     </aside>
 </section>
+
+<script>
+    $(document).on('click', '.logout', function (e) {
+        e.preventDefault()
+        get(`${apiUrl}auth/logout`).done(() => {
+            location.href = webUrl + 'login/establishment'
+        }).fail((error) => {
+            console.log(error)
+        })
+    })
+</script>

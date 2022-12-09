@@ -104,4 +104,6 @@ function loadTracking() {
     ga('create', trackingId, 'auto');
     ga('send', 'pageview');
 }
+
+setTimeout(function () { $('.page-loader-wrapper').fadeOut(); }, 50);
 //========================================================================================================

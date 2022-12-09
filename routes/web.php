@@ -45,7 +45,7 @@ Route::get('/login/admin', function () {
     return view('admin_login', ['title' => 'Admin Login']);
 });
 
-Route::get('/citizen', function () {
+Route::get('/login/citizen', function () {
     return view('citizen', ['title' => 'Citizen Login']);
 });
 
@@ -126,10 +126,21 @@ Route::get('/establishment/contacts/contacttracing', function () {
     return view('establishment_contents/contact_tracing', ['title' => 'Contact Tracing']);
 });
 
-Route::get('/establishment/setting', function () {
-    return view('establishment_contents/setting', ['title' => 'Settings']);
+Route::get('/establishment/change_password', function () {
+    return view('establishment_contents/change_password', ['title' => 'Change Password']);
 });
 
 Route::get('/admin/my_profile', function () {
     return view('admin_contents/my_profile', ['title' => 'My Profile']);
+});
+
+Route::get('/citizen/dashboard', function () {
+    return view('visitor_contents/dashboard', ['title' => 'Visitors']);
+});
+Route::get('/establishment/my_profile', function () {
+    return view('establishment_contents/my_profile', ['title' => 'My Profile']);
+});
+
+Route::get('/establishment/qrscanner', function () {
+    return view('establishment_contents/scanner', ['title' => 'Qr Scanner']);
 });
