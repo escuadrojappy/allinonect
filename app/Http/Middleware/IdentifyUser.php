@@ -40,13 +40,13 @@ class IdentifyUser
         
         switch ($roleId) {
             case 1:
-                $request->merge(['admin_id' => Arr::get($auth, 'id')]);
+                $request->merge(['admin_id' => Arr::get($auth, 'admin.id')]);
                 break;
             case 2:
-                $request->merge(['establishment_id' => Arr::get($auth, 'id')]);
+                $request->merge(['establishment_id' => Arr::get($auth, 'establishment.id')]);
                 break;
             case 3:
-                $request->merge(['visitor_id' => Arr::get($auth, 'id')]);
+                $request->merge(['visitor_id' => Arr::get($auth, 'visitor.id')]);
                 break;
         }
 
