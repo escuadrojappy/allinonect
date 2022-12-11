@@ -189,15 +189,55 @@ function clearFormFields (formId) {
 |--------------------------------------------------------------------------
 */
 
-function initDataTable (element, columns, url) {
+function initDataTable (element, columns, url, orderBy = null, action = true, additionalParams = null) {
+    var actionRender = {
+        orderable: false,
+        render: function (data, type, row, meta) {
+            var attributes = ''
+            $.each(row, (key, value) => {
+                attributes += `${key}="${value}" `
+            })
+            if (action) {
+                return `
+                    <button type="button" class="btn btn-success waves-effect edit" ${attributes}>
+                        <i class="material-icons">mode_edit</i>
+                    </button>
+                    <button type="button" class="btn btn-danger waves-effect delete" ${attributes}>
+                        <i class="material-icons">delete</i>
+                    </button>
+                `
+            }
+        },
+    }
     $(element).DataTable({
         pagingType: 'full_numbers',
         destroy: true,
+        order: orderBy,
         responsive: true,
         processing: true,
         serverSide: true,
         search: {
             return: true,
+        },
+        language: {
+            processing: 
+            `
+                <div style="display: flex; align-items: center; justify-content: center;">
+                    <div>
+                        <div class="preloader">
+                            <div class="spinner-layer pl-grey">
+                                <div class="circle-clipper left">
+                                    <div class="circle"></div>
+                                </div>
+                                <div class="circle-clipper right">
+                                    <div class="circle"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <br> Loading...
+                    </div>
+                </div>
+            `
         },
         ajax: {
             url: `${apiUrl}${url}`,
@@ -209,27 +249,30 @@ function initDataTable (element, columns, url) {
                 params.page = (params.start / params.length) + 1
                 params.order = params.order[0]
                 params.search = params.search.value
+                if (additionalParams) {
+                    $.each(additionalParams, (k, v) => {
+                        if (k === 'search') $('.dataTables_filter input[type="search"]').val(v)
+                        if (v != '') params[k] = v
+                    })
+                }
             },
         },
-        columns: [
-            ...columns,
-            {
-                orderable: false,
-                render: function (data, type, row, meta) {
-                    var attributes = ''
-                    $.each(row, (key, value) => {
-                        attributes += `${key}="${value}" `
-                    })
-                    return `
-                        <button type="button" class="btn btn-success waves-effect edit" ${attributes}>
-                            <i class="material-icons">mode_edit</i>
-                        </button>
-                        <button type="button" class="btn btn-danger waves-effect delete" ${attributes}>
-                            <i class="material-icons">delete</i>
-                        </button>
-                    `
-                },
-            }
-        ]
+        columns: action ? [...columns, actionRender] : [...columns]
     })
+}
+
+/*
+|--------------------------------------------------------------------------
+| Date Range Helpers
+|--------------------------------------------------------------------------
+*/
+function dateRangePicker (element) {
+    $(element).daterangepicker({
+        timePicker: true,
+        startDate: moment().startOf('hour'),
+        endDate: moment().startOf('hour').add(32, 'hour'),
+        locale: {
+            format: 'YYYY/MM/DD HH:mm:ss'
+        }
+    });
 }

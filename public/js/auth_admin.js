@@ -8,7 +8,7 @@ function authAdmin () {
     }).then((result) => {
         if (result) location.href = webUrl + 'login/admin'
     }).fail((error) => {
-        location.href = webUrl + 'login/admin'
+        console.log(error)
     })
 }
 

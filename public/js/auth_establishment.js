@@ -9,7 +9,7 @@ function authEstablishment () {
     }).then((result) => {
         if (result) location.href = webUrl + 'login/establishment'
     }).fail((error) => {
-        location.href = webUrl + 'login/establishment'
+        console.log(error)
     })
     
 }
