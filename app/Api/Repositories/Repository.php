@@ -13,6 +13,16 @@ class Repository
     protected $model;
 
     /**
+     * Repository Index Instance.
+     *
+     * @return \Illuminate\Database\Eloquent\Model
+     */
+    public function index()
+    {
+        return $this->model->all();
+    }
+
+    /**
      * Repository Model Instance.
      *
      * @return \Illuminate\Database\Eloquent\Model

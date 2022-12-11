@@ -65,6 +65,18 @@ class EstablishmentService extends Service
     }
 
     /**
+     * Lists of Establishments.
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function index()
+    {
+        $result = $this->establishmentRepository->index();
+
+        return response()->json($result);
+    }
+
+    /**
      * Search Establishment.
      *
      * @param array $request
