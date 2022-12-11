@@ -34,6 +34,7 @@ Route::prefix('establishments')->group(function () {
     Route::middleware(['verify.password', 'identify.user'])->group(function () {
         Route::get('/', 'EstablishmentController@index');
         Route::post('search', 'EstablishmentController@search');
+        Route::post('contact-tracing', 'EstablishmentController@contactTracing');
         Route::put('{id}', 'EstablishmentController@update');
         Route::delete('{id}', 'EstablishmentController@destroy');
 

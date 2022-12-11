@@ -34,7 +34,7 @@ abstract class Service
         $result = $result->toArray();
 
         return [
-            'data' => Arr::get($result, 'data'),
+            'data' => Arr::has($result, 'data') ? Arr::get($result, 'data') : $result,
             'draw' => Arr::get($request, 'draw'),
             'recordsTotal' => Arr::get($result, 'to') ? Arr::get($result, 'to') : 0,
             'recordsFiltered' => Arr::get($result, 'total'),
