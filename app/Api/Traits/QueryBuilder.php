@@ -51,6 +51,7 @@ trait QueryBuilder {
         return $this->selectFields()
             ->joinTables()
             ->searchableFields()
+            ->whereFields()
             ->orderByColumn()
             ->queryResult()
             ->transform();
@@ -101,16 +102,53 @@ trait QueryBuilder {
     {
         $search = Arr::get($this->request, 'search');
 
-        if ($search) {
-            foreach ($this->searchableFields as $key => $field) {
-                $this->query = $this->query->orWhere($field, 'LIKE', '%' . $search . '%');
+        $this->query = $this->query->where(function ($query) use ($search) {
+            if ($search) {
+                foreach ($this->searchableFields as $key => $field) {
+                    $query->orWhere($field, 'LIKE', '%' . $search . '%');
+                }
             }
-        }
 
-        if ($this->hasSoftDelete) {
-            $this->query = $this->query->where(function ($query) {
-                $query->whereNull($this->table. '.deleted_at');
-            });
+            if ($this->hasSoftDelete) {
+                $this->query = $this->query->where(function ($query2) {
+                    $query2->whereNull($this->table. '.deleted_at');
+                });
+            }
+        });
+
+        return $this;
+    }
+
+    /**
+     * Where fields.
+     *
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    protected function whereFields()
+    {
+        if (isset($this->whereFields)) {
+            foreach ($this->request as $key => $param) {
+                if (in_array($key, $this->whereFields)) {
+                    $this->query = $this->query->where(function ($query) use ($key, $param) {
+                        switch ($key) {
+                            case 'date_range':
+                                foreach ($this->dateRangeField as $field) {
+                                    foreach ($param as $value) {
+                                        $this->query = $query->where($field, '>=', Arr::get($value, 'start_date'))
+                                            ->where($field, '<=', Arr::get($value, 'end_date'));
+                                    }
+                                }
+                                break;
+                            default:
+                                $this->query = $query->where($key, $param);
+                                // for testing
+                                // if ($key == 'covid_result') {
+                                //     $this->query = $query->where('covid_result', $param);
+                                // }
+                        }
+                    });
+                }
+            }
         }
 
         return $this;
