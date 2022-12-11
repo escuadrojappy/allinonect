@@ -11,6 +11,7 @@ use App\Http\Requests\Establishment\{
     UpdateEstablishmentRequest,
     ScanEstablishmentVisitorRequest,
     ContactTracingEstablishmentRequest,
+    IndexRequest,
 };
 
 class EstablishmentController extends Controller
@@ -30,6 +31,17 @@ class EstablishmentController extends Controller
     public function __construct(EstablishmentService $establishmentService)
     {
         $this->establishmentService = $establishmentService;
+    }
+
+    /**
+     *  Lists of Establishments.
+     *
+     * @param \App\Http\Requests\Establishment\IndexRequest @request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function index(IndexRequest $request)
+    {
+        return $this->establishmentService->index($request->validated());
     }
 
     /**
