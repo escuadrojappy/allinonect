@@ -43,6 +43,7 @@
     <script>
         var create = true
         var editId = null
+        var orderBy = [[0, 'desc']]
         var columns = [
             { data: 'name', name: 'name' },
             { data: 'address', name: 'address' },
@@ -103,6 +104,6 @@
             )
         })
 
-        initDataTable('.dataTable', columns, 'establishments/search')
+        initDataTable('.dataTable', columns, 'establishments/search', orderBy)
     </script>
 @endsection
