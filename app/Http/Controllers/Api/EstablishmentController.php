@@ -10,6 +10,7 @@ use App\Http\Requests\Establishment\{
     DestroyEstablishmentRequest,
     UpdateEstablishmentRequest,
     ScanEstablishmentVisitorRequest,
+    ContactTracingEstablishmentRequest,
 };
 
 class EstablishmentController extends Controller
@@ -34,7 +35,7 @@ class EstablishmentController extends Controller
     /**
      * Search Establishment.
      *
-     * @param \App\Http\Requests\Search\AdminSearchRequest @request
+     * @param \App\Http\Requests\Search\AdminSearchRequest $request
      * @return \Illuminate\Http\JsonResponse
      */
     public function search(AdminSearchRequest $request)
@@ -46,7 +47,7 @@ class EstablishmentController extends Controller
      * Update Establishment.
      *
      * @param int $id
-     * @param \App\Http\Requests\Establishment\UpdateEstablishmentRequest @request
+     * @param \App\Http\Requests\Establishment\UpdateEstablishmentRequest $request
      * @return \Illuminate\Http\JsonResponse
      */
     public function update($id, UpdateEstablishmentRequest $request)
@@ -57,7 +58,7 @@ class EstablishmentController extends Controller
     /**
      * Scan Visitor.
      *
-     * @param \App\Http\Requests\Establishment\ScanEstablishmentVisitorRequest @request
+     * @param \App\Http\Requests\Establishment\ScanEstablishmentVisitorRequest $request
      * @return \Illuminate\Http\JsonResponse
      */
     public function scan(ScanEstablishmentVisitorRequest $request)
@@ -66,10 +67,21 @@ class EstablishmentController extends Controller
     }
 
     /**
+     * Establishment Contact Tracing.
+     *
+     * @param \App\Http\Requests\Establishment\ContactTracingEstablishmentRequest $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function contactTracing(ContactTracingEstablishmentRequest $request)
+    {
+        return $this->establishmentService->contactTracing($request->validated());
+    }
+
+    /**
      * Destroy Establishment.
      *
      * @param int $id
-     * @param \App\Http\Requests\Establishment\DestroyEstablishmentRequest @request
+     * @param \App\Http\Requests\Establishment\DestroyEstablishmentRequest $request
      * @return \Illuminate\Http\JsonResponse
      */
     public function destroy($id, DestroyEstablishmentRequest $request)

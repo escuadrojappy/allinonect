@@ -7,11 +7,16 @@ use Illuminate\Support\Facades\{
     DB,
     Mail,
 };
+use App\Http\Resources\{
+    ContactTracingResource,
+    ContactTracingResourceCollection,
+};
 use App\Api\Repositories\{
     EstablishmentRepository,
     VisitorRepository,
     AuthRepository,
     ScannedVisitorRepository,
+    EstablishmentContactTracingRepository,
 };
 
 class EstablishmentService extends Service
@@ -38,11 +43,18 @@ class EstablishmentService extends Service
     protected $visitorRepository;
 
     /**
-     * The Auth Repository Instance.
+     * The Scanned Visitor Repository Instance.
      *
      * @var App\Api\Repositories\ScannedVisitorRepository
      */
     protected $scannedVisitorRepository;
+
+    /**
+     * The Contact Tracing Repository Instance.
+     *
+     * @var App\Api\Repositories\EstablishmentContactTracingRepository
+     */
+    protected $establishmentContactTracingRepository;
 
     /**
      * Create repository instance.
@@ -51,17 +63,20 @@ class EstablishmentService extends Service
      * @param App\Api\Repositories\VisitorRepository $visitorRepository
      * @param App\Api\Repositories\AuthRepository $authRepository
      * @param App\Api\Repositories\ScannedVisitorRepository $scannedVisitorRepository
+     * @param App\Api\Repositories\EstablishmentContactTracingRepository $establishmentContactTracingRepository
      */
     public function __construct(
         EstablishmentRepository $establishmentRepository,
         VisitorRepository $visitorRepository,
         AuthRepository $authRepository,
-        ScannedVisitorRepository $scannedVisitorRepository
+        ScannedVisitorRepository $scannedVisitorRepository,
+        EstablishmentContactTracingRepository $establishmentContactTracingRepository
     ) {
         $this->establishmentRepository = $establishmentRepository;
         $this->visitorRepository = $visitorRepository;
         $this->authRepository = $authRepository;
         $this->scannedVisitorRepository = $scannedVisitorRepository;
+        $this->establishmentContactTracingRepository = $establishmentContactTracingRepository;
     }
 
     /**
@@ -149,6 +164,25 @@ class EstablishmentService extends Service
             logger()->error($e->getTraceAsString());
             throw $e;
         }
+    }
+
+    /**
+     * Contact Tracing.
+     *
+     * @param array $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function contactTracing(array $request)
+    {
+        $result = $this->establishmentContactTracingRepository->search($request);
+        
+        $response = $this->dataTableResponse($result, $request);
+
+        $data = new ContactTracingResourceCollection(Arr::get($response, 'data'));
+
+        Arr::set($response, 'data', $data);
+
+        return response()->json($response);
     }
 
      /**
