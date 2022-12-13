@@ -14,7 +14,7 @@ class DestroyEstablishmentRequest extends FormRequest
      */
     public function authorize()
     {
-        return Gate::authorize('is_admin', $this->instance());
+        return Gate::authorize('is_admin');
     }
 
     /**

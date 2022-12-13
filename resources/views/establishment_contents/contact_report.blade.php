@@ -5,10 +5,6 @@
         width: 100%;
         margin-top: 20px;
     }
-
-    .btn-report {
-        margin-top: -5px;
-    }
 </style>
 <div class="container-fluid">
     <div class="row clearfix">
@@ -20,13 +16,10 @@
             <div class="card">
                 <div class="header bg-green">
                     <h2>
-                        Contact Tracing <small>List of all Reports on Visitors</small>
+                    Contact Tracing <small>List of all Reports on Visitors</small>
                     </h2>
                     <ul class="header-dropdown m-r--5">
                         @include('admin_contents.establishment_registration_modal')
-                        <button type="button" class="btn bg-red btn-circle-lg btn-report waves-effect waves-circle waves-float pull-right">
-                            <i class="material-icons">print</i>
-                        </button>
                     </ul>
                 </div>
                 <div class="body">
@@ -120,32 +113,6 @@
         e.preventDefault()
         $('.covid-result').val('').change()
         initDataTable('.dataTable', columns, 'establishments/contact-tracing', orderBy, false)
-    })
-
-    $(document).on('click', '.btn-report', function (e) {
-        e.preventDefault()
-        fetch(`${apiUrl}establishments/contact-tracing/report`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(generateReportParams)
-        }).then(async (result) => {
-            return {
-                filename: result.headers.get('filename'),
-                excel: await result.blob()
-            }
-        }).then(({ filename, excel }) => {
-            const element = document.createElement('a');
-            element.setAttribute('download', filename);
-            const href = URL.createObjectURL(excel);
-            element.href = href;
-            element.setAttribute('target', '_blank');
-            element.click();
-            URL.revokeObjectURL(href);
-        }).catch((error) => {
-            console.log(error)
-        })
     })
 </script>
 @endsection

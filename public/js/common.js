@@ -1,13 +1,6 @@
-/*
-|--------------------------------------------------------------------------
-| Variables
-|--------------------------------------------------------------------------
-*/
-
 var apiUrl = 'http://localhost/allinonect/public/api/'
 var webUrl = 'http://localhost/allinonect/public/'
 var authCommon = null
-var generateReportParams = null
 
 /*
 |--------------------------------------------------------------------------
@@ -262,7 +255,6 @@ function initDataTable (element, columns, url, orderBy = null, action = true, ad
                         if (v != '') params[k] = v
                     })
                 }
-                generateReportParams = params
             },
         },
         columns: action ? [...columns, actionRender] : [...columns]

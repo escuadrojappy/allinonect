@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Requests\Establishment;
+namespace App\Http\Requests;
+
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Http\FormRequest;
 
-class IndexRequest extends FormRequest
+class RegistrationRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,7 +25,11 @@ class IndexRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'email' => ['required', 'email', 'max:255', 'unique:App\Models\User,email'],
+            'role_id' => ['required', 'numeric', 'in:2'],
+            'name' => ['required', 'max:255'],
+            'address' => ['required', 'max:255'],
+            'contact_number' => ['required', 'numeric', 'digits:11'],
         ];
     }
 }
