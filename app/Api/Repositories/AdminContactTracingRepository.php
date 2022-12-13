@@ -6,7 +6,7 @@ use App\Models\ViewContactTracing;
 use App\Api\Traits\QueryBuilder;
 use Illuminate\Support\Arr;
 
-class EstablishmentContactTracingRepository extends Repository
+class AdminContactTracingRepository extends Repository
 {
     use QueryBuilder;
 
@@ -34,7 +34,6 @@ class EstablishmentContactTracingRepository extends Repository
      */
     protected $whereFields = [
         'date_range',
-        'establishment_id',
         'covid_result',
     ];
 
