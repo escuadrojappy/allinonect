@@ -23,7 +23,6 @@
                         Contact Tracing <small>List of all Reports on Visitors</small>
                     </h2>
                     <ul class="header-dropdown m-r--5">
-                        @include('admin_contents.establishment_registration_modal')
                         <button type="button" class="btn bg-red btn-circle-lg btn-report waves-effect waves-circle waves-float pull-right">
                             <i class="material-icons">print</i>
                         </button>
@@ -65,7 +64,6 @@
                                     <th>PCN</th>
                                     <th>Entrance Timestamp</th>
                                     <th>COVID-19 Status</th>
-                                    {{-- <th style="width: 10%">Actions</th> --}}
                                 </tr>
                             </thead>
                         </table>
