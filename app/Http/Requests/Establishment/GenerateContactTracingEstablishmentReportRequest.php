@@ -5,7 +5,7 @@ namespace App\Http\Requests\Establishment;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Http\FormRequest;
 
-class GenerateContactTracingReportRequest extends FormRequest
+class GenerateContactTracingEstablishmentReportRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.

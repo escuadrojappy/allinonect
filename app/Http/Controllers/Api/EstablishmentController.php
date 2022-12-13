@@ -11,7 +11,7 @@ use App\Http\Requests\Establishment\{
     UpdateEstablishmentRequest,
     ScanEstablishmentVisitorRequest,
     ContactTracingEstablishmentRequest,
-    GenerateContactTracingReportRequest,
+    GenerateContactTracingEstablishmentReportRequest,
     IndexRequest,
 };
 
@@ -93,10 +93,10 @@ class EstablishmentController extends Controller
     /**
      * Generate Report Contact Tracing.
      *
-     * @param \App\Http\Requests\Establishment\GenerateContactTracingReportRequest $request
+     * @param \App\Http\Requests\Establishment\GenerateContactTracingEstablishmentReportRequest $request
      * @return \Illuminate\Http\JsonResponse
      */
-    public function generateContactTracingReport(GenerateContactTracingReportRequest $request)
+    public function generateContactTracingReport(GenerateContactTracingEstablishmentReportRequest $request)
     {
         return $this->establishmentService->generateContactTracingReport($request->validated());
     }
