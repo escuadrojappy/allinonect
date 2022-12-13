@@ -35,6 +35,8 @@ Route::prefix('establishments')->group(function () {
         Route::get('/', 'EstablishmentController@index');
         Route::post('search', 'EstablishmentController@search');
         Route::post('contact-tracing', 'EstablishmentController@contactTracing');
+        Route::post('contact-tracing/report', 'EstablishmentController@generateContactTracingReport');
+        Route::get('contact-tracing/report', 'EstablishmentController@generateContactTracingReport')->name('establishment.contact-tracing');
         Route::put('{id}', 'EstablishmentController@update');
         Route::delete('{id}', 'EstablishmentController@destroy');
 
@@ -49,4 +51,5 @@ Route::prefix('admin')->group(function () {
         Route::post('contact-tracing', 'AdminController@contactTracing');
     });
 });
+
 Route::apiResource('contact', 'ContactController');
