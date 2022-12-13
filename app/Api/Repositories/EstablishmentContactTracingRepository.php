@@ -23,6 +23,7 @@ class EstablishmentContactTracingRepository extends Repository
         'visitor_philsys_card_number',
         'entrance_timestamp',
         'visitor_contact_number',
+        'establishment_name',
         'covid_result',
     ];
 

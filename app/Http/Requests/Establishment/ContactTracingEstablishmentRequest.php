@@ -4,8 +4,6 @@ namespace App\Http\Requests\Establishment;
 
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Http\FormRequest;
-use App\Rules\DateRangeRule;
-
 class ContactTracingEstablishmentRequest extends FormRequest
 {
     /**
@@ -15,7 +13,7 @@ class ContactTracingEstablishmentRequest extends FormRequest
      */
     public function authorize()
     {
-        return Gate::authorize('is_establishment', $this->instance());
+        return Gate::authorize('is_establishment');
     }
 
     /**

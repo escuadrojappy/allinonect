@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Establishment;
-use Illuminate\Support\Facades\Gate;
+namespace App\Http\Requests;
+
 use Illuminate\Foundation\Http\FormRequest;
 
-class IndexRequest extends FormRequest
+class LoginRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,7 +13,7 @@ class IndexRequest extends FormRequest
      */
     public function authorize()
     {
-        return Gate::authorize('is_admin');
+        return true;
     }
 
     /**
@@ -24,7 +24,8 @@ class IndexRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'email' => ['required', 'email', 'max:255'],
+            'password' => ['required', 'string', 'max:255'],
         ];
     }
 }

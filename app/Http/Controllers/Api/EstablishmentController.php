@@ -5,13 +5,14 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Api\Services\EstablishmentService;
+use App\Http\Requests\ContactTracingDOHRequest as RequestsContactTracingDOHRequest;
 use App\Http\Requests\Search\AdminSearchRequest;
 use App\Http\Requests\Establishment\{
     DestroyEstablishmentRequest,
     UpdateEstablishmentRequest,
     ScanEstablishmentVisitorRequest,
     ContactTracingEstablishmentRequest,
-    GenerateContactTracingReportRequest,
+    ContactTracingDOHRequest,
     IndexRequest,
 };
 
@@ -88,17 +89,6 @@ class EstablishmentController extends Controller
     public function contactTracing(ContactTracingEstablishmentRequest $request)
     {
         return $this->establishmentService->contactTracing($request->validated());
-    }
-
-    /**
-     * Generate Report Contact Tracing.
-     *
-     * @param \App\Http\Requests\Establishment\GenerateContactTracingReportRequest $request
-     * @return \Illuminate\Http\JsonResponse
-     */
-    public function generateContactTracingReport(GenerateContactTracingReportRequest $request)
-    {
-        return $this->establishmentService->generateContactTracingReport($request->validated());
     }
 
     /**
