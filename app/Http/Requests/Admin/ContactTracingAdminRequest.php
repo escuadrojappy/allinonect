@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Establishment;
-
+namespace App\Http\Requests\Admin;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Http\FormRequest;
-class ContactTracingEstablishmentRequest extends FormRequest
+
+class ContactTracingAdminRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,9 +13,10 @@ class ContactTracingEstablishmentRequest extends FormRequest
      */
     public function authorize()
     {
-        return Gate::authorize('is_establishment');
+        return Gate::authorize('is_admin');
     }
 
+    
     /**
      * Get the validation rules that apply to the request.
      *
@@ -68,11 +69,6 @@ class ContactTracingEstablishmentRequest extends FormRequest
             'date_range.*.end_date' => [
                 'date',
                 'after:date_range.*.start_date'
-            ],
-            'establishment_id' => [
-                'required',
-                'numeric',
-                'exists:App\Models\Establishment,id',
             ],
         ];
     }
