@@ -5,12 +5,14 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Api\Services\EstablishmentService;
+use App\Http\Requests\ContactTracingDOHRequest as RequestsContactTracingDOHRequest;
 use App\Http\Requests\Search\AdminSearchRequest;
 use App\Http\Requests\Establishment\{
     DestroyEstablishmentRequest,
     UpdateEstablishmentRequest,
     ScanEstablishmentVisitorRequest,
     ContactTracingEstablishmentRequest,
+    ContactTracingDOHRequest,
     IndexRequest,
 };
 
