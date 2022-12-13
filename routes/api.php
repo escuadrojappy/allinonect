@@ -45,4 +45,11 @@ Route::prefix('establishments')->group(function () {
         });
     });
 });
+
+Route::prefix('admin')->group(function () {
+    Route::middleware(['verify.password', 'identify.user'])->group(function () {
+        Route::post('contact-tracing', 'AdminController@contactTracing');
+    });
+});
+
 Route::apiResource('contact', 'ContactController');
