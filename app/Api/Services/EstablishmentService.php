@@ -6,6 +6,7 @@ use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\{
     DB,
     Mail,
+    Storage,
 };
 use App\Http\Resources\{
     ContactTracingResource,
@@ -18,6 +19,8 @@ use App\Api\Repositories\{
     ScannedVisitorRepository,
     EstablishmentContactTracingRepository,
 };
+use App\Exports\EstablishmentContactTracingExport;
+use Excel;
 
 class EstablishmentService extends Service
 {
@@ -195,6 +198,28 @@ class EstablishmentService extends Service
         Arr::set($response, 'data', $data);
 
         return response()->json($response);
+    }
+
+    /**
+     * Generate Report Contact Tracing.
+     *
+     * @param array $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function generateContactTracingReport(array $request)
+    {
+        $result = $this->establishmentContactTracingRepository->search($request);
+
+        $xlsxName = str_replace(' ', '-', Arr::get(auth()->user(), 'establishment.name')). '-contact-report-'. date('Y-m-d-H-i-s'). '.xlsx';
+
+        Excel::store(new EstablishmentContactTracingExport($result), sprintf('%s/%s', 'contact-tracing', $xlsxName));
+
+        $filePath = sprintf('%s\%s\%s', config('filesystems.disks.local.root'), 'contact-tracing', $xlsxName);
+
+        return response()->download($filePath, $xlsxName, [
+            'Content-type' => 'application/vnd.ms-excel',
+            'filename' => $xlsxName
+        ]);
     }
 
      /**

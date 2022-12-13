@@ -13,7 +13,7 @@ class IndexRequest extends FormRequest
      */
     public function authorize()
     {
-        return Gate::authorize('is_admin');
+        return Gate::authorize('is_admin', $this->instance());
     }
 
     /**
