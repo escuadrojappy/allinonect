@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Establishment;
 
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Http\FormRequest;
 
-class AdminSearchRequest extends FormRequest
+class GenerateContactTracingReportRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -14,7 +14,7 @@ class AdminSearchRequest extends FormRequest
      */
     public function authorize()
     {
-        return Gate::authorize('is_admin');
+        return Gate::authorize('is_establishment', $this->instance());
     }
 
     /**
@@ -25,16 +25,6 @@ class AdminSearchRequest extends FormRequest
     public function rules()
     {
         return [
-            'page' => [
-                'numeric',
-                'min:1'
-            ],
-            'per_page' => [
-                'required_with:page',
-                'numeric',
-                'min:5',
-                'max:100'
-            ],
             'order' => [
                 'required',
                 'array'
@@ -51,10 +41,24 @@ class AdminSearchRequest extends FormRequest
                 'nullable',
                 'string',
             ],
-            'draw' => [
+            'covid_result' => [
+                'nullable',
+                'boolean'
+            ],
+            'date_range' => [
+                'array'
+            ],
+            'date_range.*.start_date' => [
+                'date',
+            ],
+            'date_range.*.end_date' => [
+                'date',
+                'after:date_range.*.start_date'
+            ],
+            'establishment_id' => [
                 'required',
-                'min:1',
                 'numeric',
+                'exists:App\Models\Establishment,id',
             ],
         ];
     }

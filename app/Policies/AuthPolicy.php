@@ -35,9 +35,11 @@ class AuthPolicy
      *
      * @return bool
      */
-    public function isAdmin($user)
+    public function isAdmin($user, $request)
     {
-        return Arr::get($user, 'role_id') == config('models.roles.admin');
+        $admin = Arr::get($user, 'admin');
+
+        return Arr::get($user, 'role_id') == config('models.roles.admin') && Arr::get($admin, 'id') == Arr::get($request, 'admin_id');
     }
 
     /**
@@ -59,8 +61,10 @@ class AuthPolicy
      *
      * @return bool
      */
-    public function isEstablishment($user)
+    public function isEstablishment($user, $request)
     {
-        return Arr::get($user, 'role_id') == config('models.roles.establishment');
+        $establishment = Arr::get($user, 'establishment');
+
+        return Arr::get($user, 'role_id') == config('models.roles.establishment') && Arr::get($establishment, 'id') == Arr::get($request, 'establishment_id');
     }
 }

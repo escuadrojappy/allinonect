@@ -14,7 +14,7 @@ class ScanEstablishmentVisitorRequest extends FormRequest
      */
     public function authorize()
     {
-        return Gate::authorize('is_establishment');
+        return Gate::authorize('is_establishment', $this->instance());
     }
 
     /**
