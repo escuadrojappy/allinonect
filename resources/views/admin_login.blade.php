@@ -32,7 +32,7 @@
 
 	<div class="bg-login">
 		<div class="main">
-			<a href="#" style="font-size:26px;" onclick="history.back()" class="fa">&#xf191;</a>
+			<a href="/allinonect/public/account" style="font-size:26px;"  class="fa">&#xf191;</a>
 			<input type="checkbox" id="chk" aria-hidden="true">
 			<div class="signup">
 				<form id="login-form">
