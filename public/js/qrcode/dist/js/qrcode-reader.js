@@ -73,7 +73,6 @@
 
       // load the script performing the actual QRCode reading
       $.getScript( $.qrCodeReader.jsQRpath, function( data, textStatus, jqxhr ) {
-        alert(jqxhr.status)
         if ( jqxhr.status == 200) {
           qrr.scriptLoaded = true;
         } else {
@@ -245,6 +244,7 @@
 
       if (qrr.scriptLoaded) {
         // start the business
+        alert()
         qrr.start();
       }
 
