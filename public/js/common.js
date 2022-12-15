@@ -6,6 +6,12 @@
 
 var apiUrl = 'http://localhost/allinonect/public/api/'
 var webUrl = 'http://localhost/allinonect/public/'
+
+if (window.location.origin.indexOf('aioctracing')) {
+    var apiUrl = 'https://aioctracing.com/'
+    var webUrl = 'http://aioctracing.com/'
+}
+
 var authCommon = null
 var generateReportParams = null
 
@@ -22,6 +28,7 @@ function post (endpoint, params) {
         data: JSON.stringify(params),
         contentType:"application/json",
         dataType: 'json'
+
     })
 }
 
