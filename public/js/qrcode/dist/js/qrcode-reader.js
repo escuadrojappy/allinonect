@@ -138,6 +138,7 @@
 
       $(document).on('click', '#qr-code-submit', function (e) {
         e.preventDefault()
+        console.log(qr.start())
         if (qrr.checkCode) {
           apiScanner(qrr.checkCode.data).then((result) => {
             // 
