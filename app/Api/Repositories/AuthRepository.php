@@ -110,7 +110,7 @@ class AuthRepository extends Repository
         ];
 
         $response = Http::asForm()->post($url, $params);
-        dd($response);
+        dd($response, $params);
         $this->apiResponseHandler->check($response);
 
         $token = json_decode($response->body(), true);
