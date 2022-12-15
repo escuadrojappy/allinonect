@@ -49,6 +49,7 @@ class Handler extends ExceptionHandler
         });
 
         $this->renderable(function (Throwable  $e, $request) {
+            dd ($se);
             $statusCode = 500;
             $messageError = $e->getMessage();
 
