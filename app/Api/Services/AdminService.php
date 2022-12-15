@@ -14,6 +14,8 @@ use App\Http\Resources\{
 use App\Api\Repositories\{
     AdminContactTracingRepository
 };
+use App\Exports\AdminContactTracingExport;
+use Excel;
 
 class AdminService extends Service {
     /**
@@ -52,5 +54,28 @@ class AdminService extends Service {
         Arr::set($response, 'data', $data);
 
         return response()->json($response);
+    }
+
+
+     /**
+     * Generate Report Contact Tracing.
+     *
+     * @param array $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function generateContactTracingReport(array $request)
+    {
+        $result = $this->adminContactTracingRepository->search($request);
+
+        $xlsxName = str_replace(' ', '-', Arr::get(auth()->user(), 'admin.name')). '-contact-report-'. date('Y-m-d-H-i-s'). '.xlsx';
+        // dd($result->toArray());
+        Excel::store(new AdminContactTracingExport($result), sprintf('%s/%s', 'contact-tracing', $xlsxName));
+
+        $filePath = sprintf('%s\%s\%s', config('filesystems.disks.local.root'), 'contact-tracing', $xlsxName);
+
+        return response()->download($filePath, $xlsxName, [
+            'Content-type' => 'application/vnd.ms-excel',
+            'filename' => $xlsxName
+        ]);
     }
 }

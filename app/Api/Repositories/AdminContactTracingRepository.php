@@ -35,6 +35,7 @@ class AdminContactTracingRepository extends Repository
     protected $whereFields = [
         'date_range',
         'covid_result',
+        'establishment_id',
     ];
 
     /**

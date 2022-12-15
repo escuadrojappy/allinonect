@@ -85,11 +85,22 @@ class EstablishmentService extends Service
     /**
      * Lists of Establishments.
      *
+     * @param array $search
      * @return \Illuminate\Http\JsonResponse
      */
-    public function index()
+    public function index(array $search)
     {
-        $result = $this->establishmentRepository->index();
+        $term = Arr::get($search, 'term');
+
+        if ($term) {
+            $result = $this->establishmentRepository->search(
+                [
+                    'search' => $term
+                ]
+            );
+        } else {
+            $result = $this->establishmentRepository->search([]);
+        }
 
         return response()->json($result);
     }
