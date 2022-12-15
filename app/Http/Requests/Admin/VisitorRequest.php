@@ -1,10 +1,12 @@
 <?php
 
 namespace App\Http\Requests\Admin;
+
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Http\FormRequest;
 
-class ContactTracingAdminRequest extends FormRequest
+
+class VisitorRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -16,7 +18,6 @@ class ContactTracingAdminRequest extends FormRequest
         return Gate::authorize('is_admin', $this->instance());
     }
 
-    
     /**
      * Get the validation rules that apply to the request.
      *
@@ -55,24 +56,6 @@ class ContactTracingAdminRequest extends FormRequest
                 'required',
                 'min:1',
                 'numeric',
-            ],
-            'covid_result' => [
-                'nullable',
-                'boolean'
-            ],
-            'date_range' => [
-                'array'
-            ],
-            'date_range.*.start_date' => [
-                'date',
-            ],
-            'date_range.*.end_date' => [
-                'date',
-                'after:date_range.*.start_date'
-            ],
-            'establishment_id' => [
-                'numeric',
-                'exists:App\Models\Establishment,id',
             ],
         ];
     }

@@ -6,37 +6,39 @@
         margin-top: 20px;
     }
 </style>
-    <div class="container-fluid">
-        <div class="row clearfix">
+    <div class="container-fluid" >
+        <div class="row clearfix" >
             <div class="col-md-12">
                 <ol class="breadcrumb">
                     <li><a href="javascript:void(0);">User Accounts</a></li>
                     <li class="active">Contact Tracing</li>
                 </ol>
-                <div class="card">
-                    <div class="header bg-green">
+                <div class="card"  >
+                    <div class="header bg-green" >
                         <h2>
                         Contact Tracing <small>List of all Reports on Visitors.</small>
                         </h2>
+                        <ul class="header-dropdown m-r--5">
+                        <button type="button" class="btn bg-red btn-circle-lg btn-report waves-effect waves-circle waves-float pull-right">
+                            <i class="material-icons">print</i>
+                        </button>
+                    </ul>
                     </div>   
-                    <div class="body">
+                    <div class="body" >
                         <div class="row">
                           <div class="col-sm-2">
                             <b>Entrance Timestamps:</b><br>
                             <input type="text" name="datetimes" class="form-control datepicker" name="datepicker" readonly/>
                           </div>
-                          <div class="col-sm-2">
+                          <div class="col-sm-2" >
                             <b>Establishments:</b><br>
-                            <select class="form-select form-control" aria-label="Default select example">
-                                <option value="">None</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
+                            <select class="form-select form-control establishmentlist" aria-label="Default select example" id="establishmentlist">
+                            <option value="">Select Establishment</option>
                             </select>
                           </div>
                           <div class="col-sm-2">
                             <b>COVID-19 Results:</b><br>
-                            <select class="form-select form-control covid-result" aria-label="Default select example">
+                            <select class="form-select form-control covid-result" aria-label="Default select example" >
                                 <option value="">None</option>
                                 <option value="0">Negative</option>
                                 <option value="1">Positive</option>
@@ -77,6 +79,7 @@
     </div>
 
     <script>
+        $.fn.modal.Constructor.prototype.enforceFocus = function() {};
         var orderBy = [[5, 'desc']]
         var columns = [
         { data: 'visitor_id', name: 'visitor_id' },
@@ -123,5 +126,63 @@
         $('.covid-result').val('').change()
         initDataTable('.dataTable', columns, 'admin/contact-tracing', orderBy, false)
     })
+
+    $(document).on('click', '.btn-report', function (e) {
+        e.preventDefault()
+        fetch(`${apiUrl}admin/contact-tracing/report`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(generateReportParams)
+        }).then(async (result) => {
+            return {
+                filename: result.headers.get('filename'),
+                excel: await result.blob()
+            }
+        }).then(({ filename, excel }) => {
+            const element = document.createElement('a');
+            element.setAttribute('download', filename);
+            const href = URL.createObjectURL(excel);
+            element.href = href;
+            element.setAttribute('target', '_blank');
+            element.click();
+            URL.revokeObjectURL(href);
+        }).catch((error) => {
+            console.log(error)
+        })
+    })
+
+    //     $("#establishmentlist").select2({
+    // ajax: {
+    //     url: `${apiUrl}establishments`,
+    //     dataType: 'json',
+        
+    // }
+    // });
+
+    $("#establishmentlist").select2({
+    ajax: {
+        url: `${apiUrl}establishments`,
+        dataType: 'json',
+        type: "get",
+        data: function (term) {
+            return {
+                term: term
+            };
+        },
+        processResults: function (data) {
+            return {
+                results: $.map(data, function (item) {
+                    return {
+                        text: item.name,
+                        id: item.id,
+                    }
+                })
+            };
+        }
+
+    }
+});
     </script>
 @endsection

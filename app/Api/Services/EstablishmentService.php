@@ -90,6 +90,7 @@ class EstablishmentService extends Service
     public function index()
     {
         $result = $this->establishmentRepository->index();
+        
 
         return response()->json($result);
     }

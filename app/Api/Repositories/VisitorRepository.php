@@ -16,11 +16,11 @@ class VisitorRepository extends Repository
      * @var array
      */
     protected $searchableFields = [
-        // 'establishments.id',
-        // 'name',
-        // 'address',
-        // 'users.email',
-        // 'contact_number',
+        'visitors.id',
+        'last_name',
+        'first_name',
+        'middle_name',
+        'philsys_card_number',
     ];
 
     /**
@@ -28,17 +28,17 @@ class VisitorRepository extends Repository
      *
      * @var array
      */
-    protected $joinTables = [
-        // 'users' => [
-        //     'columns' => ['users.id', 'establishments.user_id'],
-        //     'type' => 'left_join',
-        // ],
-    ];
+    // protected $joinTables = [
+    //     'users' => [
+    //         'columns' => ['users.id', 'establishments.user_id'],
+    //         'type' => 'left_join',
+    //     ],
+    // ];
 
     /**
      * Create Model Instance.
      *
-     * @param \App\Models\Vistior $visitor
+     * @param \App\Models\Visitor $visitor
      */
     public function __construct(Visitor $visitor)
     {
