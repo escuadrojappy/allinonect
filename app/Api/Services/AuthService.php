@@ -66,7 +66,7 @@ class AuthService extends Service
     public function login(array $request)
     {
         $validate = $this->repository->validate($request);
-        var_dump($validate);
+
         if (!$validate) throw new AuthenticationException('Invalid Credentials');
 
         $token = $this->repository->getToken($request);
