@@ -92,7 +92,7 @@
                             'Successfully Deleted Establishment.',
                             () => { 
                                 clearFormFields('#establishment-registration-form')
-                                initDataTable('.dataTable', columns, 'establishments/search')
+                                initDataTable('.dataTable', columns, 'establishments/search', orderBy)
                             }
                         )
                     }).fail((error) => {

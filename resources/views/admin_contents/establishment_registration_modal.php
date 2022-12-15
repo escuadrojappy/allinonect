@@ -60,7 +60,7 @@
                     () => { 
                         clearFormFields('#establishment-registration-form')
                         $('#establishment-registration-modal').modal('toggle')
-                        initDataTable('.dataTable', columns, 'establishments/search')
+                        initDataTable('.dataTable', columns, 'establishments/search', orderBy)
                     }
                 )
             }).fail((error) => {
