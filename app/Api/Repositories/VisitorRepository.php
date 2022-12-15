@@ -5,6 +5,7 @@ namespace App\Api\Repositories;
 use App\Models\Visitor;
 use App\Api\Traits\QueryBuilder;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\DB;
 
 class VisitorRepository extends Repository
 {
@@ -43,15 +44,19 @@ class VisitorRepository extends Repository
     public function __construct(Visitor $visitor)
     {
         $this->model = $visitor;
+        $this->table = $this->model->getTable();
     }
 
     /**
-     * Create Model Instance.
+     * Visitor Get Data with Covid Result.
      *
-     * @param string $pcn
+     * @param \App\Models\Visitor $visitor
      */
-    public function checkIfPcnExists(string $cardNumber)
-    {
-        return $this->model->where('philsys_card_number', $cardNumber)->first();
-    }
+    // public function getVisitors()
+    // {
+    //     $query = DB::table($this->table)
+    //         ->select($this->searchableFields)
+
+    //     dd($query);
+    // }
 }

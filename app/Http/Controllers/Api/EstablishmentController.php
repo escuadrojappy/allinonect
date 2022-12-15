@@ -42,7 +42,7 @@ class EstablishmentController extends Controller
      */
     public function index(IndexRequest $request)
     {
-        return $this->establishmentService->index($request->validated());
+        return $this->establishmentService->index($request->input('term'));
     }
 
     /**
