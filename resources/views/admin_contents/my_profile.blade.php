@@ -5,7 +5,7 @@
     <div class="profile-header headercolor">&nbsp;</div>
     <div class="profile-body bordercolor">
         <div class="image-area">
-            <img src="http://localhost/allinonect/public/dashboard/images/doh-logo.png" alt="AdminBSB - Profile Image" class="dohpicture">
+            <img src="http://localhost{{config('app.url')}}dashboard/images/doh-logo.png" alt="AdminBSB - Profile Image" class="dohpicture">
         </div>
         <div class="content-area">
             <h3 id="NAME">Department of Health</h3> 

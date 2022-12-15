@@ -12,7 +12,7 @@
                     <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
                     <ul class="dropdown-menu pull-right">
                         <li>
-                            <a href="/allinonect/public/establishment/my_profile">
+                            <a href="{{config('app.url')}}establishment/my_profile">
                                 <i class="material-icons">
                                     person
                                 </i>
@@ -21,7 +21,7 @@
                         </li>
 
                         <li>
-                            <a href="/allinonect/public/establishment/change_password">
+                            <a href="{{config('app.url')}}establishment/change_password">
                                 <i class="material-icons">
                                     https
                                 </i>
@@ -48,7 +48,7 @@
             <ul class="list">
                 <li class="header">MENU</li>
                 <li class="{{ Request::is('establishment/dashboard') ? 'active' : '' }}">
-                    <a href="/allinonect/public/establishment/dashboard">
+                    <a href="{{config('app.url')}}establishment/dashboard">
                         <i class="material-icons">dashboard</i>
                         <span>Dashboard</span>
                     </a>
@@ -60,15 +60,15 @@
                     </a>
                     <ul class="ml-menu">
                         <li>
-                            <a href="/allinonect/public/establishment/contacts/contactreport">Contact Report</a>
+                            <a href="{{config('app.url')}}establishment/contacts/contactreport">Contact Report</a>
                         </li>
                         <li>
-                            <a href="/allinonect/public/establishment/contacts/contacttracing">Contact Tracing</a>
+                            <a href="{{config('app.url')}}establishment/contacts/contacttracing">Contact Tracing</a>
                         </li>
                     </ul>
                 </li>
                 <li class="{{ Request::is('establishment/qrscanner') ? 'active' : '' }}">
-                    <a href="/allinonect/public/establishment/qrscanner">
+                    <a href="{{config('app.url')}}establishment/qrscanner">
                         <i class="material-icons">qr_code_scanner</i>
                         <span>QR Code Scanner</span>
                     </a>

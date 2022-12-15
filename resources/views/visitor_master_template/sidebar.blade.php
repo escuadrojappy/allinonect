@@ -29,7 +29,7 @@
             <ul class="list">
                 <li class="header">MENU</li>
                 <li class="{{ Request::is('citizen/dashboard') ? 'active' : '' }}">
-                    <a href="/allinonect/public/citizen/dashboard">
+                    <a href="{{config('app.url')}}citizen/dashboard">
                         <i class="material-icons">dashboard</i>
                         <span>Dashboard</span>
                     </a>

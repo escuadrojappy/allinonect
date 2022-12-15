@@ -12,7 +12,7 @@
                     <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
                     <ul class="dropdown-menu pull-right">
                         <li>
-                            <a href="/allinonect/public/admin/my_profile">
+                            <a href="{{config('app.url')}}admin/my_profile">
                                 <i class="material-icons">
                                     person
                                 </i>
@@ -37,7 +37,7 @@
             <ul class="list">
                 <li class="header">MENU</li>
                 <li class="{{ Request::is('admin/dashboard') ? 'active' : '' }}">
-                    <a href="/allinonect/public/admin/dashboard">
+                    <a href="{{config('app.url')}}admin/dashboard">
                         <i class="material-icons">dashboard</i>
                         <span>Dashboard</span>
                     </a>
@@ -107,23 +107,23 @@
                     </a>
                     <ul class="ml-menu">
                         <li class="{{ Request::is('admin/useraccounts/establishment') ? 'active' : '' }}">
-                            <a href="/allinonect/public/admin/useraccounts/establishment">Establishments</a>
+                            <a href="{{config('app.url')}}admin/useraccounts/establishment">Establishments</a>
                         </li>
                         <li class="{{ Request::is('admin/useraccounts/visitor') ? 'active' : '' }}">
-                            <a href="/allinonect/public/admin/useraccounts/visitor">Visitors</a>
+                            <a href="{{config('app.url')}}admin/useraccounts/visitor">Visitors</a>
                         </li>
                     </ul>
                 </li>
 
                 <li class="{{ Request::is('admin/contactreport') ? 'active' : '' }}">
-                    <a href="/allinonect/public/admin/contactreport">
+                    <a href="{{config('app.url')}}admin/contactreport">
                         <i class="material-icons">import_contacts</i>
                         <span>Contact Report</span>
                     </a>
                 </li>
 
                 <li class="{{ Request::is('admin/setting') ? 'active' : '' }}">
-                    <a href="/allinonect/public/admin/setting">
+                    <a href="{{config('app.url')}}admin/setting">
                         <i class="material-icons">settings</i>
                         <span>Settings</span>
                     </a>

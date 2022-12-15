@@ -22,17 +22,17 @@
       <div class="menu-btn"></div>
       <div class="navigation">
         <div class="navigation-items">
-          <a href="/allinonect/public/welcome">Home </a>
-          <a href="/allinonect/public/about">About</a>
-          <a href="/allinonect/public/account" class="under">Account</a>
-          <a href="/allinonect/public/contact">Contact Us</a>
+          <a href="{{config('app.url')}}welcome">Home </a>
+          <a href="{{config('app.url')}}about">About</a>
+          <a href="{{config('app.url')}}account" class="under">Account</a>
+          <a href="{{config('app.url')}}contact">Contact Us</a>
         </div>
       </div>
     </header> --}}
 
 	<div class="bg-login">
 		<div class="main">
-			<a href="/allinonect/public/account" style="font-size:26px;"  class="fa">&#xf191;</a>
+			<a href="{{config('app.url')}}account" style="font-size:26px;"  class="fa">&#xf191;</a>
 			<input type="checkbox" id="chk" aria-hidden="true">
 			<div class="signup">
 				<form id="login-form">
