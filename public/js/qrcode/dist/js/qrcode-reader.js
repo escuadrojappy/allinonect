@@ -73,6 +73,7 @@
 
       // load the script performing the actual QRCode reading
       $.getScript( $.qrCodeReader.jsQRpath, function( data, textStatus, jqxhr ) {
+        alert(jqxhr.status)
         if ( jqxhr.status == 200) {
           qrr.scriptLoaded = true;
         } else {
@@ -138,7 +139,6 @@
 
       $(document).on('click', '#qr-code-submit', function (e) {
         e.preventDefault()
-        console.log(qrr.start())
         if (qrr.checkCode) {
           apiScanner(qrr.checkCode.data).then((result) => {
             // 
