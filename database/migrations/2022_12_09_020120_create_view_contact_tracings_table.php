@@ -51,14 +51,15 @@ return new class extends Migration
                                 vhs2.* 
                             from 
                                 (
-                                    select 
-                                        max(id) as max_id 
+                                    select
+                                        vhs.id,
+                                        max(vhs.date_result) as date_result 
                                     from 
                                         visitor_health_statuses vhs 
                                     group by 
                                         vhs.visitor_id
                                 ) vhs 
-                                inner join visitor_health_statuses vhs2 on vhs.max_id = vhs2.id
+                                inner join visitor_health_statuses vhs2 on vhs.id = vhs2.id
                         ) as visitor_health_statuses on visitors.id = visitor_health_statuses.visitor_id
                 ) as visitors on visitors.visitor_id = scanned_visitors.visitor_id 
                 left join (

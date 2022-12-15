@@ -4,9 +4,8 @@ namespace App\Http\Resources;
 
 use Illuminate\Support\Arr;
 use Illuminate\Http\Resources\Json\JsonResource;
-use Carbon\Carbon;
 
-class ContactTracingResource extends JsonResource
+class VisitorResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -18,13 +17,13 @@ class ContactTracingResource extends JsonResource
     {
         $data = parent::toArray($request);
 
-        $entranceTimestamp = 'None';
+        $dateResult = 'None';
 
-        if (Arr::get($data, 'entrance_timestamp')) $entranceTimestamp = date('F j, Y g:i a', strtotime(Arr::get($data, 'entrance_timestamp')));
+        if (Arr::get($data, 'date_result')) $dateResult = date('F j, Y g:i a', strtotime(Arr::get($data, 'date_result')));
 
         $covidResult = Arr::get($data, 'covid_result');
-        
-        Arr::set($data, 'entrance_timestamp', $entranceTimestamp);
+
+        Arr::set($data, 'date_result', $dateResult);
 
         Arr::set($data, 'covid_result', $covidResult ? 'Positive' : 'Negative');
         

@@ -50,6 +50,7 @@ trait QueryBuilder {
         
         return $this->selectFields()
             ->joinTables()
+            ->customJoinTables()
             ->searchableFields()
             ->whereFields()
             ->orderByColumn()
@@ -85,6 +86,27 @@ trait QueryBuilder {
                 switch ($joinType) {
                     case 'left_join':
                         $this->query = $this->query->leftJoin($table, $columns[0], '=', $columns[1]);
+                        break;
+                }
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * Custom Query Joins.
+     *
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    protected function customJoinTables()
+    {
+        if (isset($this->customJoins)) {
+            foreach ($this->customJoins as $value) {
+                $columns = Arr::get($value, 'columns');
+                switch (Arr::get($value, 'type')) {
+                    case 'left_join':
+                        $this->query = $this->query->leftJoin(Arr::get($value, 'query'), $columns[0], '=', $columns[1]);
                         break;
                 }
             }
