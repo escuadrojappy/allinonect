@@ -8,6 +8,7 @@ var apiUrl = 'http://localhost/allinonect/public/api/'
 var webUrl = 'http://localhost/allinonect/public/'
 
 if (window.location.origin.indexOf('aioctracing') > -1) {
+    alert('qwe')
     var apiUrl = 'https://aioctracing.com/api/'
     var webUrl = 'http://aioctracing.com/'
 }
