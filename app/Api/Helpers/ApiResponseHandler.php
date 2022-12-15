@@ -15,7 +15,6 @@ class ApiResponseHandler
      */
     public function check($response)
     {
-        dd($response);
         if ($response->getStatusCode() != 200) {
             // throw new \Exception($response->body());
             throw new AuthenticationException();

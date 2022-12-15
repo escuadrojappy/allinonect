@@ -68,7 +68,7 @@ class AdminService extends Service {
         $result = $this->adminContactTracingRepository->search($request);
 
         $xlsxName = str_replace(' ', '-', Arr::get(auth()->user(), 'admin.name')). '-contact-report-'. date('Y-m-d-H-i-s'). '.xlsx';
-        // dd($result->toArray());
+        
         Excel::store(new AdminContactTracingExport($result), sprintf('%s/%s', 'contact-tracing', $xlsxName));
 
         $filePath = sprintf('%s\%s\%s', config('filesystems.disks.local.root'), 'contact-tracing', $xlsxName);
