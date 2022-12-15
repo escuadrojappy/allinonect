@@ -71,16 +71,6 @@
       qrr.scriptLoaded = false;
       qrr.isOpen = false;
 
-      // load the script performing the actual QRCode reading
-      $.getScript( $.qrCodeReader.jsQRpath, function( data, textStatus, jqxhr ) {
-        if ( jqxhr.status == 200) {
-          qrr.scriptLoaded = true;
-        } else {
-          console.error("Error loading QRCode parser script");
-        };
-
-      });
-
     },
 
     // build the HTML interface of the widget
@@ -241,11 +231,16 @@
       // });
 
       qrr.isOpen = true;
-      alert(qrr.scriptLoaded)
-      if (qrr.scriptLoaded) {
-        // start the business
-        qrr.start();
-      }
+      
+      // load the script performing the actual QRCode reading
+      $.getScript( $.qrCodeReader.jsQRpath, function( data, textStatus, jqxhr ) {
+        if ( jqxhr.status == 200) {
+          qrr.scriptLoaded = true;
+          qrr.start();
+        } else {
+          console.error("Error loading QRCode parser script");
+        };
+      });
 
     },
 
