@@ -241,10 +241,9 @@
       // });
 
       qrr.isOpen = true;
-
+      alert(qrr.scriptLoaded)
       if (qrr.scriptLoaded) {
         // start the business
-        alert()
         qrr.start();
       }
 
