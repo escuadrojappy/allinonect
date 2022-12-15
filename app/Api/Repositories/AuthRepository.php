@@ -108,7 +108,7 @@ class AuthRepository extends Repository
             'password' => Arr::get($credentials, 'password'),
             'scope' => '*'
         ];
-
+        dd($params);
         $response = Http::asForm()->post($url, $params);
         dd($response, $params);
         $this->apiResponseHandler->check($response);
