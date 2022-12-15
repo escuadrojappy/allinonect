@@ -29,8 +29,8 @@
     // jsQRpath: "../dist/js/jsQR/jsQR.min.js",
     // beepPath: "../dist/audio/beep.mp3",
     // jsQRpath: "../../js/qrcode/dist/js/jsQR/jsQR.min.js",
-    jsQRpath: "js/qrcode/dist/js/jsQR/jsQR.min.js",
-    beepPath: "js/qrcode/dist/audio/beep.mp3",
+    jsQRpath: "../js/qrcode/dist/js/jsQR/jsQR.min.js",
+    beepPath: "../js/qrcode/dist/audio/beep.mp3",
     instance: null,
     defaults: {
         // single read or multiple readings/
