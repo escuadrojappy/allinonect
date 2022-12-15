@@ -26,6 +26,8 @@
                                         <th>First Name</th>
                                         <th>Middle Name</th>
                                         <th>PCN</th>
+                                        <th>Covid Result</th>
+                                        <th>Date Result</th>
                                     </tr>
                                 </thead>
                                 <tbody></tbody>
@@ -46,6 +48,8 @@
             { data: 'first_name', name: 'first_name' },
             { data: 'middle_name', name: 'middle_name' },
             { data: 'philsys_card_number', name: 'philsys_card_number' },
+            { data: 'covid_result', name: 'covid_result' },
+            { data: 'date_result', name: 'date_result' },
         ]
 
         initDataTable('.dataTable', columns, 'admin/visitor', orderBy, false,)

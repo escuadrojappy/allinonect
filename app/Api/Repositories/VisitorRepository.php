@@ -2,10 +2,10 @@
 
 namespace App\Api\Repositories;
 
-use App\Models\Visitor;
-use App\Api\Traits\QueryBuilder;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
+use App\Models\Visitor;
+use App\Api\Traits\QueryBuilder;
 
 class VisitorRepository extends Repository
 {
@@ -22,6 +22,8 @@ class VisitorRepository extends Repository
         'first_name',
         'middle_name',
         'philsys_card_number',
+        'covid_result',
+        'date_result',
     ];
 
     /**
@@ -29,12 +31,14 @@ class VisitorRepository extends Repository
      *
      * @var array
      */
-    // protected $joinTables = [
-    //     'users' => [
-    //         'columns' => ['users.id', 'establishments.user_id'],
-    //         'type' => 'left_join',
-    //     ],
-    // ];
+    protected $joinTables;
+
+    /**
+     * Custom Joins.
+     *
+     * @var array
+     */
+    protected $customJoins;
 
     /**
      * Create Model Instance.
@@ -44,19 +48,48 @@ class VisitorRepository extends Repository
     public function __construct(Visitor $visitor)
     {
         $this->model = $visitor;
-        $this->table = $this->model->getTable();
+        $this->customJoins = [
+            [
+                'query' => $this->getVisitorLatestHealthStatus(),
+                'columns' => ['visitors.id', 'visitor_health_statuses.visitor_id'],
+                'type' => 'left_join',
+            ],
+        ];
     }
 
     /**
-     * Visitor Get Data with Covid Result.
+     * Check PCN if exists.
      *
-     * @param \App\Models\Visitor $visitor
+     * @param string $pcn
      */
-    // public function getVisitors()
-    // {
-    //     $query = DB::table($this->table)
-    //         ->select($this->searchableFields)
+    public function checkIfPcnExists(string $cardNumber)
+    {
+        return $this->model->where('philsys_card_number', $cardNumber)->first();
+    }
 
-    //     dd($query);
-    // }
+    /**
+     * Get Visitor Latest Health Status.
+     *
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function getVisitorLatestHealthStatus()
+    {
+        return DB::raw('
+            (
+                select 
+                    vhs2.* 
+                from 
+                    (
+                        select
+                            vhs.id,
+                            max(vhs.date_result) as date_result 
+                        from 
+                            visitor_health_statuses vhs 
+                        group by 
+                            vhs.visitor_id
+                    ) vhs 
+                    inner join visitor_health_statuses vhs2 on vhs.id = vhs2.id
+            ) as visitor_health_statuses
+        ');
+    }
 }

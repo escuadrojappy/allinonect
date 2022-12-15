@@ -10,6 +10,10 @@ use Illuminate\Support\Facades\{
 use App\Api\Repositories\{
     VisitorRepository
 };
+use App\Http\Resources\{
+    VisitorResource,
+    VisitorResourceCollection,
+};
 
 class VisitorService extends Service {
     /**
@@ -37,6 +41,10 @@ class VisitorService extends Service {
 
         $response = $this->dataTableResponse($result, $request);
 
+        $data = new VisitorResourceCollection(Arr::get($response, 'data'));
+
+        Arr::set($response, 'data', $data);
+        
         return response()->json($response);
     }
 }
