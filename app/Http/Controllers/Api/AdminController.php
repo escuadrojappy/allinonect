@@ -49,7 +49,5 @@ class AdminController extends Controller
      */
     public function generateContactTracingReport(GenerateContactTracingAdminReportRequest $request)
     {
-        return $this->adminService->generateContactTracingReport($request->validated());
-        alert ('hi');
-    }
+        return $this->adminService->generateContactTracingReport($request->validated());    }
 }
