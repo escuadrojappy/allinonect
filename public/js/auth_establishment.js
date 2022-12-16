@@ -5,6 +5,8 @@ function authEstablishment () {
         } else {
             authCommon = result
             $('.page-loader-wrapper').fadeOut()
+            $('.name-establishment').text(result.establishment.name)
+            $('.address-establishment').text(result.establishment.address)
         }
     }).then((result) => {
         if (result) location.href = webUrl + 'login/establishment'

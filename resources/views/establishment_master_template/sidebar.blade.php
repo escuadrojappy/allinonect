@@ -6,8 +6,8 @@
                 <img src="{{ asset('/dashboard/images/doh-logo.png') }}" width="48" height="48" alt="User" class="establishment-logo" />
             </div>
             <div class="info-container">
-                <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Name of Establishment</div>
-                <div class="email">email@gmail.com</div>
+                <div class="name name-establishment" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></div>
+                <div class="email address-establishment"></div>
                 <div class="btn-group user-helper-dropdown">
                     <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
                     <ul class="dropdown-menu pull-right">
