@@ -71,7 +71,7 @@ class AdminService extends Service {
         
         Excel::store(new AdminContactTracingExport($result), sprintf('%s/%s', 'contact-tracing', $xlsxName));
 
-        $filePath = sprintf('%s\%s\%s', config('filesystems.disks.root'), 'contact-tracing', $xlsxName);
+        $filePath = sprintf('%s\%s\%s', config('filesystems.disks.local.root'), 'contact-tracing', $xlsxName);
 
         return response()->download($filePath, $xlsxName, [
             'Content-type' => 'application/vnd.ms-excel',
