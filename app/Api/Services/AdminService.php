@@ -66,7 +66,7 @@ class AdminService extends Service {
     public function generateContactTracingReport(array $request)
     {
         $result = $this->adminContactTracingRepository->search($request);
-
+        dd('qwe');
         $xlsxName = str_replace(' ', '-', Arr::get(auth()->user(), 'admin.name')). '-contact-report-'. date('Y-m-d-H-i-s'). '.xlsx';
         
         Excel::store(new AdminContactTracingExport($result), sprintf('%s/%s', 'contact-tracing', $xlsxName));
