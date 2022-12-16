@@ -49,6 +49,7 @@ class AdminController extends Controller
      */
     public function generateContactTracingReport(GenerateContactTracingAdminReportRequest $request)
     {
+        alert("qwe");
         return $this->adminService->generateContactTracingReport($request->validated());
     }
 }
