@@ -223,7 +223,7 @@ class EstablishmentService extends Service
         $result = $this->establishmentContactTracingRepository->search($request);
 
         $xlsxName = str_replace(' ', '-', Arr::get(auth()->user(), 'establishment.name')). '-contact-report-'. date('Y-m-d-H-i-s'). '.xlsx';
-
+        dd($xlsxName);
         dd(Excel::store(new EstablishmentContactTracingExport($result), sprintf('%s/%s', 'contact-tracing', $xlsxName)));
 
         $filePath = sprintf('%s\%s\%s', config('filesystems.disks.local.root'), 'contact-tracing', $xlsxName);
