@@ -11,26 +11,26 @@
                 <form>
                     <label for="email_address">Business Name</label>
                     <div class="form-group">
-                        <div class="form-line">
-                            <input type="text" readonly id="email_address" class="form-control" placeholder="Enter your email address" value="SM Cabanatuan City">
+                        <div class="form-line name-establishment">
+                            <input type="text" readonly id="email_address" class="form-control" placeholder="Enter your email address">
                         </div>
                     </div>
                     <label for="text">Business Address</label>
                     <div class="form-group">
-                        <div class="form-line">
-                            <input type="text" readonly id="password" class="form-control" placeholder="Enter your password" value="Cabanatuan City">
+                        <div class="form-line address-establishment">
+                            <input type="text" readonly id="password" class="form-control" placeholder="Enter your password">
                         </div>
                     </div>
                     <label for="email_address">Email Address</label>
                     <div class="form-group">
-                        <div class="form-line">
-                            <input type="text" readonly id="email_address" class="form-control" placeholder="Enter your email address" value="smcab@gmail.com">
+                        <div class="form-line email-establishment">
+                            <input type="text" readonly id="email_address" class="form-control" placeholder="Enter your email address">
                         </div>
                     </div>
                     <label for="number">Contact Number</label>
                     <div class="form-group">
-                        <div class="form-line">
-                            <input type="number" readonly id="number" class="form-control" placeholder="Contact" value="09653269782">
+                        <div class="form-line contact-number-establishment">
+                            <input type="number" readonly id="number" class="form-control" placeholder="Contact">
                         </div>
                     </div>
                 </form>
