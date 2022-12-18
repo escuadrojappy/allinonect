@@ -225,7 +225,7 @@ class EstablishmentService extends Service
         $xlsxName = str_replace(' ', '-', Arr::get(auth()->user(), 'establishment.name')). '-contact-report-'. date('Y-m-d-H-i-s'). '.xlsx';
 
         Excel::store(new EstablishmentContactTracingExport($result), sprintf('%s/%s', 'contact-tracing', $xlsxName));
-        dd(Storage::get($xlsxName));
+        dd(Storage::get(sprintf('%s/%s', 'contact-tracing', $xlsxName)));
         $filePath = sprintf('%s\%s\%s', config('filesystems.disks.local.root'), 'contact-tracing', $xlsxName);
         dd($filePath);
         dd(response()->download($filePath, $xlsxName, [
