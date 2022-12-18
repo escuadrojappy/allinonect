@@ -49,11 +49,11 @@ class AuthPolicy
      */
     public function isAdminOrEstablishment($user, $request)
     {
-        if (!Arr::get($user, 'role_id') == config('models.roles.admin')) return false;
-
         if (Arr::get($user, 'role_id') == config('models.roles.establishment')) {
             return !(Arr::get($request, 'id') != Arr::get($user, 'id'));
         }
+        
+        return Arr::get($user, 'role_id') == config('models.roles.admin');
     }
 
     /**
