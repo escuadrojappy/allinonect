@@ -228,8 +228,8 @@ class EstablishmentService extends Service
         
         // $filePath = sprintf('%s\%s\%s', config('filesystems.disks.local.root'), 'contact-tracing', $xlsxName);
         $file = Storage::get(sprintf('%s/%s', 'contact-tracing', $xlsxName));
-        
-        dd(response()->download($filePath, $xlsxName, [
+
+        dd(response()->download($file, $xlsxName, [
             'Content-type' => 'application/vnd.ms-excel',
             'filename' => $xlsxName
         ]));
