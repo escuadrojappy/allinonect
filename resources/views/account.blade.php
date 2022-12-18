@@ -70,7 +70,7 @@
                         <div class="row row-cols-1 row-cols-md-3 g-4">
                             <div class="col">
                               <div class="card">
-                                <img src="http://{{config('app.url')}}images/accountcc.png" class="card-img-top" alt="...">
+                                <img src="{{config('app.url')}}images/accountcc.png" class="card-img-top" alt="...">
                                 <div class="card-body">
                                   <h5 class="card-title text-center"><a href="login/citizen" class="btn btn-primary">For Cabanatuan City Residents</a></h5>
                                   <p class="card-text text-center">Sign in using the information from your scanned national ID.</p>
@@ -79,7 +79,7 @@
                             </div>
                             <div class="col">
                               <div class="card">
-                                <img src="http://{{config('app.url')}}images/accountee.png" class="card-img-top" alt="...">
+                                <img src="{{config('app.url')}}images/accountee.png" class="card-img-top" alt="...">
                                 <div class="card-body">
                                   <h5 class="card-title text-center"><a href="login/establishment" class="btn btn-primary">For Cabanatuan City Firms</a></h5>
                                   <p class="card-text text-center">Don't have an account? Register your company with the DOH Office.</p>
@@ -89,7 +89,7 @@
         
                             <div class="col">
                               <div class="card">
-                                <img src="http://{{config('app.url')}}images/accountdoh.png" class="card-img-top" alt="...">
+                                <img src="{{config('app.url')}}images/accountdoh.png" class="card-img-top" alt="...">
                                 <div class="card-body">
                                   <h5 class="card-title text-center"><a href="login/admin" class="btn btn-primary">For Department Of Health</a></h5>
                                   <p class="card-text text-center">Sign in with your administrator account login information.</p>
