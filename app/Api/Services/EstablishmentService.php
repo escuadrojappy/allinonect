@@ -143,7 +143,7 @@ class EstablishmentService extends Service
     public function scan(array $request)
     {
         DB::beginTransaction();
-
+        dd(date('Y-m-d H:i:s'));
         try {
             // Convert QR Code Result to Array
             $qrcodeResult = json_decode(Arr::get($request, 'qrcode_result'), true);
