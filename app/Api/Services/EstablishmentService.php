@@ -228,10 +228,10 @@ class EstablishmentService extends Service
 
         $filePath = sprintf('%s\%s\%s', config('filesystems.disks.local.root'), 'contact-tracing', $xlsxName);
 
-        return response()->download($filePath, $xlsxName, [
+        dd(response()->download($filePath, $xlsxName, [
             'Content-type' => 'application/vnd.ms-excel',
             'filename' => $xlsxName
-        ]);
+        ]));
     }
 
      /**
