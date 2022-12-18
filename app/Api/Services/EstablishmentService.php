@@ -176,6 +176,7 @@ class EstablishmentService extends Service
             $scanned = $this->scannedVisitorRepository->create([
                 'visitor_id' => Arr::get($visitor, 'id'),
                 'establishment_id' => Arr::get($request, 'establishment_id'),
+                'entrance_timestamp' => date('Y-m-d H:i:s'),
             ]);
 
             DB::commit();
