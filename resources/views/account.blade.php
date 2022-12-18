@@ -70,10 +70,10 @@
                         <div class="row row-cols-1 row-cols-md-3 g-4">
                             <div class="col">
                               <div class="card">
-                                <img src="{{config('app.url')}}images/accountcc.png" class="card-img-top" alt="...">
+                                <img src="{{config('app.url')}}images/acccitizens.png" class="card-img-top" alt="...">
                                 <div class="card-body">
                                   <h5 class="card-title text-center"><a href="login/citizen" class="btn btn-primary">For Cabanatuan City Residents</a></h5>
-                                  <p class="card-text text-center">Sign in using the information from your scanned national ID.</p>
+                                  <p class="card-text text-center">Don't have an account? Register an account with the DOH Office.</p>
                                 </div>
                               </div>
                             </div>
@@ -89,7 +89,7 @@
         
                             <div class="col">
                               <div class="card">
-                                <img src="{{config('app.url')}}images/accountdoh.png" class="card-img-top" alt="...">
+                                <img src="{{config('app.url')}}images/accdoh.png" class="card-img-top" alt="...">
                                 <div class="card-body">
                                   <h5 class="card-title text-center"><a href="login/admin" class="btn btn-primary">For Department Of Health</a></h5>
                                   <p class="card-text text-center">Sign in with your administrator account login information.</p>
@@ -102,7 +102,7 @@
 
 					<div class="col-md-6 gx-5 mb-5">
                         <div class="bg-image hover-overlay ripple shadow-2-strong" data-mdb-ripple-color="light">
-                            <img src="images/acc.png" class="img-fluid w-80 float-end" />
+                            <img src="{{config('app.url')}}images/acc12.png" class="img-fluid w-80 float-end" />
                             <a href="#!">
                                 <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
                             </a>
