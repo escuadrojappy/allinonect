@@ -118,12 +118,12 @@
                         <div class="card mb-3" style="max-width: 50em;">
                           <div class="row g-0">
                             <div class="col-md-5">
-                              <img src="images/about1.png" class="img-fluid rounded-start" alt="...">
+                              <img src="{{config('app.url')}}images/appabout.png" class="img-fluid rounded-start" alt="...">
                             </div>
                             <div class="col-md-7 bg-dark text-white">
                               <div class="card-body ">
-                                <h5 class="card-title">App Technology</h5>
-                                <p class="card-text">The Scanner app transforms your mobile device into a powerful portable scanner that recognizes QR Codes. This increases your productivity by allowing you to save time and data more accurately. Download this scanner app to instantly scan, save, and transfer data to the website.</p>
+                                <h5 class="card-title">QR Code Scanner</h5>
+                                <p class="card-text">The Scanner transforms your device into a powerful portable scanner that recognizes QR Code in the National Identification Card. This increases your productivity by allowing you to save time and data more accurately. Use this feature to instantly scan, save, and transfer data to the website.</p>
                                 <p class="card-text"><small class="text-muted">© 2022 | All-in-One Contact Tracing</small></p>
                               </div>
                             </div>
@@ -132,7 +132,7 @@
                         <div class="card mb-3" style="max-width: 50em;">
                           <div class="row g-0">
                             <div class="col-md-5">
-                              <img src="images/about2.png" class="img-fluid rounded-start" alt="...">
+                              <img src="{{config('app.url')}}images/webabout1.png" class="img-fluid rounded-start" alt="...">
                             </div>
                             <div class="col-md-7 bg-dark text-white">
                               <div class="card-body">
