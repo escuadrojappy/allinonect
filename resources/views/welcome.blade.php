@@ -139,11 +139,11 @@
                             </figcaption>
                         </figure>
                         <p class="text-white fs-5">
-                            Humanity will not perish in the face of a destructive disease. We are intelligent, creative, and can adapt to any situation quickly. Each contribution will play an important role to the future we aspire. There is great strength in coming together as one, as a team. A strength that will undoubtedly empower us in resolving any hurdles in our journey.
+                            Humanity will not perish in the face of a destructive disease. People are intelligent, creative, and can adapt to any situation quickly. Each contribution will play an important role to the future people aspire. There is great strength in coming together as one, as a team. A strength that will undoubtedly empower us in resolving any hurdles in our journey.
                         </p>
                         <p class="text-white fs-6"><strong>This is a product of human ingenuity and logical analysis; a system that will address the shortcomings of current system technology.</strong></p>
                         <p class="text-white">
-                            Participate in our new contact tracing approach by logging in with your national ID to access your personal account or by signing up your company and transferring your contact tracing data. This will greatly assist in reducing the number of people infected with Covid-19 disease in our city.<br><br><p class="fw-bold text-white">What are you waiting for? Join us now!</p>
+                            Participate in our new contact tracing approach by registering for an account at the Department of Health Office. If you currently have an account, try logging in and accessing the website with the necessary and appropriate login credentials. This will greatly help in reducing the number of people infected with Covid-19 disease in our city.<br><br><p class="fw-bold text-white">What are you waiting for? Join us now!</p>
                         </p>
                     </div>
                 </div>
