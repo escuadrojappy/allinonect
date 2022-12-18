@@ -226,8 +226,9 @@ class EstablishmentService extends Service
 
         Excel::store(new EstablishmentContactTracingExport($result), sprintf('%s/%s', 'contact-tracing', $xlsxName));
         
-        $filePath = sprintf('%s\%s\%s', config('filesystems.disks.local.root'), 'contact-tracing', $xlsxName);
-        dd(Storage::get($filePath));
+        // $filePath = sprintf('%s\%s\%s', config('filesystems.disks.local.root'), 'contact-tracing', $xlsxName);
+        $file = Storage::get(sprintf('%s/%s', 'contact-tracing', $xlsxName));
+        
         dd(response()->download($filePath, $xlsxName, [
             'Content-type' => 'application/vnd.ms-excel',
             'filename' => $xlsxName
