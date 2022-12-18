@@ -7,6 +7,8 @@ function authEstablishment () {
             $('.page-loader-wrapper').fadeOut()
             $('.name-establishment').text(result.establishment.name)
             $('.address-establishment').text(result.establishment.address)
+            $('.contact-number-establishment').text(result.establishment.contact_number)
+            $('.email-establishment').text(result.email)
         }
     }).then((result) => {
         if (result) location.href = webUrl + 'login/establishment'
