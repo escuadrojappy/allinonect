@@ -163,7 +163,7 @@
         $("#establishmentlist").select2({
             placeholder: 'None',
             ajax: {
-                url: `${apiUrl}establishments`,
+                url: `${apiUrl}admin/establishment`,
                 delay: 250,
                 dataType: 'json',
                 type: 'GET',

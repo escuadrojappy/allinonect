@@ -53,14 +53,14 @@
             role_id: 2
         }
         if (create) {
-            post(`${apiUrl}auth/registration`, params).done((result) => {
+            post(`${apiUrl}admin/establishment`, params).done((result) => {
                 successAlert(
                     'Success!',
                     'Successfully Registered Establishment.',
                     () => { 
                         clearFormFields('#establishment-registration-form')
                         $('#establishment-registration-modal').modal('toggle')
-                        initDataTable('.dataTable', columns, 'establishments/search', orderBy)
+                        initDataTable('.dataTable', columns, 'admin/establishment/search', orderBy)
                     }
                 )
             }).fail((error) => {
@@ -69,14 +69,14 @@
                 rollBackButtons('#establishment-registration-form')
             })
         } else {
-            put(`${apiUrl}establishments/${editId}`, params).done((result) => {
+            put(`${apiUrl}admin/establishment/${editId}`, params).done((result) => {
                 successAlert(
                     'Success!',
                     'Successfully Updated Establishment.',
                     () => { 
                         clearFormFields('#establishment-registration-form')
                         $('#establishment-registration-modal').modal('toggle')
-                        initDataTable('.dataTable', columns, 'establishments/search', orderBy)
+                        initDataTable('.dataTable', columns, 'admin/establishment/search', orderBy)
                     }
                 )
             }).fail((error) => {

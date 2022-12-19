@@ -24,20 +24,15 @@ Route::prefix('auth')->group(function () {
     // Verify Password Grant Token
     Route::middleware(['verify.password', 'identify.user'])->group(function () {
         Route::get('/', 'AuthController@index'); 
-        Route::get('logout', 'AuthController@logout'); 
-        Route::post('registration', 'AuthController@registration');
+        Route::get('logout', 'AuthController@logout');
     });
     Route::post('test', 'AuthController@test');
 });
 
 Route::prefix('establishments')->group(function () {
     Route::middleware(['verify.password', 'identify.user'])->group(function () {
-        Route::get('/', 'EstablishmentController@index');
-        Route::post('search', 'EstablishmentController@search');
         Route::post('contact-tracing', 'EstablishmentController@contactTracing');
-        Route::post('contact-tracing/report', 'EstablishmentController@generateContactTracingReport');  
-        Route::put('{id}', 'EstablishmentController@update');
-        Route::delete('{id}', 'EstablishmentController@destroy');
+        Route::post('contact-tracing/report', 'EstablishmentController@generateContactTracingReport');
 
         Route::prefix('visitor')->group(function () {
             Route::post('scan', 'EstablishmentController@scan');
@@ -47,9 +42,20 @@ Route::prefix('establishments')->group(function () {
 
 Route::prefix('admin')->group(function () {
     Route::middleware(['verify.password', 'identify.user'])->group(function () {
+        Route::get('establishment', 'AdminController@getEstablishment');
+        Route::post('establishment/search', 'AdminController@searchEstablishment');
+        Route::post('establishment', 'AdminController@registrationEstablishment');
+        Route::put('establishment/{id}', 'AdminController@updateEstablishment');
+        Route::delete('establishment/{id}', 'AdminController@destroyEstablishment');
+        
+
         Route::post('contact-tracing', 'AdminController@contactTracing');
-        Route::post('contact-tracing/report', 'AdminController@generateContactTracingReport');  
+        Route::post('contact-tracing/report', 'AdminController@generateContactTracingReport');
+
+
         Route::post('visitor', 'VisitorController@search');
+
+        
     });
 });
 
