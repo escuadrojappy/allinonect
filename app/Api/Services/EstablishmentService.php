@@ -148,25 +148,11 @@ class EstablishmentService extends Service
             $visitor = $this->visitorRepository->checkIfPcnExists(trim($cardNumber, ''));
 
             if (!$visitor) {
-                $lastFourCardNumber = substr($cardNumber, -4);
+                $accounts = $this->createVisitorByQrCode($cardNumber, $pcnSubject);
 
-                // Generate Password Example: CANCIO-{lastFourCardNumber}
-                $generatePassword = Arr::get($pcnSubject, 'lName'). '-'. $lastFourCardNumber;
+                $visitor = Arr::get($accounts, 'visitor');
 
-                $user = $this->authRepository->create([
-                    'password' => bcrypt($generatePassword),
-                    'role_id' => config('models.roles.visitor'),
-                ]);
-
-                $visitor = $this->visitorRepository->create([
-                    'user_id' => Arr::get($user, 'id'),
-                    'first_name' => Arr::get($pcnSubject, 'fName'),
-                    'middle_name' => Arr::get($pcnSubject, 'mName'),
-                    'last_name' => Arr::get($pcnSubject, 'lName'),
-                    'birthdate' => date('Y-m-d', strtotime(Arr::get($pcnSubject, 'DOB'))),
-                    'place_of_birth' => Arr::get($pcnSubject, 'POB'),
-                    'philsys_card_number' => $cardNumber,
-                ]);
+                $user = Arr::get($accounts, 'user');
             }
 
             $scanned = $this->scannedVisitorRepository->create([
@@ -187,6 +173,41 @@ class EstablishmentService extends Service
             logger()->error($e->getTraceAsString());
             throw $e;
         }
+    }
+
+    /**
+     * Create Visitor By Qr Code.
+     *
+     * @param string $cardNumber
+     * @param array $subject
+     * @return array
+     */
+    private function createVisitorByQrCode(string $cardNumber, array $subject)
+    {
+        $lastFourCardNumber = substr($cardNumber, -4);
+
+        // Generate Password Example: CANCIO-{lastFourCardNumber}
+        $generatePassword = strtoupper(Arr::get($subject, 'lName')). '-'. $lastFourCardNumber;
+
+        $user = $this->authRepository->create([
+            'password' => bcrypt($generatePassword),
+            'role_id' => config('models.roles.visitor'),
+        ]);
+
+        $visitor = $this->visitorRepository->create([
+            'user_id' => Arr::get($user, 'id'),
+            'first_name' => Arr::get($subject, 'fName'),
+            'middle_name' => Arr::get($subject, 'mName'),
+            'last_name' => Arr::get($subject, 'lName'),
+            'birthdate' => date('Y-m-d', strtotime(Arr::get($subject, 'DOB'))),
+            'place_of_birth' => Arr::get($subject, 'POB'),
+            'philsys_card_number' => $cardNumber,
+        ]);
+
+        return [
+            'user' => $user,
+            'visitor' => $visitor,
+        ];
     }
 
     /**
