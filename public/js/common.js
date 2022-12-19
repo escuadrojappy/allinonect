@@ -284,10 +284,20 @@ function initDataTable (element, columns, url, orderBy = null, action = true, ad
 function dateRangePicker (element) {
     $(element).daterangepicker({
         timePicker: true,
-        startDate: moment().startOf('hour'),
-        endDate: moment().startOf('hour').add(32, 'hour'),
+        showDropdowns: true,
         locale: {
-            format: 'YYYY/MM/DD HH:mm:ss'
-        }
+            format: 'YYYY/MM/DD HH:mm:ss',
+            cancelLabel: 'Clear'
+        },
+    })
+
+    $(element).on('apply.daterangepicker', function(ev, picker) {
+        $(this).val(picker.startDate.format('MM/DD/YYYY HH:mm:ss') + ' - ' + picker.endDate.format('MM/DD/YYYY HH:mm:ss'))
+    })
+  
+    $(element).on('cancel.daterangepicker', function(ev, picker) {
+        $(this).val('None')
     });
+
+    $(element).val('None')
 }
