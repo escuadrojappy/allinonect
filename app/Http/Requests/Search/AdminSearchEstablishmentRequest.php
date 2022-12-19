@@ -5,7 +5,7 @@ namespace App\Http\Requests\Search;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Http\FormRequest;
 
-class AdminSearchRequest extends FormRequest
+class AdminSearchEstablishmentRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.

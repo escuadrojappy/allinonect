@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Api\Services\AuthService;
 use App\Http\Requests\Auth\{
     LoginRequest,
-    RegistrationRequest,
 };
 use Illuminate\Http\Request;
 
@@ -58,17 +57,6 @@ class AuthController extends Controller
     public function logout()
     {
         return $this->authService->logout();
-    }
-
-    /**
-     * Register User.
-     *
-     * @param \App\Http\Requests\Auth\RegistrationRequest @request
-     * @return \Illuminate\Http\JsonResponse
-     */
-    public function registration(RegistrationRequest $request)
-    {
-        return $this->authService->registration($request->validated());
     }
 
     /**
