@@ -93,20 +93,25 @@
 
     $(document).on('click', '.filter-submit', function (e) {
         e.preventDefault()
-        var dateRangePicker = $('.datepicker').val().split('-')
-        var startDate = moment(dateRangePicker[0]).format('YYYY-MM-DD HH:mm:ss')
-        var endDate = moment(dateRangePicker[1]).format('YYYY-MM-DD HH:mm:ss')
+        
+        var additionalParams = {}
+
+        if ($('.datepicker').val() !== 'None') {
+            var dateRangePicker = $('.datepicker').val().split('-')
+            var startDate = moment(dateRangePicker[0]).format('YYYY-MM-DD HH:mm:ss')
+            var endDate = moment(dateRangePicker[1]).format('YYYY-MM-DD HH:mm:ss')
+            additionalParams = {
+                date_range: [
+                    {
+                        start_date: startDate,
+                        end_date: endDate
+                    }
+                ]
+            }
+        }
+
         var covidResult = $('.covid-result').val()
         var dataTableSearch = $('.dataTables_filter input[type="search"]').val()
-
-        var additionalParams = {
-            date_range: [
-                {
-                    start_date: startDate,
-                    end_date: endDate
-                }
-            ]
-        }
 
         if (covidResult !== null && covidResult !== undefined) additionalParams.covid_result = covidResult
         if (dataTableSearch !== '') additionalParams.search = dataTableSearch
@@ -117,6 +122,7 @@
     $(document).on('click', '.filter-reset', function (e) {
         e.preventDefault()
         $('.covid-result').val('').change()
+        $('.datepicker').val('None')
         initDataTable('.dataTable', columns, 'establishments/contact-tracing', orderBy, false)
     })
 

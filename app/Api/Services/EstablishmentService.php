@@ -93,11 +93,7 @@ class EstablishmentService extends Service
         $term = Arr::get($search, 'term');
 
         if ($term) {
-            $result = $this->establishmentRepository->search(
-                [
-                    'search' => $term
-                ]
-            );
+            $result = $this->establishmentRepository->search(['search' => $term]);
         } else {
             $result = $this->establishmentRepository->search([]);
         }

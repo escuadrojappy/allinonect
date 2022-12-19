@@ -92,32 +92,34 @@
             { data: 'covid_result', name: 'covid_result' }
         ]
     
-    
-    
         dateRangePicker('.datepicker')
 
         initDataTable('.dataTable', columns, 'admin/contact-tracing', orderBy, false)
 
         $(document).on('click', '.filter-submit', function (e) {
             e.preventDefault()
-            var dateRangePicker = $('.datepicker').val().split('-')
-            var startDate = moment(dateRangePicker[0]).format('YYYY-MM-DD HH:mm:ss')
-            var endDate = moment(dateRangePicker[1]).format('YYYY-MM-DD HH:mm:ss')
-            var covidResult = $('.covid-result').val()
-            var establishmentid = $('.establishmentlist').val()
-            var dataTableSearch = $('.dataTables_filter input[type="search"]').val()
-            
 
-            var additionalParams = {
-                date_range: [
-                    {
-                        start_date: startDate,
-                        end_date: endDate
-                    }
-                ],
-                establishment_id: establishmentid
+            var additionalParams = {}
+
+            if ($('.datepicker').val() !== 'None') {
+                var dateRangePicker = $('.datepicker').val().split('-')
+                var startDate = moment(dateRangePicker[0]).format('YYYY-MM-DD HH:mm:ss')
+                var endDate = moment(dateRangePicker[1]).format('YYYY-MM-DD HH:mm:ss')
+                additionalParams = {
+                    date_range: [
+                        {
+                            start_date: startDate,
+                            end_date: endDate
+                        }
+                    ]
+                }
             }
 
+            var covidResult = $('.covid-result').val()
+            var establishmentId = $('.establishmentlist').val()
+            var dataTableSearch = $('.dataTables_filter input[type="search"]').val()
+            console.log(establishmentId)
+            if (establishmentId) additionalParams.establishment_id = establishmentId
             if (covidResult !== null && covidResult !== undefined) additionalParams.covid_result = covidResult
             if (dataTableSearch !== '') additionalParams.search = dataTableSearch
 
@@ -127,6 +129,8 @@
         $(document).on('click', '.filter-reset', function (e) {
             e.preventDefault()
             $('.covid-result').val('').change()
+            $('.datepicker').val('None')
+            $('.establishmentlist').val(null).change()
             initDataTable('.dataTable', columns, 'admin/contact-tracing', orderBy, false)
         })
 
@@ -157,7 +161,7 @@
         })
 
         $("#establishmentlist").select2({
-            tags: [],
+            placeholder: 'None',
             ajax: {
                 url: `${apiUrl}establishments`,
                 delay: 250,
