@@ -61,6 +61,7 @@ class VisitorRepository extends Repository
      * Check PCN if exists.
      *
      * @param string $pcn
+     * @return \App\Models\Visitor $visitor
      */
     public function checkIfPcnExists(string $cardNumber)
     {

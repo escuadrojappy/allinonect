@@ -24,6 +24,7 @@
                             <table class="table table-bordered table-striped table-hover dataTable">
                                 <thead>
                                     <tr>
+                                        <th>Business ID</th>
                                         <th>Business Name</th>
                                         <th>Business Address</th>
                                         <th>Email Address</th>
@@ -45,6 +46,7 @@
         var editId = null
         var orderBy = [[0, 'desc']]
         var columns = [
+            { data: 'id', name: 'id' },
             { data: 'name', name: 'name' },
             { data: 'address', name: 'address' },
             { data: 'email', name: 'users.email' },
@@ -86,13 +88,13 @@
                 'Confirm!',
                 'Are you sure you want to delete?',
                 () => {
-                    destroy(`${apiUrl}establishments/${id}`).done((result) => {
+                    destroy(`${apiUrl}admin/establishment/${id}`).done((result) => {
                         successAlert(
                             'Success!',
                             'Successfully Deleted Establishment.',
                             () => { 
                                 clearFormFields('#establishment-registration-form')
-                                initDataTable('.dataTable', columns, 'establishments/search', orderBy)
+                                initDataTable('.dataTable', columns, 'admin/establishment/search', orderBy)
                             }
                         )
                     }).fail((error) => {
@@ -104,6 +106,6 @@
             )
         })
 
-        initDataTable('.dataTable', columns, 'establishments/search', orderBy)
+        initDataTable('.dataTable', columns, 'admin/establishment/search', orderBy)
     </script>
 @endsection

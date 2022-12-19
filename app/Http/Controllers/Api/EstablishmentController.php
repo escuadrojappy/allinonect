@@ -5,14 +5,10 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Api\Services\EstablishmentService;
-use App\Http\Requests\Search\AdminSearchRequest;
 use App\Http\Requests\Establishment\{
-    DestroyEstablishmentRequest,
-    UpdateEstablishmentRequest,
     ScanEstablishmentVisitorRequest,
     ContactTracingEstablishmentRequest,
     GenerateContactTracingEstablishmentReportRequest,
-    IndexRequest,
 };
 
 class EstablishmentController extends Controller
@@ -32,40 +28,6 @@ class EstablishmentController extends Controller
     public function __construct(EstablishmentService $establishmentService)
     {
         $this->establishmentService = $establishmentService;
-    }
-
-    /**
-     *  Lists of Establishments.
-     *
-     * @param \App\Http\Requests\Establishment\IndexRequest @request
-     * @return \Illuminate\Http\JsonResponse
-     */
-    public function index(IndexRequest $request)
-    {
-        return $this->establishmentService->index($request->get('term'));
-    }
-
-    /**
-     * Search Establishment.
-     *
-     * @param \App\Http\Requests\Search\AdminSearchRequest $request
-     * @return \Illuminate\Http\JsonResponse
-     */
-    public function search(AdminSearchRequest $request)
-    {
-        return $this->establishmentService->search($request->validated());
-    }
-
-    /**
-     * Update Establishment.
-     *
-     * @param int $id
-     * @param \App\Http\Requests\Establishment\UpdateEstablishmentRequest $request
-     * @return \Illuminate\Http\JsonResponse
-     */
-    public function update($id, UpdateEstablishmentRequest $request)
-    {
-        return $this->establishmentService->update($id, $request->validated());
     }
 
     /**
@@ -99,17 +61,5 @@ class EstablishmentController extends Controller
     public function generateContactTracingReport(GenerateContactTracingEstablishmentReportRequest $request)
     {
         return $this->establishmentService->generateContactTracingReport($request->validated());
-    }
-
-    /**
-     * Destroy Establishment.
-     *
-     * @param int $id
-     * @param \App\Http\Requests\Establishment\DestroyEstablishmentRequest $request
-     * @return \Illuminate\Http\JsonResponse
-     */
-    public function destroy($id, DestroyEstablishmentRequest $request)
-    {
-        return $this->establishmentService->destroy($id);
     }
 }
