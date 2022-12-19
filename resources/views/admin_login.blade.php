@@ -36,7 +36,7 @@
 			<input type="checkbox" id="chk" aria-hidden="true">
 			<div class="signup">
 				<form id="login-form">
-					<img src="{{ asset('images/doh.png') }}" class="logoestablishment">
+					<img src="{{config('app.url')}}images/accdoh.png" class="logoestablishment">
 					<label>Department of Health</label>
 					<p>Administrator Account</p>
 					<input type="email" name="email" placeholder="Email" required>

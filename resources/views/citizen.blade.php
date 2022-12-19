@@ -44,7 +44,7 @@ a {
 				<input type="checkbox" id="chk" aria-hidden="true">
 				<div class="signup">
 					<form id="login-form">
-						<img src=" {{ asset('images/citizen.png') }}" alt="" class="logoestablishment">
+						<img src="{{config('app.url')}}images/acccitizens.png" alt="" class="logoestablishment">
 						<label>Citizens</label>
 						<p>Cabanatuan City</p>
 						<input type="email" name="email" placeholder="Email" required>
