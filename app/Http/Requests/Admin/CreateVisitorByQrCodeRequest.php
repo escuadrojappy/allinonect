@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Http\Requests\Establishment;
+namespace App\Http\Requests\Admin;
 
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Arr;
 use Illuminate\Validation\ValidationException;
 
-class ScanEstablishmentVisitorRequest extends FormRequest
+class CreateVisitorByQrCodeRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -15,7 +16,7 @@ class ScanEstablishmentVisitorRequest extends FormRequest
      */
     public function authorize()
     {
-        return Gate::authorize('is_establishment', $this->instance());
+        return Gate::authorize('is_admin', $this->instance());
     }
 
     /**
@@ -26,8 +27,14 @@ class ScanEstablishmentVisitorRequest extends FormRequest
     public function rules()
     {
         return [
-            'establishment_id' => ['required', 'numeric', 'exists:App\Models\Establishment,id'],
             'qrcode_result' => ['required', 'json'],
+            'result' => ['array'],
+            'result.DateIssued' => ['string'],
+            'result.Issuer' => ['string'],
+            'result.alg' => ['string'],
+            'result.signature' => ['string'],
+            'result.subject.*' => ['sometimes'],
+            'result.subject.PCN' => ['unique:App\Models\Visitor,philsys_card_number'],
         ];
     }
 
@@ -42,6 +49,10 @@ class ScanEstablishmentVisitorRequest extends FormRequest
 
         if (!Arr::has($qrCode, 'subject.PCN')) throw ValidationException::withMessages([
             'qrcode_result' => 'Invalid QR Code.'
+        ]);
+
+        $this->merge([
+            'result' => $qrCode,
         ]);
     }
 }
