@@ -4,10 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use ModelDate;
 
 class ScannedVisitor extends Model
 {
-    use HasFactory;
+    use HasFactory, ModelDate;
 
     /**
      * The attributes that are mass assignable.
@@ -18,16 +19,5 @@ class ScannedVisitor extends Model
         'visitor_id',
         'establishment_id',
         'entrance_timestamp',
-    ];
-
-    /**
-     * The attributes that should be cast.
-     *
-     * @var array<string, string>
-     */
-    protected $casts = [
-        'created_at' => 'datetime:Y-m-d H:i:s',
-        'updated_at' => 'datetime:Y-m-d H:i:s',
-        'deleted_at' => 'datetime:Y-m-d H:i:s',
     ];
 }

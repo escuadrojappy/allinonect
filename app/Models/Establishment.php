@@ -5,10 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use ModelDate;
 
 class Establishment extends Model
 {
-    use HasFactory, SoftDeletes;
+    use HasFactory, SoftDeletes, ModelDate;
 
     /**
      * The attributes that are mass assignable.
@@ -21,17 +22,6 @@ class Establishment extends Model
         'address',
         'contact_number',
         'status',
-    ];
-
-    /**
-     * The attributes that should be cast.
-     *
-     * @var array<string, string>
-     */
-    protected $casts = [
-        'created_at' => 'datetime:Y-m-d H:i:s',
-        'updated_at' => 'datetime:Y-m-d H:i:s',
-        'deleted_at' => 'datetime:Y-m-d H:i:s',
     ];
 
     /**

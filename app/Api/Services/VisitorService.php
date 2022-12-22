@@ -29,7 +29,7 @@ class VisitorService extends Service {
         $this->visitorRepository = $visitorRepository;
     }
 
-      /**
+    /**
      * Search Visitor.
      *
      * @param array $request
@@ -46,5 +46,32 @@ class VisitorService extends Service {
         Arr::set($response, 'data', $data);
         
         return response()->json($response);
+    }
+
+    /**
+     * Update Visitor.
+     *
+     * @param int $id
+     * @param array $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function update($id, array $request)
+    {
+        $update = $this->visitorRepository->update($id, $request);
+
+        return response()->json($update);
+    }
+
+    /**
+     * Destory Visitor.
+     *
+     * @param int $id
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function destroy($id)
+    {
+        $destroy = $this->visitorRepository->destroy($id);
+
+        return response()->json($destroy);
     }
 }

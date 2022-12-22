@@ -7,11 +7,15 @@ use App\Http\Controllers\Controller;
 use App\Api\Services\{
     AdminService,
     EstablishmentService,
+    VisitorService,
 };
 use App\Http\Requests\Admin\{
     ContactTracingAdminRequest,
     GenerateContactTracingAdminReportRequest,
     RegistrationEstablishmentRequest,
+    CreateVisitorRequest,
+    CreateVisitorByQrCodeRequest,
+    DestroyVisitorRequest,
 };
 use App\Http\Requests\Establishment\{
     IndexEstablishmentRequest,
@@ -19,9 +23,11 @@ use App\Http\Requests\Establishment\{
     UpdateEstablishmentRequest,
 };
 use App\Http\Requests\Search\{
-    AdminSearchEstablishmentRequest
+    AdminSearchEstablishmentRequest,
 };
-
+use App\Http\Requests\Visitor\{
+    UpdateVisitorRequest,
+};
 class AdminController extends Controller
 {
     /**
@@ -39,6 +45,13 @@ class AdminController extends Controller
     protected $establishmentService;
 
     /**
+     * The Visitor service instance.
+     *
+     * @return \App\Api\Services\VisitorService $visitorService
+     */
+    protected $visitorService;
+
+    /**
      * Create service instance.
      *
      * @param \App\Api\Services\AdminService $adminService
@@ -46,10 +59,12 @@ class AdminController extends Controller
      */
     public function __construct(
         AdminService $adminService,
-        EstablishmentService $establishmentService
+        EstablishmentService $establishmentService,
+        VisitorService $visitorService
     ) {
         $this->adminService = $adminService;
         $this->establishmentService = $establishmentService;
+        $this->visitorService = $visitorService;
     }
 
     /**
@@ -129,5 +144,51 @@ class AdminController extends Controller
     public function destroyEstablishment($id, DestroyEstablishmentRequest $request)
     {
         return $this->establishmentService->destroy($id);
+    }
+
+    /**
+     * Create Visitor using form.
+     *
+     * @param \App\Http\Requests\Admin\CreateVisitorRequest $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function createVisitor(CreateVisitorRequest $request)
+    {
+        return $this->adminService->createVisitor($request->validated());
+    }
+
+    /**
+     * Create Visitor using form.
+     *
+     * @param \App\Http\Requests\Admin\CreateVisitorByQrCodeRequest $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function createVisitorByQrCode(CreateVisitorByQrCodeRequest $request)
+    {
+        return $this->adminService->createVisitorByQrCode($request->validated());
+    }
+
+    /**
+     * Create Visitor using form.
+     *
+     * @param int $id
+     * @param \App\Http\Requests\Visitor\UpdateVisitorRequest $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function updateVisitor($id, UpdateVisitorRequest $request)
+    {
+        return $this->visitorService->update($id, $request->validated());
+    }
+
+    /**
+     * Destroy Visitor.
+     *
+     * @param int $id
+     * @param \App\Http\Requests\Admin\DestroyVisitorRequest $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function destroyVisitor($id, DestroyVisitorRequest $request)
+    {
+        return $this->visitorService->destroy($id, $request->validated());
     }
 }

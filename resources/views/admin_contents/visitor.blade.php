@@ -92,7 +92,7 @@
             $('#contact_number').val(contact_number).parent().addClass('focused')
         })
 
-        initDataTable('.dataTable', columns, 'admin/visitor', orderBy, true)
+        initDataTable('.dataTable', columns, 'admin/visitor/search', orderBy, true)
 </script>
 
 @endsection

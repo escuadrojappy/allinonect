@@ -31,29 +31,46 @@ Route::prefix('auth')->group(function () {
 
 Route::prefix('establishments')->group(function () {
     Route::middleware(['verify.password', 'identify.user'])->group(function () {
-        Route::post('contact-tracing', 'EstablishmentController@contactTracing');
-        Route::post('contact-tracing/report', 'EstablishmentController@generateContactTracingReport');
+
+        Route::prefix('contact-tracing')->group(function () {
+            Route::post('/', 'EstablishmentController@contactTracing');
+            Route::post('report', 'EstablishmentController@generateContactTracingReport');
+        });
 
         Route::prefix('visitor')->group(function () {
             Route::post('scan', 'EstablishmentController@scan');
         });
+    
     });
 });
 
 Route::prefix('admin')->group(function () {
     Route::middleware(['verify.password', 'identify.user'])->group(function () {
-        Route::get('establishment', 'AdminController@getEstablishment');
-        Route::post('establishment/search', 'AdminController@searchEstablishment');
-        Route::post('establishment', 'AdminController@registrationEstablishment');
-        Route::put('establishment/{id}', 'AdminController@updateEstablishment');
-        Route::delete('establishment/{id}', 'AdminController@destroyEstablishment');
+
+        Route::prefix('establishment')->group(function () {
+            Route::get('/', 'AdminController@getEstablishment');
+            Route::post('/', 'AdminController@registrationEstablishment');
+
+            Route::post('search', 'AdminController@searchEstablishment');
+
+            Route::put('{id}', 'AdminController@updateEstablishment');
+            Route::delete('{id}', 'AdminController@destroyEstablishment');
+        });
         
+        Route::prefix('contact-tracing')->group(function () {
+            Route::post('/', 'AdminController@contactTracing');
+            Route::post('report', 'AdminController@generateContactTracingReport');
+        });
 
-        Route::post('contact-tracing', 'AdminController@contactTracing');
-        Route::post('contact-tracing/report', 'AdminController@generateContactTracingReport');
+        Route::prefix('visitor')->group(function () {
+            Route::post('search', 'VisitorController@search');
 
+            Route::post('/', 'AdminController@createVisitor');
+            Route::post('/qrcode', 'AdminController@createVisitorByQrCode');
 
-        Route::post('visitor', 'VisitorController@search');
+            Route::put('{id}', 'AdminController@updateVisitor');
+            Route::delete('{id}', 'AdminController@destroyVisitor');
+        });
 
         
     });

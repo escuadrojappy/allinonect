@@ -251,7 +251,7 @@ class EstablishmentService extends Service
         ]);
     }
 
-     /**
+    /**
      * Destory Establishment.
      *
      * @param int $id

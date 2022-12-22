@@ -40,7 +40,7 @@ a {
 
 		<div class="bg-login">
 			<div class="main">
-			<a href="/allinonect/public/account" style="font-size:26px;"  class="fa">&#xf191;</a>
+			<a href="{{config('app.url')}}account" style="font-size:26px;"  class="fa">&#xf191;</a>
 				<input type="checkbox" id="chk" aria-hidden="true">
 				<div class="signup">
 					<form id="login-form">

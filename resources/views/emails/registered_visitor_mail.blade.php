@@ -7,7 +7,7 @@ Email Address: {{ $params['email'] }}
 <br>
 Password: {{ $params['password'] }}
 
-@component('mail::button', ['url' => config('app.url'). 'login/establishment'])
+@component('mail::button', ['url' => config('app.url'). 'login/citizen'])
 Login
 @endcomponent
 
