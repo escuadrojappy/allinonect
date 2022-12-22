@@ -67,8 +67,8 @@
         $(document).on('click', '.btn-modal-add', function (e) {
             e.preventDefault()
             clearFormFields('#establishment-registration-form')
-            $('#visitor-registration-modal .modal-title').text('Establishment Registration Form')
-            $('#visitor-registration-modal button[type="submit"]').text('Register')
+            $('#establishment-registration-modal .modal-title').text('Establishment Registration Form')
+            $('#establishment-registration-modal button[type="submit"]').text('Register')
             create = true
         })
 
@@ -92,7 +92,7 @@
             $('#contact_number').val(contact_number).parent().addClass('focused')
         })
 
-        initDataTable('.dataTable', columns, 'admin/visitor', orderBy, true)
+        initDataTable('.dataTable', columns, 'admin/visitor/search', orderBy, true)
 </script>
 
 @endsection
