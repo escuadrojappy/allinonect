@@ -40,6 +40,7 @@ return new class extends Migration
                             else 1
                         end AS covid_result,
                         visitor_health_statuses.date_result, 
+                        visitor_health_statuses.remarks,
                         users.id as visitor_user_id, 
                         users.email as visitor_email, 
                         users.role_id as visitor_role_id 
@@ -75,6 +76,73 @@ return new class extends Migration
                         establishments 
                         left join users on users.id = establishments.user_id
                 ) as establishments on establishments.establishment_id = scanned_visitors.establishment_id
+
+            union all 
+            select 
+                null as id, 
+                visitors.visitor_id, 
+                visitors.visitor_first_name, 
+                visitors.visitor_middle_name, 
+                visitors.visitor_last_name, 
+                visitors.visitor_birthdate, 
+                visitors.visitor_place_of_birth, 
+                visitors.visitor_contact_number, 
+                visitors.visitor_philsys_card_number, 
+                vhs2.id as visitor_health_statuses_id, 
+                vhs2.covid_result, 
+                vhs2.date_result, 
+                vhs2.remarks, 
+                visitors.visitor_user_id, 
+                visitors.visitor_email, 
+                visitors.visitor_role_id, 
+                null as establishment_id, 
+                null as establishment_name, 
+                null as establishment_address, 
+                null as establishment_contact_number, 
+                null as establishment_user_id, 
+                null as establishment_email, 
+                null as establishment_role_id, 
+                null as entrance_timestamp, 
+                null as created_at, 
+                null as updated_at, 
+                null as deleted_at 
+            from 
+                (
+                    select 
+                        vhs.id, 
+                        max(vhs.date_result) as date_result 
+                    from 
+                        visitor_health_statuses vhs 
+                    group by 
+                        vhs.visitor_id
+                ) vhs 
+                inner join visitor_health_statuses vhs2 on vhs.id = vhs2.id 
+                left join (
+                    select 
+                        visitors.id as visitor_id, 
+                        visitors.first_name as visitor_first_name, 
+                        visitors.middle_name as visitor_middle_name, 
+                        visitors.last_name as visitor_last_name, 
+                        visitors.birthdate as visitor_birthdate, 
+                        visitors.place_of_birth as visitor_place_of_birth, 
+                        visitors.contact_number as visitor_contact_number, 
+                        visitors.philsys_card_number as visitor_philsys_card_number, 
+                        users.id as visitor_user_id, 
+                        users.email as visitor_email, 
+                        users.role_id as visitor_role_id 
+                    from 
+                        visitors 
+                        left join users on users.id = visitors.user_id
+                ) as visitors on visitors.visitor_id = vhs2.visitor_id 
+                where 
+                    not exists (
+                        select 
+                            visitor_id 
+                        from 
+                            scanned_visitors 
+                        where 
+                            scanned_visitors.visitor_id = vhs2.visitor_id
+                    )
         ');
     }
 

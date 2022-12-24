@@ -28,7 +28,7 @@ class VisitorController extends Controller
         $this->visitorService = $visitorService;
     }
 
- /**
+    /**
      * Search Visitor.
      *
      * @param \App\Http\Requests\Search\VisitorRequest $request
