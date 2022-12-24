@@ -20,6 +20,7 @@
                         <a href="#scan-id"  class="name" aria-controls="scan-id" role="tab" data-toggle="tab" aria-expanded="true">
                             Scan Information on National ID
                         </a>
+
                     </li>
                     <!-- <li role="presentation" class="active">
                         <a href="#profile_settings" aria-controls="settings" role="tab" data-toggle="tab" aria-expanded="true">
@@ -104,24 +105,29 @@
                         </form>
                     </div>
                     <div role="tabpanel" class="tab-pane fade in" id="scan-id">
-                        <form id="scan-id-form">
-                        <div class="form-group form-float">
-                                <div class="form-line">
-                                    <a href="{{config('app.url')}}admin/qrscanner">
-                                    <i class="material-icons">qr_code_scanner</i>
-                                    <span>QR Code Scanner</span>
-                                    </a>
+                        <div class="container-fluid">
+                            <div class="col-md-12">
+                                <div class="card">
+                                    <div class="header">
+                                        <h2>
+                                            QR Code Scanner <small>Scan Visitors here...</small>
+                                        </h2>
+                                    </div>
+                                    <div class="body">
+                                        <div class="scanner">
+                                            <input type="hidden" id="openreader-btn" value="Scan QRCode"/>
+                                            <div class="row">
+                                                <div class="col-md-6"></div>
+                                                <div class="col-md-6">
+                                                    <b>Result:</b>
+                                                    <br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <input type="hidden" id="openreader-btn" value="Scan QRCode"/>
-                            <div class="row">
-                                <div class="col-md-6"></div>
-                                <div class="col-md-6">
-                                    <b>Result:</b>
-                                    <br>
-                                </div>
-                            </div>
-                        </form>
+                        </div>
                     </div>
                 </div>
             </div>
