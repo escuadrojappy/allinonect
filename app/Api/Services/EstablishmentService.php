@@ -218,6 +218,8 @@ class EstablishmentService extends Service
      */
     public function contactTracing(array $request)
     {
+        Arr::set($request, 'id', 'isNotNull');
+
         $result = $this->establishmentContactTracingRepository->search($request);
         
         $response = $this->dataTableResponse($result, $request);

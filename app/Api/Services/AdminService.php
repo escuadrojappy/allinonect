@@ -7,6 +7,7 @@ use Illuminate\Support\{
     Str
 };
 use Illuminate\Support\Facades\{
+    App,
     DB,
     Mail,
 };
@@ -24,6 +25,7 @@ use App\Api\Repositories\{
     AdminContactTracingRepository,
     VisitorRepository,
 };
+use App\Api\Services\SmsService;
 use App\Exports\AdminContactTracingExport;
 use Excel;
 
@@ -85,6 +87,8 @@ class AdminService extends Service {
      */
     public function contactTracing(array $request)
     {
+        Arr::set($request, 'id', 'isNotNull');
+        
         $result = $this->adminContactTracingRepository->search($request);
         
         $response = $this->dataTableResponse($result, $request);
@@ -178,7 +182,7 @@ class AdminService extends Service {
     public function createVisitor(array $request)
     {
         DB::beginTransaction();
-
+        
         try {
             $cardNumber = Arr::get($request, 'philsys_card_number');
             $lastFourCardNumber = substr($cardNumber, -4);
@@ -223,7 +227,7 @@ class AdminService extends Service {
      * Create Visitor By Qr Code.
      *
      * @param array $request
-     * @return array
+     * @return \Illuminate\Http\JsonResponse
      */
     public function createVisitorByQrCode(array $request)
     {
@@ -267,5 +271,16 @@ class AdminService extends Service {
             logger()->error($e->getTraceAsString());
             throw $e;
         }
+    }
+
+    /**
+     * Create Visitor Health Status.
+     *
+     * @param array $request
+     * @return array
+     */
+    public function createVisitorHealthStatus(array $request)
+    {
+        dd($request);
     }
 }
