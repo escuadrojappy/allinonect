@@ -144,3 +144,7 @@ Route::get('/establishment/my_profile', function () {
 Route::get('/establishment/qrscanner', function () {
     return view('establishment_contents/scanner', ['title' => 'Qr Scanner']);
 });
+
+Route::get('/admin/qrscanner2', function () {
+    return view('admin_contents/scanner2', ['title' => 'Qr Scanner']);
+});

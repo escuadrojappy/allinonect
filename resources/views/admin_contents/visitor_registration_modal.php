@@ -6,15 +6,21 @@
             </div>
             <div class="modal-body">
                 <ul class="nav nav-tabs" role="tablist">
-                    <li role="presentation" class="active">
-                        <a href="#visitor-information" aria-controls="visitor-information" role="tab" data-toggle="tab" aria-expanded="true">
+                    <li role="presentation" class="active" id="tab01">
+                        <a href="#visitor-information" class="name" aria-controls="visitor-information" role="tab" data-toggle="tab" aria-expanded="true">
                             Visitor Information
                         </a>
                     </li>
-                    <li role="presentation" class="">
-                        <a href="#covid-result" aria-controls="covid-result" role="tab" data-toggle="tab" aria-expanded="true">
+                    <li role="presentation" class="" id="tab02">
+                        <a href="#covid-result" class="name" aria-controls="covid-result" role="tab" data-toggle="tab" aria-expanded="true">
                             Covid Result
                         </a>
+                    </li>
+                    <li role="presentation" class="" id="tab03">
+                        <a href="#scan-id"  class="name" aria-controls="scan-id" role="tab" data-toggle="tab" aria-expanded="true">
+                            Scan Information on National ID
+                        </a>
+
                     </li>
                     <!-- <li role="presentation" class="active">
                         <a href="#profile_settings" aria-controls="settings" role="tab" data-toggle="tab" aria-expanded="true">
@@ -23,7 +29,7 @@
                     </li> -->
                 </ul>
                 <div class="tab-content">
-                    <div role="tabpanel" class="tab-pane fade active in" id="visitor-information">
+                    <div role="tabpanel" class="tab-pane fade in active" id="visitor-information">
                         <form id="visitor-registration-form">
                             <div class="form-group form-float">
                                 <div class="form-line">
@@ -75,9 +81,8 @@
                             </div>
                         </form>
                     </div>
-                </div>
-                <div class="tab-content">
-                    <div role="tabpanel" class="tab-pane fade" id="covid-result">
+                
+                    <div role="tabpanel" class="tab-pane fade in" id="covid-result">
                         <form id="covid-result-form">
                             <div class="form-group form-float">
                                 <div class="form-line">
@@ -98,6 +103,31 @@
                                 </div>
                             </div>
                         </form>
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade in" id="scan-id">
+                        <div class="container-fluid">
+                            <div class="col-md-12">
+                                <div class="card">
+                                    <div class="header">
+                                        <h2>
+                                            QR Code Scanner <small>Scan Visitors here...</small>
+                                        </h2>
+                                    </div>
+                                    <div class="body">
+                                        <div class="scanner">
+                                            <input type="hidden" id="openreader-btn" value="Scan QRCode"/>
+                                            <div class="row">
+                                                <div class="col-md-6"></div>
+                                                <div class="col-md-6">
+                                                    <b>Result:</b>
+                                                    <br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -126,4 +156,19 @@
             role_id: 3
         }
     })
+
+    $('#openreader-btn').qrCodeReader({
+            target: "#target-input",
+            audioFeedback: true,
+            // multiple: true,
+            skipDuplicates: false,
+            custom: true,
+            callback: function(codes) {
+                console.log(codes);
+            }
+        })
+
+        setTimeout(() => {
+            $('#openreader-btn').trigger('click')
+        }, 100);
 </script>

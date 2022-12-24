@@ -67,8 +67,8 @@
         $(document).on('click', '.btn-modal-add', function (e) {
             e.preventDefault()
             clearFormFields('#establishment-registration-form')
-            $('#establishment-registration-modal .modal-title').text('Establishment Registration Form')
-            $('#establishment-registration-modal button[type="submit"]').text('Register')
+            $('#visitor-registration-modal .modal-title').text('Establishment Registration Form')
+            $('#visitor-registration-modal button[type="submit"]').text('Register')
             create = true
         })
 
