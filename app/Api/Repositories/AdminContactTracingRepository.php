@@ -36,6 +36,7 @@ class AdminContactTracingRepository extends Repository
         'date_range',
         'covid_result',
         'establishment_id',
+        'id',
     ];
 
     /**

@@ -35,6 +35,7 @@ class EstablishmentContactTracingRepository extends Repository
         'date_range',
         'establishment_id',
         'covid_result',
+        'id',
     ];
 
     /**

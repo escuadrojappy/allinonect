@@ -38,6 +38,9 @@ return [
         'client_secret' => env('CLIENT_GRANT_SECRET'),
     ],
 
-    
+    'sms' => [
+        'api_key' => env('SMS_API_KEY', null),
+        'api_url' => env('SMS_API_URL', null),
+    ],
 
 ];

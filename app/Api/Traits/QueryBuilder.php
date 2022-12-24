@@ -162,7 +162,13 @@ trait QueryBuilder {
                                 }
                                 break;
                             default:
-                                $this->query = $query->where($key, $param);
+                                if ($param == 'isNull') {
+                                    $this->query = $query->whereNull($key);
+                                } else if ($param == 'isNotNull') {
+                                    $this->query = $query->whereNotNull($key);
+                                } else {
+                                    $this->query = $query->where($key, $param);
+                                }
                                 // for testing
                                 // if ($key == 'covid_result') {
                                 //     $this->query = $query->where('covid_result', $param);

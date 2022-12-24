@@ -70,6 +70,8 @@ Route::prefix('admin')->group(function () {
 
             Route::put('{id}', 'AdminController@updateVisitor');
             Route::delete('{id}', 'AdminController@destroyVisitor');
+
+            Route::post('/health-status', 'AdminController@createVisitorHealthStatus');
         });
 
         
