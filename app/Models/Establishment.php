@@ -32,4 +32,13 @@ class Establishment extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    /**
+     * Get Scanned Visitors.
+     * 
+     */
+    public function scannedVisitor()
+    {
+        return $this->belongsToMany(Visitor::class, 'scanned_visitor');
+    }
 }

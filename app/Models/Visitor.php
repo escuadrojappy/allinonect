@@ -2,9 +2,11 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\{
+    Model,
+    SoftDeletes
+};
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 use ModelDate;
 
 class Visitor extends Model
@@ -26,4 +28,31 @@ class Visitor extends Model
         'contact_number',
         'philsys_card_number',
     ];
+
+    /**
+     * Get User.
+     * 
+     */
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    /**
+     * Get Scanned Visitors.
+     * 
+     */
+    public function scannedEstablishment()
+    {
+        return $this->belongsToMany(Establishment::class, 'scanned_visitor');
+    }
+
+    /**
+     * Get Health Status.
+     * 
+     */
+    public function healthStatus()
+    {
+        return $this->hasMany(VisitorHealthStatus::class);
+    }
 }

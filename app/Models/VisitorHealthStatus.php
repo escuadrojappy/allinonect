@@ -10,6 +10,18 @@ class VisitorHealthStatus extends Model
     use HasFactory;
 
     /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
+    protected $fillable = [
+        'covid_result',
+        'remarks',
+        'date_result',
+        'visitor_id',
+    ];
+
+    /**
      * The attributes that should be cast.
      *
      * @var array<string, string>
@@ -19,4 +31,13 @@ class VisitorHealthStatus extends Model
         'updated_at' => 'datetime:Y-m-d H:i:s',
         'deleted_at' => 'datetime:Y-m-d H:i:s',
     ];
+
+    /**
+     * Get Health Visitor.
+     * 
+     */
+    public function visitor()
+    {
+        return $this->belongsTo(Visitor::class);
+    }
 }

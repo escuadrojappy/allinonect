@@ -8,4 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Role extends Model
 {
     use HasFactory;
+
+    /**
+     * Get Role.
+     * 
+     */
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

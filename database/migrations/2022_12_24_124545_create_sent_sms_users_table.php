@@ -14,10 +14,11 @@ return new class extends Migration
     public function up()
     {
         Schema::create('sent_sms_users', function (Blueprint $table) {
+            $table->bigIncrements('id');
             $table->bigInteger('batch_no');
-            $table->bigInteger('user_id');
-            $table->bigInteger('visitor_id');
             $table->bigInteger('establishment_id');
+            $table->bigInteger('visitor_id');
+            $table->datetime('entrance_timestamp');
             $table->timestamps();
         });
     }
