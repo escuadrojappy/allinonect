@@ -69,4 +69,35 @@ class SmsService
             throw $e;
         }
     }
+
+    /**
+     * Send Bulk Message.
+     *
+     * @param string $phoneNumber
+     * @param string $message
+     * @return
+     */
+    public static function sendMessage(string $phoneNumber, string $message)
+    {
+        try {
+            self::init();
+
+            $response = Http::post(self::$apiUrl, [
+                'apikey' => self::$apiKey,
+                'number' => $phoneNumber,
+                'message' => $message,
+            ]);
+
+            if ($response->status() !== 200) throw new \Exception($e);
+
+            if (str_contains($response->body(), 'invalid')) throw new \Exception($response);
+            
+            return json_decode($response->body(), true);
+
+        } catch (\Exception $e) {
+            logger()->error($e->getMessage());
+            logger()->error($e->getTraceAsString());
+            throw $e;
+        }
+    }
 }

@@ -54,4 +54,22 @@ class User extends Authenticatable
     {
         return $this->hasOne(Admin::class);
     }
+
+    /**
+     * Get Visitor.
+     * 
+     */
+    public function visitor()
+    {
+        return $this->hasOne(Visitor::class);
+    }
+
+    /**
+     * Get Role.
+     * 
+     */
+    public function role()
+    {
+        return $this->hasMany(Role::class);
+    }
 }
