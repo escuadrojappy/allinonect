@@ -5,7 +5,7 @@
 
 <div class="col-xs-12 col-m-3">
     <div class="card profile-card">
-        <div class="profile-header" style="background: #1C177A">&nbsp;</div>
+        <div class="profile-header bg-indigo">&nbsp;</div>
         <div class="profile-body">
             <div class="content-area">
                 <h3>Juan Dela Cruz</h3>
@@ -41,6 +41,42 @@
         </div>
     </div>
 </div>
+
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <div class="card">
+        <div class="header bg-indigo">
+            <h2>
+                Password <small>Change your password.</small>
+            </h2>
+        </div>
+        <div class="body">
+            <form>
+                <label for="email_address">Old Password</label>
+                <div class="form-group">
+                    <div class="form-line ">
+                        <input type="password" id="email_address" class="form-control" placeholder="Enter your old password">
+                    </div>
+                </div>
+                <label for="text">New Password</label>
+                <div class="form-group">
+                    <div class="form-line ">
+                        <input type="password" id="password" class="form-control" placeholder="Enter your new password">
+                    </div>
+                </div>
+                <label for="email_address">Re-type Password</label>
+                <div class="form-group">
+                    <div class="form-line ">
+                        <input type="password" id="email_address" class="form-control" placeholder="Re-type password">
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">
+                    Change Password
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+
 
 <script>
 function openContactForm() {
