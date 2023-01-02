@@ -19,7 +19,7 @@
                                 My Profile
                             </a>
                         </li>
-
+{{-- 
                         <li>
                             <a href="{{config('app.url')}}establishment/change_password">
                                 <i class="material-icons">
@@ -27,7 +27,7 @@
                                 </i>
                                 Change Password
                             </a>
-                        </li>
+                        </li> --}}
 
                         <li>
                             <a class="logout">
