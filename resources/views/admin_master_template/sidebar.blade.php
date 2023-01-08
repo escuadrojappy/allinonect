@@ -121,13 +121,6 @@
                         <span>Contact Report</span>
                     </a>
                 </li>
-
-                <li class="{{ Request::is('admin/setting') ? 'active' : '' }}">
-                    <a href="{{config('app.url')}}admin/setting">
-                        <i class="material-icons">settings</i>
-                        <span>Settings</span>
-                    </a>
-                </li>
                 
             </ul>
         </div>
