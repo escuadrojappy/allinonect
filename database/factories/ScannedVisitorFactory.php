@@ -21,9 +21,12 @@ class ScannedVisitorFactory extends Factory
     public function definition()
     {
         return [
+            // 'visitor_id' => Visitor::all()->random()->id,
+            // 'establishment_id' => Establishment::all()->random()->id,
+            // 'entrance_timestamp' => fake()->date(). ' '. fake()->time(),
             'visitor_id' => Visitor::all()->random()->id,
-            'establishment_id' => Establishment::all()->random()->id,
-            'entrance_timestamp' => fake()->date(). ' '. fake()->time(),
+            'establishment_id' => 247,
+            'entrance_timestamp' => '2022-12-26 14:41:00',
         ];
     }
 }

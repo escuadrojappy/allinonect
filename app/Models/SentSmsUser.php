@@ -4,11 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use ModelDate;
 
-class ScannedVisitor extends Model
+class SentSmsUser extends Model
 {
-    use HasFactory, ModelDate;
+    use HasFactory;
 
     /**
      * The attributes that are mass assignable.
@@ -16,17 +15,18 @@ class ScannedVisitor extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'visitor_id',
+        'batch_no',
         'establishment_id',
+        'visitor_id',
         'entrance_timestamp',
     ];
 
     /**
-     * Get Sent SMS User.
+     * Get Scanned Visitors.
      * 
      */
-    public function sentSms()
+    public function scannedVisitor()
     {
-        return $this->hasMany(SentSmsUser::class);
+        return $this->belongsTo(ScannedVisitor::class);
     }
 }

@@ -16,6 +16,7 @@ use App\Http\Requests\Admin\{
     CreateVisitorRequest,
     CreateVisitorByQrCodeRequest,
     DestroyVisitorRequest,
+    CreateVisitorHealthStatusRequest,
 };
 use App\Http\Requests\Establishment\{
     IndexEstablishmentRequest,
@@ -190,5 +191,16 @@ class AdminController extends Controller
     public function destroyVisitor($id, DestroyVisitorRequest $request)
     {
         return $this->visitorService->destroy($id, $request->validated());
+    }
+
+    /**
+     * Create Visitor Health Status.
+     *
+     * @param \App\Http\Requests\Admin\CreateVisitorHealthStatusRequest $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function createVisitorHealthStatus(CreateVisitorHealthStatusRequest $request)
+    {
+        return $this->adminService->createVisitorHealthStatus($request->validated());
     }
 }

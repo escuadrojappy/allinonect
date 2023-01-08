@@ -7,6 +7,7 @@ use Illuminate\Support\{
     Str
 };
 use Illuminate\Support\Facades\{
+    App,
     DB,
     Mail,
 };
@@ -23,7 +24,11 @@ use App\Api\Repositories\{
     EstablishmentRepository,
     AdminContactTracingRepository,
     VisitorRepository,
+    VisitorHealthStatusRepository,
+    SentSmsUserRepository,
 };
+use App\Api\Services\SmsService;
+use App\Jobs\SentSmsJob;
 use App\Exports\AdminContactTracingExport;
 use Excel;
 
@@ -56,6 +61,20 @@ class AdminService extends Service {
      * @var App\Api\Repositories\VisitorRepository
      */
     protected $visitorRepository;
+
+    /**
+     * The Visitor Health Status Repository Instance.
+     *
+     * @var App\Api\Repositories\VisitorHealthStatusRepository
+     */
+    protected $visitorHealthStatusRepository;
+
+    /**
+     * The Sent Sms User Repository Instance.
+     *
+     * @var App\Api\Repositories\SentSmsUserRepository
+     */
+    protected $sentSmsUserRepository;
     
     /**
      * Create repository instance.
@@ -64,17 +83,23 @@ class AdminService extends Service {
      * @param App\Api\Repositories\EstablishmentRepository $establishmentRepository
      * @param App\Api\Repositories\AuthRepository $authRepository
      * @param App\Api\Repositories\VisitorRepository $visitorRepository
+     * @param App\Api\Repositories\VisitorHealthStatusRepository $visitorHealthStatus
+     * @param App\Api\Repositories\SentSmsUserRepository $sentSmsUser
      */
     public function __construct(
         AdminContactTracingRepository $adminContactTracingRepository,
         EstablishmentRepository $establishmentRepository,
         AuthRepository $authRepository,
-        VisitorRepository $visitorRepository
+        VisitorRepository $visitorRepository,
+        VisitorHealthStatusRepository $visitorHealthStatusRepository,
+        SentSmsUserRepository $sentSmsUserRepository
     ) {
         $this->adminContactTracingRepository = $adminContactTracingRepository;
         $this->establishmentRepository = $establishmentRepository;
         $this->authRepository = $authRepository;
         $this->visitorRepository = $visitorRepository;
+        $this->visitorHealthStatusRepository = $visitorHealthStatusRepository;
+        $this->sentSmsUserRepository = $sentSmsUserRepository;
     }
 
     /**
@@ -85,6 +110,8 @@ class AdminService extends Service {
      */
     public function contactTracing(array $request)
     {
+        Arr::set($request, 'id', 'isNotNull');
+        
         $result = $this->adminContactTracingRepository->search($request);
         
         $response = $this->dataTableResponse($result, $request);
@@ -178,7 +205,7 @@ class AdminService extends Service {
     public function createVisitor(array $request)
     {
         DB::beginTransaction();
-
+        
         try {
             $cardNumber = Arr::get($request, 'philsys_card_number');
             $lastFourCardNumber = substr($cardNumber, -4);
@@ -223,7 +250,7 @@ class AdminService extends Service {
      * Create Visitor By Qr Code.
      *
      * @param array $request
-     * @return array
+     * @return \Illuminate\Http\JsonResponse
      */
     public function createVisitorByQrCode(array $request)
     {
@@ -260,6 +287,37 @@ class AdminService extends Service {
                 'user' => $user,
                 'visitor' => $visitor,
             ]);
+
+        } catch (\Exception $e) {
+            DB::rollBack();
+            logger()->error($e->getMessage());
+            logger()->error($e->getTraceAsString());
+            throw $e;
+        }
+    }
+
+    /**
+     * Create Visitor Health Status.
+     *
+     * @param array $request
+     * @return array
+     */
+    public function createVisitorHealthStatus(array $request)
+    {
+        DB::beginTransaction();
+        
+        try {
+            $healthStatus = $this->visitorHealthStatusRepository->create($request);
+
+            if (!Arr::get($healthStatus, 'covid_result')) return response()->json($healthStatus);
+
+            $visitorsToContact = $this->adminContactTracingRepository->getVisitorsToContact($healthStatus);
+
+            SentSmsJob::dispatch($visitorsToContact)->onQueue('sms');
+
+            DB::commit();
+            
+            return response()->json($healthStatus);
 
         } catch (\Exception $e) {
             DB::rollBack();
