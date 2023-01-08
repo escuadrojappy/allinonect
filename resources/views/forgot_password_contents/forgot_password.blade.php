@@ -36,15 +36,13 @@
 			<input type="checkbox" id="chk" aria-hidden="true">
 			<div class="signup">
 				<form id="login-form">
-					<img src="{{config('app.url')}}images/accdoh.png" class="logoestablishment">
-					<label>Department of Health</label>
-					<p>Administrator Account</p>
-					<input type="email" name="email" placeholder="Email" required>
-					<input type="password" name="password" placeholder="Password" required>
+					<img src="{{ asset('images/logo.png') }}" class="logoestablishment">
+					<label>Forgot your password?</label>
+					<p>Enter your email address or your PhilSys Card Number (PCN) to reset your password.</p>
+					<input type="email" name="email" placeholder="Email or PhilSys Card Number" required>
 					<button type="submit" class="btn">
-						Sign In
+						Submit
 					</button>
-					<a href="{{config('app.url')}}forgot-password" class="text-center">Forgot Password?</a>
 				</form>
 			</div>
 		</div>
