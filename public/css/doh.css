@@ -9,8 +9,8 @@ body{
 	/* background: #032a46; */
 }
 .main{
-	width: 350px;
-	height: 520px;
+	width: 400px;
+	height: 580px;
 	background: red;
 	overflow: hidden;
 	background: url("https://doc-08-2c-docs.googleusercontent.com/docs/securesc/68c90smiglihng9534mvqmq1946dmis5/fo0picsp1nhiucmc0l25s29respgpr4j/1631524275000/03522360960922298374/03522360960922298374/1Sx0jhdpEpnNIydS4rnN4kHSJtU1EyWka?e=view&authuser=0&nonce=gcrocepgbb17m&user=03522360960922298374&hash=tfhgbs86ka6divo3llbvp93mg4csvb38") no-repeat center/ cover;
@@ -35,6 +35,15 @@ body{
 	width:100%;
 	height: 100%;
 }
+
+.text-center{
+	color: white ;
+	font-size: 12px ;
+	text-align: center !important;
+	display: flex;
+	margin-left: 150px;
+}
+
 label{
 	color: rgb(255, 255, 255);
 	font-size: 30px;
@@ -50,6 +59,8 @@ p{
 	text-align: center;
 	margin-top: -5px;
 }
+
+
 input{
 	width: 60%;
 	/* height: 20px; */
