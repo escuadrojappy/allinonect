@@ -35,6 +35,38 @@
 		.jconfirm-holder .jconfirm-buttons button {
 			width: 100%;
 		}
+
+        .btn-process{
+            border:none;
+            outline:none;
+            display: flex;
+            align-items:center;
+            justify-content: center;
+            color:#fff;
+            cursor:pointer;
+            }
+            .btn-ring{
+            display: none;
+            }
+            .btn-ring:after {
+            content: "";
+            display: block;
+            width: 15px;
+            height: 15px;
+            margin: 6px;
+            border-radius: 50%;
+            border: 3px solid #fff;
+            border-color: #fff transparent #fff transparent;
+            animation: ring 1.2s linear infinite;
+            }
+            @keyframes ring {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+            }
 	</style>
 
 	{{-- <header>
@@ -60,8 +92,9 @@
 					<label>Forgot your password?</label>
 					<p>Enter your email address to reset your password.</p>
 					<input type="email" id='email' name="email" placeholder="Enter email here" required>
-					<button type="submit" class="btn">
+					<button type="submit" class="btn btn-process">
 						Send Reset Password Link
+                        <span class="btn-ring"></span>
 					</button>
 				</form>
 			</div>
@@ -69,32 +102,16 @@
 	</div>
 
 	<script>
-       
-	// 	 $(document).on('submit', '#login-form', function (e) {
-    //     e.preventDefault()
-    //     formLoader('#login-form')
-    //     var params = {
-    //         email: $('#email').val()
-    //     }
-    //         $.post(`${apiUrl}forgot`, params).done((result) => {
-    //             successAlert(
-    //                 'Success!',
-    //                 'Successfully Registered Establishment.',
-    //                 () => { 
-    //                     clearFormFields('#login-form')
-    //                 }
-    //             )
-    //         }).always(() => {
-    //             rollBackButtons('#login-form')
-            
-				
-    //         })
-
-    // })
-
     $(document).on('submit', '#login-form', function (e) {
         e.preventDefault()
         formLoader('#login-form')
+        $(".btn-ring").show();
+        $(".btn-process").prop('disabled',true); 
+        $(".btn-process").val('disabled'); 
+        setTimeout(function() {
+        $(".btn-ring").hide();
+        $(".btn-process").prop('disabled',false);
+         }, 3500);
         var params = {
             email: $('#email').val(),
 
@@ -116,6 +133,4 @@
         
     })
     </script>
-		
-
 @endsection

@@ -53,20 +53,14 @@
                         <span>Dashboard</span>
                     </a>
                 </li>
-                <li>
-                    <a href="javascript:void(0);" class="menu-toggle">
+                
+                <li class="{{ Request::is('establishment/contacts/contactreport') ? 'active' : '' }}">
+                    <a href="{{config('app.url')}}establishment/contacts/contactreport">
                         <i class="material-icons">people</i>
-                        <span>Contacts</span>
+                        <span>Contact Report</span>
                     </a>
-                    <ul class="ml-menu">
-                        <li>
-                            <a href="{{config('app.url')}}establishment/contacts/contactreport">Contact Report</a>
-                        </li>
-                        <li>
-                            <a href="{{config('app.url')}}establishment/contacts/contacttracing">Contact Tracing</a>
-                        </li>
-                    </ul>
                 </li>
+
                 <li class="{{ Request::is('establishment/qrscanner') ? 'active' : '' }}">
                     <a href="{{config('app.url')}}establishment/qrscanner">
                         <i class="material-icons">qr_code_scanner</i>
