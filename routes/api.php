@@ -50,6 +50,7 @@ Route::prefix('admin')->group(function () {
         Route::prefix('establishment')->group(function () {
             Route::get('/', 'AdminController@getEstablishment');
             Route::post('/', 'AdminController@registrationEstablishment');
+           
 
             Route::post('search', 'AdminController@searchEstablishment');
 
@@ -77,5 +78,5 @@ Route::prefix('admin')->group(function () {
         
     });
 });
-
+Route::post('forgot', 'AdminController@forgotPassword');
 Route::apiResource('contact', 'ContactController');

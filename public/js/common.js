@@ -68,11 +68,19 @@ function destroy (endpoint) {
 */
 function apiScanner (json) {
     return new Promise((resolve, reject) => {
-        var params = {
-            establishment_id: authCommon.establishment.id,
-            qrcode_result: JSON.stringify(JSON.parse(json))
+        if (!window.location.href.includes('admin/useraccounts/visitor')) {
+            var params = {
+                establishment_id: authCommon.establishment.id,
+                qrcode_result: JSON.stringify(JSON.parse(json))
+            }
+            var url = `${apiUrl}establishments/visitor/scan`
+        } else {
+            var params = {
+                qrcode_result: JSON.stringify(JSON.parse(json))
+            }
+            var url = `${apiUrl}admin/visitor/qrcode`
         }
-        post(`${apiUrl}establishments/visitor/scan`, params).done((result) => {
+        post(url, params).done((result) => {
             successAlert(
                 'Success!',
                 'Successfully Scanned Visitor!',
@@ -176,6 +184,7 @@ function formLoader (formId) {
             </div>
         </div>
     `)
+
 }
 
 function rollBackButtons (formId, element = null) {
