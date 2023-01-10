@@ -5,6 +5,7 @@ namespace App\Http\Requests\Establishment;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\ValidationException;
+use Illuminate\Support\Arr;
 
 class ScanEstablishmentVisitorRequest extends FormRequest
 {

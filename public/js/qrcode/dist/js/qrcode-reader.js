@@ -2,6 +2,14 @@
 
   "use strict";
 
+  var apiUrl = 'http://localhost/allinonect/public/api/'
+  var webUrl = 'http://localhost/allinonect/public/'
+
+  if (window.location.origin.indexOf('aioctracing') > -1) {
+      var apiUrl = 'https://aioctracing.com/api/'
+      var webUrl = 'https://aioctracing.com/'
+  }
+
   // cross browser request animation frame
   if ( !window.requestAnimationFrame ) {
 
@@ -29,8 +37,8 @@
     // jsQRpath: "../dist/js/jsQR/jsQR.min.js",
     // beepPath: "../dist/audio/beep.mp3",
     // jsQRpath: "../../js/qrcode/dist/js/jsQR/jsQR.min.js",
-    jsQRpath: "../js/qrcode/dist/js/jsQR/jsQR.min.js",
-    beepPath: "../js/qrcode/dist/audio/beep.mp3",
+    jsQRpath: webUrl + "js/qrcode/dist/js/jsQR/jsQR.min.js",
+    beepPath: webUrl + "js/qrcode/dist/audio/beep.mp3",
     instance: null,
     defaults: {
         // single read or multiple readings/

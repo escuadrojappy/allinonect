@@ -1,5 +1,5 @@
 <div class="modal fade" id="visitor-registration-modal" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title">Visitor Registration Form</h4>
@@ -109,30 +109,16 @@
                             <!-- </form> -->
                         </div>
                         <div role="tabpanel" class="tab-pane fade in" id="scan-id">
-                            asdasdasdasd
-                            <!-- <div class="container-fluid">
-                                <div class="col-md-12">
-                                    <div class="card">
-                                        <div class="header">
-                                            <h2>
-                                                QR Code Scanner <small>Scan Visitors here...</small>
-                                            </h2>
-                                        </div>
-                                        <div class="body">
-                                            <div class="scanner">
-                                                <input type="hidden" id="openreader-btn" value="Scan QRCode"/>
-                                                <div class="row">
-                                                    <div class="col-md-6"></div>
-                                                    <div class="col-md-6">
-                                                        <b>Result:</b>
-                                                        <br>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                            <div class="scanner">
+                                <input type="hidden" id="openreader-btn" value="Scan QRCode"/>
+                                <div class="row">
+                                    <div class="col-md-12"></div>
+                                    <div class="col-md-12">
+                                        <b>Result:</b>
+                                        <br>
                                     </div>
                                 </div>
-                            </div> -->
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -160,6 +146,26 @@
     $(document).on('click', '.nav-tabs li a', function (e) {
         e.preventDefault()
         activeNav = $(this).attr('href')
+
+        if (activeNav === '#scan-id') {
+            scanned = true
+            $('.modal-footer').hide()
+            $('#openreader-btn').qrCodeReader({
+                target: "#target-input",
+                audioFeedback: true,
+                // multiple: true,
+                skipDuplicates: false,
+                custom: true,
+                callback: function(codes) {
+                    console.log(codes);
+                }
+            })
+            setTimeout(() => {
+                $('#openreader-btn').trigger('click')
+            }, 100);
+        } else {
+            $('.modal-footer').show()
+        }
     })
 
     $(document).on('submit', '#form', function (e) {
