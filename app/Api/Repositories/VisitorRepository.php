@@ -24,6 +24,10 @@ class VisitorRepository extends Repository
         'philsys_card_number',
         'covid_result',
         'date_result',
+        'place_of_birth',
+        'users.email',
+        'contact_number',
+        'birthdate',
     ];
 
     /**
@@ -48,6 +52,15 @@ class VisitorRepository extends Repository
     public function __construct(Visitor $visitor)
     {
         $this->model = $visitor;
+        $this->joinTables = [
+            'users' => [
+                'type' => 'left_join',
+                'columns' => [
+                    'users.id',
+                    'visitors.user_id'
+                ]
+            ],
+        ];
         $this->customJoins = [
             [
                 'query' => $this->getVisitorLatestHealthStatus(),
@@ -82,14 +95,15 @@ class VisitorRepository extends Repository
                 from 
                     (
                         select
-                            vhs.id,
+                            vhs.visitor_id,
                             max(vhs.date_result) as date_result 
                         from 
                             visitor_health_statuses vhs 
                         group by 
                             vhs.visitor_id
                     ) vhs 
-                    inner join visitor_health_statuses vhs2 on vhs.id = vhs2.id
+                    inner join visitor_health_statuses vhs2 on vhs.visitor_id = vhs2.visitor_id and vhs.date_result = vhs2.date_result
+                    group by vhs2.visitor_id
             ) as visitor_health_statuses
         ');
     }
