@@ -5,7 +5,7 @@
     <div class="profile-header headercolor">&nbsp;</div>
     <div class="profile-body bordercolor">
         <div class="image-area">
-            <img src="http://localhost{{config('app.url')}}dashboard/images/doh-logo.png" alt="AdminBSB - Profile Image" class="dohpicture">
+            <img src="{{ asset('images/doh2.png') }}" alt="AdminBSB - Profile Image" class="dohpicture">
         </div>
         <div class="content-area">
             <h3 id="NAME">Department of Health</h3> 
@@ -38,25 +38,28 @@
 
 
 <script>
-function openForm() {
-  document.getElementById("myForm").style.display = "block";
-}
 
-function closeForm() {
-  document.getElementById("myForm").style.display = "none";
-}
+    // for edit profile
+    
+// function openForm() {
+//   document.getElementById("myForm").style.display = "block";
+// }
 
-$('#name1').keyup(function(closeForm){
-    $('#NAME').text(this.value);
-});
+// function closeForm() {
+//   document.getElementById("myForm").style.display = "none";
+// }
 
-$('#address').keyup(function(){
-    $('#location').text(this.value);
-});
+// $('#name1').keyup(function(closeForm){
+//     $('#NAME').text(this.value);
+// });
 
-$('#email').keyup(function(){
-    $('#emaildoh').text(this.value);
-});
+// $('#address').keyup(function(){
+//     $('#location').text(this.value);
+// });
+
+// $('#email').keyup(function(){
+//     $('#emaildoh').text(this.value);
+// });
 
 </script>
 

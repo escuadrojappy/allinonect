@@ -12,12 +12,12 @@
             <div class="col-md-12">
                 <ol class="breadcrumb">
                     <li><a href="javascript:void(0);">User Accounts</a></li>
-                    <li class="active">Visitors</li>
+                    <li class="active">Citizens</li>
                 </ol>
                 <div class="card">
                     <div class="header bg-green">
                         <h2>
-                        Visitors <small>List of all Visitors</small>
+                        Citizens <small>List of all Citizens</small>
                         </h2>
                         <ul class="header-dropdown m-r--5">
                             <button type="button" class="btn bg-teal btn-circle-lg waves-effect waves-circle waves-float btn-modal-add" data-toggle="modal" data-target="#visitor-registration-modal">
