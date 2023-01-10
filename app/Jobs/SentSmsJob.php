@@ -63,7 +63,7 @@ class SentSmsJob implements ShouldQueue
         DB::beginTransaction();
 
         $batchNumber = $this->sentSmsUserRepository->getLastBatchNumber();
-        dd($this->visitors);
+
         try {
             $count = 0;
 
@@ -94,6 +94,8 @@ class SentSmsJob implements ShouldQueue
 
                 $count++;
             }
+            // DB::commit();
+            // return true;
 
         } catch (\Exception $e) {
             DB::rollBack();

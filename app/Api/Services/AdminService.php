@@ -309,7 +309,10 @@ class AdminService extends Service {
         try {
             $healthStatus = $this->visitorHealthStatusRepository->create($request);
 
-            if (!Arr::get($healthStatus, 'covid_result')) return response()->json($healthStatus);
+            if (!Arr::get($healthStatus, 'covid_result')) {
+                DB::commit();
+                return response()->json($healthStatus);
+            }
 
             $visitorsToContact = $this->adminContactTracingRepository->getVisitorsToContact($healthStatus);
 

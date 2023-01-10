@@ -178,11 +178,15 @@ function formLoader (formId) {
     `)
 }
 
-function rollBackButtons (formId) {
-    $(`${formId} .modal-footer`).html(`
-        <button type="submit" class="btn btn-link col-teal waves-effect">Register</button>
-        <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">Close</button>
-    `)
+function rollBackButtons (formId, element = null) {
+    if (element) {
+        $(`${formId} .modal-footer`).html(element)
+    } else {
+        $(`${formId} .modal-footer`).html(`
+            <button type="submit" class="btn btn-link col-teal waves-effect">Register</button>
+            <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">Close</button>
+        `)
+    }
 }
 
 function clearFormFields (formId) {
