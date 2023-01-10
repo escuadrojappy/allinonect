@@ -27,7 +27,7 @@ class CreateVisitorHealthStatusRequest extends FormRequest
         return [
             'covid_result' => ['required', 'boolean'],
             'remarks' => ['required', 'string', 'max:1000'],
-            'date_result' => ['required', 'date'],
+            'date_result' => ['required', 'date', 'unique:App\Models\VisitorHealthStatus,date_result'],
             'visitor_id' => ['required', 'numeric', 'exists:App\Models\Visitor,id'],
         ];
     }
