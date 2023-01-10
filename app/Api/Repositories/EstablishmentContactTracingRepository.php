@@ -56,4 +56,19 @@ class EstablishmentContactTracingRepository extends Repository
     {
         $this->model = $viewContactTracing;
     }
+
+    /**
+     * Check Visitor if Positive.
+     *
+     * @param string $cardNumber
+     * @return
+     */
+    public function checkVisitorIfPositive($cardNumber)
+    {
+        $visitor = $this->model->where('visitor_philsys_card_number', $cardNumber)->first();
+
+        if (!$visitor) return null;
+
+        return Arr::get($visitor, 'covid_result');
+    }
 }

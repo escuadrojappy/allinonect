@@ -55,6 +55,7 @@
         var editId = null
         var orderBy = [[0, 'desc']]
         var activeNav = null
+        var scanned = false
         var columns = [
             { data: 'id', name: 'visitors.id' },
             { data: 'last_name', name: 'last_name' },
@@ -111,6 +112,11 @@
             )
         })
 
+        $('#visitor-registration-modal').on('hidden.bs.modal', function () {
+            if (!scanned) return false
+            initDataTable('.dataTable', columns, 'admin/visitor/search', orderBy, true)
+        })
+
         function removeActiveNavs () {
             $('.nav-tabs li').removeClass('active')
             $('.tab-content div.tab-pane.active').removeClass('active')
@@ -121,6 +127,8 @@
             $('.nav-tabs #tab01').addClass('active')
             // $('.tab-content div#covid-result').addClass('active')
             $('.tab-content div#visitor-information').addClass('active')
+            $('.tab-content div#visitor-information').css({ opacity: 1 })
+            $('.modal-footer').show()
             $('#tab02').show()
             $('#tab01').show()
             $('#tab03').hide()
@@ -131,6 +139,8 @@
             removeActiveNavs()
             $('.nav-tabs #tab01').addClass('active')
             $('.tab-content div#visitor-information').addClass('active')
+            $('.tab-content div#visitor-information').css({ opacity: 1 })
+            $('.modal-footer').show()
             $('#tab01').show()
             $('#tab03').show()
             $('#tab02').hide()
@@ -139,6 +149,7 @@
 
         function getActiveNav () {
             activeNav = $('.nav-tabs li.active a').attr('href')
+            scanned = false
         }
 
         function getValues (element) {
