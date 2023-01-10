@@ -6,15 +6,35 @@
 	<link rel="stylesheet" href="{{ asset('css/doh.css') }}">
 	<link rel="stylesheet" href="{{ asset('css/style.css') }}">
 	<link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
+	
+	<!-- Jquery Confirm CSS -->
+	<link href="{{ asset('/css/libraries/jquery-confirm.min.css') }}" rel="stylesheet">
+	<!-- Sweet Alert Css -->
+	{{-- <link href="{{ asset('/dashboard/plugins/sweetalert/sweetalert.css') }}" rel="stylesheet" /> --}}	
+	{{-- <script src="{{ asset('/dashboard/plugins/sweetalert/sweetalert.min.js') }}"></script> --}}
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>	
+
 
 	<style>
 		a {
-	text-decoration: none;
-	display: inline-block;
-	color:white; }
+			text-decoration: none;
+			display: inline-block;
+			color:white; 
+		}
 	
-  a:hover {
-	color: #b8b537;}
+  		a:hover {
+			color: #b8b537;
+		}
+
+		.jconfirm-holder {
+			width: 400px;
+    		margin: auto;
+		}
+
+		.jconfirm-holder .jconfirm-buttons button {
+			width: 100%;
+		}
 	</style>
 
 	{{-- <header>
@@ -29,19 +49,19 @@
         </div>
       </div>
     </header> --}}
-
+    <form id="login-form">
 	<div class="bg-login">
 		<div class="main">
 			<a href="{{config('app.url')}}account" style="font-size:26px;"  class="fa">&#xf191;</a>
 			<input type="checkbox" id="chk" aria-hidden="true">
 			<div class="signup">
-				<form id="login-form">
+				
 					<img src="{{ asset('images/logo.png') }}" class="logoestablishment">
 					<label>Forgot your password?</label>
-					<p>Enter your email address or your PhilSys Card Number (PCN) to reset your password.</p>
-					<input type="email" name="email" placeholder="Email or PhilSys Card Number" required>
+					<p>Enter your email address to reset your password.</p>
+					<input type="email" id='email' name="email" placeholder="Enter email here" required>
 					<button type="submit" class="btn">
-						Submit
+						Send Reset Password Link
 					</button>
 				</form>
 			</div>
@@ -49,36 +69,53 @@
 	</div>
 
 	<script>
-		$(document).ready(function () {
-			$(document).on('submit', '#login-form', function (e) {
-				e.preventDefault()
-				var params = {}
-				$('#login-form input').each((key, element) => {
-					var name = $(element).attr('name')
-					var value = $(element).val()
-					params[name] = value
-				})
+       
+	// 	 $(document).on('submit', '#login-form', function (e) {
+    //     e.preventDefault()
+    //     formLoader('#login-form')
+    //     var params = {
+    //         email: $('#email').val()
+    //     }
+    //         $.post(`${apiUrl}forgot`, params).done((result) => {
+    //             successAlert(
+    //                 'Success!',
+    //                 'Successfully Registered Establishment.',
+    //                 () => { 
+    //                     clearFormFields('#login-form')
+    //                 }
+    //             )
+    //         }).always(() => {
+    //             rollBackButtons('#login-form')
+            
+				
+    //         })
 
-				post(`${apiUrl}auth/login`, params).done(({ user }) => {
-					if (user.role_id !== 1) {
-						errorAlert(
-							'Encountered an error!',
-							'Unauthorized User',
-							() => {
-								get(`${apiUrl}auth/logout`).done(() => {
-									location.href = webUrl + 'login/admin'
-								})
-							}
-						)
-					} else {
-						location.href = webUrl + 'admin/dashboard'
-					}
-				}).fail((error) => {
-					if (error.status == 401) {
-						errorAlert('Encountered an error!', 'Please match your registered email address and password.')
-					}
-				})
-			})
-		})
-	</script>
+    // })
+
+    $(document).on('submit', '#login-form', function (e) {
+        e.preventDefault()
+        formLoader('#login-form')
+        var params = {
+            email: $('#email').val(),
+
+        }
+            $.post(`${apiUrl}forgot`, params).done((result) => {
+                successAlert(
+                    'Success!',
+                    'Successfully Registered Establishment.',
+                    () => { 
+                        clearFormFields('#login-form')
+
+                    }
+                )
+            }).fail((error) => {
+                errorAlert('Error!', error.responseJSON.message)
+            }).always(() => {
+                rollBackButtons('#login-form')
+            })
+        
+    })
+    </script>
+		
+
 @endsection
