@@ -176,6 +176,7 @@ function formLoader (formId) {
             </div>
         </div>
     `)
+
 }
 
 function rollBackButtons (formId, element = null) {

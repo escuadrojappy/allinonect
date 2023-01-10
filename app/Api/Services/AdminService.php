@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\{
 use App\Mail\{
     RegisteredEstablishmentMail,
     RegisteredVisitorMail,
+    ForgotPasswordMail,
 };
 use App\Http\Resources\{
     ContactTracingResource,
@@ -194,6 +195,24 @@ class AdminService extends Service {
             logger()->error($e->getTraceAsString());
             throw $e;
         }
+    }
+
+       /**
+     * Registration User.
+     *
+     * @param array $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function forgotPassword(array $request)
+    {
+            $emailParam = [
+                'email' => Arr::get($request, 'email'),
+            ];
+
+            Mail::to(Arr::get($request, 'email'))->send(new ForgotPasswordMail($emailParam));
+
+
+
     }
 
     /**
