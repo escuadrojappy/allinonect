@@ -152,3 +152,7 @@ Route::get('/admin/qrscanner2', function () {
 Route::get('/forgot-password', function () {
     return view('forgot_password_contents/forgot_password', ['title' => 'Forgot Password']);
 });
+
+Route::get('/reset-password', function () {
+    return view('forgot_password_contents/reset_password', ['title' => 'Reset Password']);
+});
