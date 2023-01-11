@@ -3,8 +3,8 @@
 
 @section('content')
 
-	<link rel="stylesheet" href="{{ asset('css/doh.css') }}">
-	<link rel="stylesheet" href="{{ asset('css/style.css') }}">
+	<link rel="stylesheet" href="{{ asset('css/style-forgot-password-1.css') }}">
+	<link rel="stylesheet" href="{{ asset('css/style-forgot-password-2.css') }}">
 	<link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
 
 	<style>
@@ -17,25 +17,24 @@
 	color: #b8b537;}
 	</style>
 
-
-
+	<div class="bg-login">
 		<div class="main">
 			<a href="{{config('app.url')}}account" style="font-size:26px;"  class="fa">&#xf191;</a>
 			<input type="checkbox" id="chk" aria-hidden="true">
 			<div class="signup">
 				<form id="login-form">
-					<img src="{{config('app.url')}}images/accdoh.png" class="logoestablishment">
-					<label>Department of Health</label>
-					<p>Administrator Account</p>
-					<input type="email" name="email" placeholder="Email" required>
-					<input type="password" name="password" placeholder="Password" required>
+					<img src="{{ asset('images/logo.png') }}" class="logoestablishment">
+					<label>Set New Password</label>
+					<p>Set a new password for your account. Make sure to create a strong password that inlcude upper and lower case letters, numbers and puctuation marks.</p>
+					<input type="password" name="password" placeholder="New Password" required>
+					<input type="password" name="password" placeholder="Re-type Password" required>
 					<button type="submit" class="btn">
-						Sign In
+						Reset Password
 					</button>
-					<a href="{{config('app.url')}}forgot-password" class="text-center">Forgot Password?</a>
 				</form>
 			</div>
 		</div>
+	</div>
 
 	<script>
 		$(document).ready(function () {

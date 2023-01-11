@@ -35,7 +35,7 @@ return new class extends Migration
                         visitors.place_of_birth as visitor_place_of_birth, 
                         visitors.contact_number as visitor_contact_number, 
                         visitors.philsys_card_number as visitor_philsys_card_number, 
-                        visitor_health_statuses.id as visitor_health_statuses_id,
+                        -- visitor_health_statuses.id as visitor_health_statuses_id,
                         case 
                             when visitor_health_statuses.covid_result is null or visitor_health_statuses.covid_result = 0 then 0 
                             else 1
@@ -54,14 +54,15 @@ return new class extends Migration
                             from 
                                 (
                                     select
-                                        vhs.id,
+                                        vhs.visitor_id,
                                         max(vhs.date_result) as date_result 
                                     from 
                                         visitor_health_statuses vhs 
                                     group by 
                                         vhs.visitor_id
                                 ) vhs 
-                                inner join visitor_health_statuses vhs2 on vhs.id = vhs2.id
+                                inner join visitor_health_statuses vhs2 on vhs.visitor_id = vhs2.visitor_id and vhs.date_result = vhs2.date_result
+                                group by vhs2.visitor_id
                         ) as visitor_health_statuses on visitors.id = visitor_health_statuses.visitor_id
                 ) as visitors on visitors.visitor_id = scanned_visitors.visitor_id 
                 left join (
@@ -77,7 +78,6 @@ return new class extends Migration
                         establishments 
                         left join users on users.id = establishments.user_id
                 ) as establishments on establishments.establishment_id = scanned_visitors.establishment_id
-
             union all 
             select 
                 null as id, 
@@ -90,7 +90,7 @@ return new class extends Migration
                 visitors.visitor_place_of_birth, 
                 visitors.visitor_contact_number, 
                 visitors.visitor_philsys_card_number, 
-                vhs2.id as visitor_health_statuses_id, 
+                -- vhs2.id as visitor_health_statuses_id, 
                 vhs2.covid_result, 
                 vhs2.date_result, 
                 vhs2.remarks, 
@@ -111,14 +111,14 @@ return new class extends Migration
             from 
                 (
                     select 
-                        vhs.id, 
+                        vhs.visitor_id, 
                         max(vhs.date_result) as date_result 
                     from 
                         visitor_health_statuses vhs 
                     group by 
                         vhs.visitor_id
                 ) vhs 
-                inner join visitor_health_statuses vhs2 on vhs.id = vhs2.id 
+                inner join visitor_health_statuses vhs2 on vhs.visitor_id = vhs2.visitor_id and vhs.date_result = vhs2.date_result
                 left join (
                     select 
                         visitors.id as visitor_id, 
@@ -146,6 +146,7 @@ return new class extends Migration
                         where 
                             scanned_visitors.visitor_id = vhs2.visitor_id
                     )
+                group by vhs2.visitor_id
         ');
     }
 

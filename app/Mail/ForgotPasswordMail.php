@@ -7,12 +7,11 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class RegisteredVisitorMail extends Mailable
+class ForgotPasswordMail extends Mailable
 {
     use Queueable, SerializesModels;
 
     public $params;
-
     /**
      * Create a new message instance.
      *
@@ -31,7 +30,7 @@ class RegisteredVisitorMail extends Mailable
      */
     public function build()
     {
-        return $this->subject('Thank you for registering to us!')
-            ->markdown('emails.registered_visitor_mail');
+        return $this->subject('Reset your password')
+        ->markdown('emails.forgot_password_mail');
     }
 }

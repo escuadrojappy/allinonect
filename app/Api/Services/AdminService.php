@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\{
 use App\Mail\{
     RegisteredEstablishmentMail,
     RegisteredVisitorMail,
+    ForgotPasswordMail,
 };
 use App\Http\Resources\{
     ContactTracingResource,
@@ -196,6 +197,24 @@ class AdminService extends Service {
         }
     }
 
+       /**
+     * Registration User.
+     *
+     * @param array $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function forgotPassword(array $request)
+    {
+            $emailParam = [
+                'email' => Arr::get($request, 'email'),
+            ];
+
+            Mail::to(Arr::get($request, 'email'))->send(new ForgotPasswordMail($emailParam));
+
+
+
+    }
+
     /**
      * Create Visitor using form.
      *
@@ -309,7 +328,10 @@ class AdminService extends Service {
         try {
             $healthStatus = $this->visitorHealthStatusRepository->create($request);
 
-            if (!Arr::get($healthStatus, 'covid_result')) return response()->json($healthStatus);
+            if (!Arr::get($healthStatus, 'covid_result')) {
+                DB::commit();
+                return response()->json($healthStatus);
+            }
 
             $visitorsToContact = $this->adminContactTracingRepository->getVisitorsToContact($healthStatus);
 

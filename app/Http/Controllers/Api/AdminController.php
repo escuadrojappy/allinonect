@@ -17,6 +17,7 @@ use App\Http\Requests\Admin\{
     CreateVisitorByQrCodeRequest,
     DestroyVisitorRequest,
     CreateVisitorHealthStatusRequest,
+    ForgotPasswordRequest,
 };
 use App\Http\Requests\Establishment\{
     IndexEstablishmentRequest,
@@ -88,6 +89,17 @@ class AdminController extends Controller
     public function registrationEstablishment(RegistrationEstablishmentRequest $request)
     {
         return $this->adminService->registrationEstablishment($request->validated());
+    }
+
+      /**
+     * Register Establishment User.
+     *
+     * @param \App\Http\Requests\Admin\ForgotPasswordRequest @request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function forgotPassword(ForgotPasswordRequest $request)
+    {
+        return $this->adminService->forgotPassword($request->validated());
     }
 
     /**

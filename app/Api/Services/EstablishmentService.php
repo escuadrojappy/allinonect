@@ -146,6 +146,14 @@ class EstablishmentService extends Service
             $pcnSubject = Arr::get($qrcodeResult, 'subject');
             $cardNumber = Arr::get($pcnSubject, 'PCN');
             $visitor = $this->visitorRepository->checkIfPcnExists(trim($cardNumber, ''));
+            
+            $covidResult = $this->establishmentContactTracingRepository->checkVisitorIfPositive($cardNumber);
+
+            if ($covidResult) {
+                return response()->json([
+                    'message' => 'You are positive. You cannot enter on this establishment.'
+                ], 400);
+            }
 
             if (!$visitor) {
                 $accounts = $this->createVisitorByQrCode($cardNumber, $pcnSubject);

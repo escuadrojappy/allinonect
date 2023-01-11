@@ -4,28 +4,16 @@
     <link rel="stylesheet" href="{{ asset('/css/libraries/jquery-confirm.min.css') }}">
     <script src="{{ asset('/js/common.js') }}"></script>
 
-    {{-- <header>
-      <img src="{{ asset('images/logo.png')}}" alt="" id= "logo" >
-      <div class="menu-btn"></div>
-      <div class="navigation">
-        <div class="navigation-items">
-          <a href="{{config('app.url')}}welcome">Home </a>
-          <a href="{{config('app.url')}}about">About</a>
-          <a href="{{config('app.url')}}account" class="under">Account</a>
-          <a href="{{config('app.url')}}contact">Contact Us</a>
-        </div>
-      </div>
-    </header> --}}
 	
-    <style>
+<style>
 		a {
 	text-decoration: none;
 	display: inline-block;
 	color:white; }
 	
-  a:hover {
-	color: #b8b537;}
-	</style>
+    a:hover {
+        color: #b8b537;}
+</style>
 
 	<link rel="stylesheet" href="{{ asset('css/style.css') }}">
 	<link rel="stylesheet" href="{{ asset('css/doh.css') }}">
@@ -49,6 +37,7 @@
 						<button type="submit" class="btn">
 							Sign In
 						</button>
+					    <a href="{{config('app.url')}}forgot-password" class="text-center">Forgot Password?</a>
 					</form>
 				</div>
 			</div>

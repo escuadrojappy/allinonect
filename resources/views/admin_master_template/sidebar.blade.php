@@ -110,7 +110,7 @@
                             <a href="{{config('app.url')}}admin/useraccounts/establishment">Establishments</a>
                         </li>
                         <li class="{{ Request::is('admin/useraccounts/visitor') ? 'active' : '' }}">
-                            <a href="{{config('app.url')}}admin/useraccounts/visitor">Visitors</a>
+                            <a href="{{config('app.url')}}admin/useraccounts/visitor">Citizens</a>
                         </li>
                     </ul>
                 </li>
@@ -119,13 +119,6 @@
                     <a href="{{config('app.url')}}admin/contactreport">
                         <i class="material-icons">import_contacts</i>
                         <span>Contact Report</span>
-                    </a>
-                </li>
-
-                <li class="{{ Request::is('admin/setting') ? 'active' : '' }}">
-                    <a href="{{config('app.url')}}admin/setting">
-                        <i class="material-icons">settings</i>
-                        <span>Settings</span>
                     </a>
                 </li>
                 
