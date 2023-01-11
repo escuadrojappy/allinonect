@@ -9,7 +9,7 @@ function authEstablishment () {
                 location.href = webUrl + 'establishment/dashboard'
                 break
             case 3:
-                location.href = webUrl + 'cdashboard'
+                location.href = webUrl + 'citizen/dashboard'
                 break
         }
     }).fail((error) => {

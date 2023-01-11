@@ -105,4 +105,4 @@
 <script src="{{ asset('/js/common.js') }}"></script>
 
 <!-- Common Js -->
-{{-- <script src="{{ asset('/js/auth_visitor.js') }}"></script> --}}
+<script src="{{ asset('/js/auth_visitor.js') }}"></script>
