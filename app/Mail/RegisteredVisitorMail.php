@@ -16,6 +16,7 @@ class RegisteredVisitorMail extends Mailable
     /**
      * Create a new message instance.
      *
+     * @param array $params
      * @return void
      */
     public function __construct($params)
