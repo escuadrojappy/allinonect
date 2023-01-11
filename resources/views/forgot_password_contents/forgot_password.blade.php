@@ -119,7 +119,7 @@
             $.post(`${apiUrl}forgot`, params).done((result) => {
                 successAlert(
                     'Success!',
-                    'Successfully Registered Establishment.',
+                    'A reset password link has been successfully delivered. Please check your email to reset.',
                     () => { 
                         clearFormFields('#login-form')
 

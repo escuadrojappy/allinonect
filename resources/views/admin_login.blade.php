@@ -17,20 +17,8 @@
 	color: #b8b537;}
 	</style>
 
-	{{-- <header>
-      <img src="{{ asset('images/logo.png')}}" alt="" id= "logo" >
-      <div class="menu-btn"></div>
-      <div class="navigation">
-        <div class="navigation-items">
-          <a href="{{config('app.url')}}welcome">Home </a>
-          <a href="{{config('app.url')}}about">About</a>
-          <a href="{{config('app.url')}}account" class="under">Account</a>
-          <a href="{{config('app.url')}}contact">Contact Us</a>
-        </div>
-      </div>
-    </header> --}}
 
-	<div class="bg-login">
+
 		<div class="main">
 			<a href="{{config('app.url')}}account" style="font-size:26px;"  class="fa">&#xf191;</a>
 			<input type="checkbox" id="chk" aria-hidden="true">
@@ -48,7 +36,6 @@
 				</form>
 			</div>
 		</div>
-	</div>
 
 	<script>
 		$(document).ready(function () {
