@@ -6,8 +6,8 @@
                 <img src="{{ asset('images/citizen.png') }}" width="48" height="48" alt="User" />
             </div>
             <div class="info-container">
-                <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Name of Visitor</div>
-                <div class="email">email@gmail.com</div>
+                <div class="name name-visitor" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></div>
+                <div class="email email-visitor"></div>
                 <div class="btn-group user-helper-dropdown">
                     <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
                     <ul class="dropdown-menu pull-right">
@@ -31,7 +31,7 @@
                 <li class="{{ Request::is('citizen/dashboard') ? 'active' : '' }}">
                     <a href="{{config('app.url')}}citizen/dashboard">
                         <i class="material-icons">dashboard</i>
-                        <span>Dashboard</span>
+                        <span>Profile</span>
                     </a>
                 </li>
             </ul>

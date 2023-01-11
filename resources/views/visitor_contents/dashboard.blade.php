@@ -1,33 +1,31 @@
 @extends('visitor_master_template.master')
 @section('content')
-
-<script src="{{ asset('/js/common.js') }}"></script>
-
 <div class="col-xs-12 col-m-3">
     <div class="card profile-card">
         <div class="profile-header bg-indigo">&nbsp;</div>
         <div class="profile-body">
             <div class="content-area">
-                <h3>Juan Dela Cruz</h3>
-                <p>Health Status: Negative</p>
+                <h3 class="name-visitor"></h3>
+                <p>Health Status: </p>
+                <p class="covid-result-visitor"></p>
             </div>
         </div>
         <div class="profile-footer">
             <ul>
                 <li>
                     <span>Address</span>
-                    <span>110 Brgy. Bantug Norte, Cabanatuan City</span>
+                    <span class="address-visitor"></span>
                 </li>
                 <li>
                     <span>Birthdate</span>
-                    <span>12/10/2022</span>
+                    <span class="birthdate-visitor"></span>
                 </li>
                 <li>
                     <span>Contact Number</span>
-                    <span id="contact_number">09610333636</span>
+                    <span id="contact_number" class="contact-number-visitor"></span>
                 </li>
             </ul>
-            <button class="btn btn-primary btn-sm waves-effect float-end" onclick="openContactForm()" aria-label="Close">Edit Contact Number</button>
+            {{-- <button class="btn btn-primary btn-sm waves-effect float-end" onclick="openContactForm()" aria-label="Close">Edit Contact Number</button> --}}
             
             <div class="form-popup" id="contactNumberForm">
                 <form action="" class="form-container form-floating mb-3">
