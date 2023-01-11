@@ -10,9 +10,9 @@
         <div class="content-area">
             <h3 id="NAME">Department of Health</h3> 
             <h4 id="location">Cabanatuan City, Nueva Ecija</h4> 
-            <h4 id="emaildoh">callcenter@doh.gov.ph</h4>
+            <h4 id="emaildoh">admin@gmail.com</h4>
 
-            <button class="open-button" onclick="openForm()" aria-label="Close">Edit </button>
+            <!-- <button class="open-button" onclick="openForm()" aria-label="Close">Edit </button> -->
 
             <div class="form-popup" id="myForm">
             <form action="" class="form-container">
