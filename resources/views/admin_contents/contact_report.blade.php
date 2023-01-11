@@ -9,14 +9,10 @@
     <div class="container-fluid" >
         <div class="row clearfix" >
             <div class="col-md-12">
-                <ol class="breadcrumb">
-                    <li><a href="javascript:void(0);">User Accounts</a></li>
-                    <li class="active">Contact Tracing</li>
-                </ol>
                 <div class="card"  >
                     <div class="header bg-green" >
                         <h2>
-                        Contact Tracing <small>List of all Reports on Visitors.</small>
+                        Contact Report <small>List of all Reports on Citizens.</small>
                         </h2>
                         <ul class="header-dropdown m-r--5">
                         <button type="button" class="btn bg-red btn-circle-lg btn-report waves-effect waves-circle waves-float pull-right">

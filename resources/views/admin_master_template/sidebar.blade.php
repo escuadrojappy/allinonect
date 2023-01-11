@@ -110,7 +110,7 @@
                             <a href="{{config('app.url')}}admin/useraccounts/establishment">Establishments</a>
                         </li>
                         <li class="{{ Request::is('admin/useraccounts/visitor') ? 'active' : '' }}">
-                            <a href="{{config('app.url')}}admin/useraccounts/visitor">Visitors</a>
+                            <a href="{{config('app.url')}}admin/useraccounts/visitor">Citizens</a>
                         </li>
                     </ul>
                 </li>
