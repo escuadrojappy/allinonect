@@ -57,9 +57,26 @@ class VisitorService extends Service {
      */
     public function update($id, array $request)
     {
-        $update = $this->visitorRepository->update($id, $request);
+        DB::beginTransaction();
+        
+        try {
+            $update = $this->visitorRepository->update($id, $request);
 
-        return response()->json($update);
+            if (Arr::get($request, 'email')) {
+                $email = ['email' => Arr::get($request, 'email')];
+                $update->user()->update($email);
+            }
+
+            DB::commit();
+            
+            return response()->json($update);
+
+        } catch (\Exception $e) {
+            DB::rollBack();
+            logger()->error($e->getMessage());
+            logger()->error($e->getTraceAsString());
+            throw $e;
+        }
     }
 
     /**
