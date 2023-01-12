@@ -37,7 +37,7 @@
 						<button type="submit" class="btn">
 							Sign In
 						</button>
-					    <a href="{{config('app.url')}}forgot-password" class="text-center">Forgot Password?</a>
+					    <!-- <a href="{{config('app.url')}}forgot-password" class="text-center">Forgot Password?</a> -->
 					</form>
 				</div>
 			</div>
