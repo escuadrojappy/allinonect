@@ -168,7 +168,7 @@
             $('#last_name').val(last_name).prop('readonly', true).parent().addClass('focused')
             $('#philsys_card_number').prop('readonly', true).val(philsys_card_number).parent().addClass('focused')
             $('#place_of_birth').val(place_of_birth).prop('readonly', true).parent().addClass('focused')
-            $('#email').val(email).prop('readonly', true).parent().addClass('focused')
+            $('#email').val(email).parent().addClass('focused')
             $('#contact_number').val(contact_number).parent().addClass('focused')
             $('#birthdate').val(birthdate).prop('readonly', true).parent().addClass('focused')
         }

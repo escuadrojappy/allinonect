@@ -94,8 +94,8 @@ class SentSmsJob implements ShouldQueue
 
                 $count++;
             }
-            // DB::commit();
-            // return true;
+
+            DB::commit();
 
         } catch (\Exception $e) {
             DB::rollBack();

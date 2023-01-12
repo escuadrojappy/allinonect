@@ -60,7 +60,7 @@ class GenerateContactTracingAdminReportRequest extends FormRequest
                 'numeric',
                 'exists:App\Models\Establishment,id',
             ],
-
+            
         ];
     }
 }

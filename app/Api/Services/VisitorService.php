@@ -14,6 +14,9 @@ use App\Http\Resources\{
     VisitorResource,
     VisitorResourceCollection,
 };
+use App\Mail\{
+    RegisteredVisitorMail,
+};
 
 class VisitorService extends Service {
     /**
@@ -57,9 +60,37 @@ class VisitorService extends Service {
      */
     public function update($id, array $request)
     {
-        $update = $this->visitorRepository->update($id, $request);
+        DB::beginTransaction();
+        
+        try {
+            $update = $this->visitorRepository->update($id, $request);
 
-        return response()->json($update);
+            if (Arr::get($request, 'email')) {
+                if (!Arr::get($update, 'user.email')) {
+                    $lastFourCardNumber = substr(Arr::get($update, 'philsys_card_number'), -4);
+                    $lastName = strtoupper(Arr::get($update, 'last_name'));
+                    $generatePassword = $lastName. '-'. $lastFourCardNumber;
+                    $emailParam = [
+                        'email' => Arr::get($request, 'email'),
+                        'name' => Arr::get($update, 'first_name'). ' '. Arr::get($update, 'last_name'),
+                        'password' => $generatePassword,
+                    ];
+                    Mail::to(Arr::get($request, 'email'))->send(new RegisteredVisitorMail($emailParam));
+                }
+                $email = ['email' => Arr::get($request, 'email')];
+                $update->user()->update($email);
+            }
+
+            DB::commit();
+            
+            return response()->json($update);
+
+        } catch (\Exception $e) {
+            DB::rollBack();
+            logger()->error($e->getMessage());
+            logger()->error($e->getTraceAsString());
+            throw $e;
+        }
     }
 
     /**

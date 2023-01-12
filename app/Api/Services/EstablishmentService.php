@@ -155,6 +155,7 @@ class EstablishmentService extends Service
                 ], 400);
             }
 
+            /* Visitor Registration Upon Scan
             if (!$visitor) {
                 $accounts = $this->createVisitorByQrCode($cardNumber, $pcnSubject);
 
@@ -162,6 +163,7 @@ class EstablishmentService extends Service
 
                 $user = Arr::get($accounts, 'user');
             }
+            */
 
             $scanned = $this->scannedVisitorRepository->create([
                 'visitor_id' => Arr::get($visitor, 'id'),
