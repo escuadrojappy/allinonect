@@ -10,7 +10,7 @@ function authVisitor () {
             $('.address-visitor').text(result.visitor.place_of_birth)
             $('.birthdate-visitor').text(result.visitor.birthdate)
             $('.contact-number-visitor').text(result.visitor.contact_number)
-            $('.covid-result-visitor').text(result.visitor_health_statuses.covid_result)
+            $('.covid-result-visitor').text(result.visitor.health_status.covid_result ? 'POSTIVE' : 'NEGATIVE')
         }
     }).then((result) => {
         if (result) location.href = webUrl + 'login/citizen'

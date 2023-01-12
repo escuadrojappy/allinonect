@@ -63,7 +63,17 @@ class AuthRepository extends Repository
                 return $user->load('establishment');
                 break;
             case 3:
-                return $user->load('visitor');
+                $user = $user->load(['visitor.healthStatus' => function ($query) {
+                    $query->orderBy('date_result', 'desc')->first();
+                }]);
+                $healthStatus = Arr::get($user, 'visitor.healthStatus');
+                $user = $user->toArray();
+                if ($healthStatus->count()) {
+                    Arr::set($user, 'visitor.health_status', $healthStatus->first()->toArray());
+                } else {
+                    Arr::set($user, 'visitor.health_status', null);
+                }
+                return $user;
                 break;
           }
     }
