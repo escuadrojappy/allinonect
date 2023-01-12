@@ -4,6 +4,7 @@ namespace App\Http\Requests\Visitor;
 
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Http\FormRequest;
+use App\Rules\VisitorEmailUniqueRule;
 
 class UpdateVisitorRequest extends FormRequest
 {
@@ -31,6 +32,7 @@ class UpdateVisitorRequest extends FormRequest
             'birthdate' => ['required', 'date'],
             'place_of_birth' => ['required', 'string', 'max:255'],
             'contact_number' => ['required', 'numeric', 'digits:11'],
+            'email' => ['sometimes', 'required', 'email', new VisitorEmailUniqueRule],
         ];
     }
 }
