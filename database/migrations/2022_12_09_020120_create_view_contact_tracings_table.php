@@ -24,7 +24,7 @@ return new class extends Migration
                 scanned_visitors.deleted_at
             from 
                 scanned_visitors 
-                left join (
+                inner join (
                     select 
                         visitors.id as visitor_id, 
                         visitors.first_name as visitor_first_name, 
