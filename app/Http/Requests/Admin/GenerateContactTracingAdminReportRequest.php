@@ -56,7 +56,7 @@ class GenerateContactTracingAdminReportRequest extends FormRequest
                 'after:date_range.*.start_date'
             ],
             'establishment_id' => [
-                'required',
+                // 'required',
                 'numeric',
                 'exists:App\Models\Establishment,id',
             ],
