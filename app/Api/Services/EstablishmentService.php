@@ -151,7 +151,7 @@ class EstablishmentService extends Service
 
             if ($covidResult) {
                 return response()->json([
-                    'message' => 'You are positive. You cannot enter on this establishment.'
+                    'message' => 'This citizen is a Covid-19 Positive. A Covid-19 Positive Visitor should not enter this establishment.'
                 ], 400);
             }
 

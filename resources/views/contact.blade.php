@@ -140,8 +140,8 @@
                     $.post(`${apiUrl}contact`, params).done((result) => {
                         console.log(result)
                         $.confirm({
-                            title: 'Sucess!',
-                            content: 'Sucessfully Inserted Data!',
+                            title: 'Message Sent!',
+                            content: 'Thanykou For Your Feedback!',
                             type: 'green',
                             typeAnimated: true,
                             buttons: {
