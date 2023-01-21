@@ -83,14 +83,14 @@ function apiScanner (json) {
         post(url, params).done((result) => {
             successAlert(
                 'Success!',
-                'Successfully Scanned Visitor!',
+                'Successfully Scanned Visitor\'s National ID',
                 () => { 
                     resolve(result)
                 }
             )
         }).fail((error) => {
             errorAlert(
-                'Error!',
+                'Warning!',
                 error.responseJSON.message,
                 () => {
                     reject(error)

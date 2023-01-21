@@ -7,7 +7,7 @@
             <form id="form">
                 <div class="modal-body">
                     <ul class="nav nav-tabs" role="tablist">
-                        <li role="presentation" class="active" id="tab01">
+                        <li role="presentation" class="active" id="tab01" >
                             <a href="#visitor-information" class="name" aria-controls="visitor-information" role="tab" data-toggle="tab" aria-expanded="true">
                                 Visitor Information
                             </a>
