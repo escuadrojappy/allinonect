@@ -19,6 +19,17 @@
                                 My Profile
                             </a>
                         </li>
+
+                        <li>
+                            <a href="{{config('app.url')}}admin/recently-deleted">
+                                <i class="material-icons">
+                                delete
+                                </i>
+                                Recently Deleted
+                            </a>
+                        </li>
+
+
                         <li>
                             <a class="logout">
                                 <i class="material-icons">
@@ -27,6 +38,8 @@
                                 Sign Out
                             </a>
                         </li>
+
+                     
                     </ul>
                 </div>
             </div>
@@ -121,6 +134,15 @@
                         <span>Contact Report</span>
                     </a>
                 </li>
+
+
+                <li class="{{ Request::is('admin/covid-result-logs') ? 'active' : '' }}">
+                    <a href="{{config('app.url')}}admin/covid-result-logs">
+                        <i class="material-icons">list</i>
+                        <span>Covid Result Logs</span>
+                    </a>
+                </li>
+                
                 
             </ul>
         </div>
