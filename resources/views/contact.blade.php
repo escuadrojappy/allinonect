@@ -141,7 +141,7 @@
                         console.log(result)
                         $.confirm({
                             title: 'Message Sent!',
-                            content: 'Thanykou For Your Feedback!',
+                            content: 'Thank you for messaging us! Rest assured that all of your messages will be addressed. Kindly check your email from time to time to see our response.',
                             type: 'green',
                             typeAnimated: true,
                             buttons: {
