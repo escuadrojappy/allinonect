@@ -34,8 +34,16 @@
                         <span>Profile</span>
                     </a>
                 </li>
+
+                <li class="{{ Request::is('citizen/dashboard') ? 'active' : '' }}">
+                    <a href="{{config('app.url')}}citizen/dashboard">
+                        <i class="material-icons">local_hospital</i>
+                        <span>Health Status Logs</span>
+                    </a>
+                </li>
             </ul>
         </div>
+        
         <!-- #Menu -->
         <!-- Footer -->
         <div class="legal">
