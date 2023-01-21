@@ -10,8 +10,10 @@ h3 {
 }
 
 p {
-    font-size: 20px;
+    font-size: 25px;
+    font-weight:bold;
 }
+
 </style>
 
 <div class="col-xs-12 col-m-3">

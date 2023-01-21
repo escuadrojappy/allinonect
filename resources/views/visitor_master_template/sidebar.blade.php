@@ -35,8 +35,8 @@
                     </a>
                 </li>
 
-                <li class="{{ Request::is('citizen/dashboard') ? 'active' : '' }}">
-                    <a href="{{config('app.url')}}citizen/dashboard">
+                <li class="{{ Request::is('citizen/health-status-logs') ? 'active' : '' }}">
+                    <a href="{{config('app.url')}}citizen/health-status-logs">
                         <i class="material-icons">local_hospital</i>
                         <span>Health Status Logs</span>
                     </a>
