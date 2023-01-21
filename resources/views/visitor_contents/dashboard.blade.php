@@ -1,5 +1,21 @@
 @extends('visitor_master_template.master')
 @section('content')
+<style>
+span {
+    font-size: 20px;
+}
+
+h3 {
+    font-size: 30px;
+}
+
+p {
+    font-size: 25px;
+    font-weight:bold;
+}
+
+</style>
+
 <div class="col-xs-12 col-m-3">
     <div class="card profile-card">
         <div class="profile-header bg-indigo">&nbsp;</div>
