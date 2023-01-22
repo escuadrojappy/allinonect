@@ -40,7 +40,7 @@
         <div class="container">
 
             <a class="navbar-brand fs-5 fw-bold text-white" href="#"><img class="img-fluid w-25 p-0"
-                    src="{{ asset('images/logo.png') }}">All-in-<span class="text-danger">One</span></a>
+                    src="{{config('app.url')}}images/newlogo.png">All-in-<span class="text-danger">One</span></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarDark"
                 aria-controls="navbarDark" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
