@@ -74,29 +74,51 @@ function apiScanner (json) {
                 qrcode_result: JSON.stringify(JSON.parse(json))
             }
             var url = `${apiUrl}establishments/visitor/scan`
-        } else {
+
+            post(url, params).done((result) => {
+                successAlert(
+                    'Success!',
+                    'Successfully Scanned Visitor\'s National ID',
+                    () => { 
+                        resolve(result)
+                    }
+                )
+            }).fail((error) => {
+                errorAlert(
+                    'Warning!',
+                    error.responseJSON.message,
+                    () => {
+                        reject(error)
+                    }
+                )
+            })  
+        }
+
+         else {
             var params = {
                 qrcode_result: JSON.stringify(JSON.parse(json))
             }
             var url = `${apiUrl}admin/visitor/qrcode`
+
+            post(url, params).done((result) => {
+                successAlert(
+                    'Success!',
+                    'Successfully Scanned Citizen\'s National ID',
+                    () => { 
+                        resolve(result)
+                    }
+                )
+            }).fail((error) => {
+                errorAlert(
+                    'Error!',
+                    error.responseJSON.message,
+                    () => {
+                        reject(error)
+                    }
+                )
+            })  
         }
-        post(url, params).done((result) => {
-            successAlert(
-                'Success!',
-                'Successfully Scanned Visitor\'s National ID',
-                () => { 
-                    resolve(result)
-                }
-            )
-        }).fail((error) => {
-            errorAlert(
-                'Warning!',
-                error.responseJSON.message,
-                () => {
-                    reject(error)
-                }
-            )
-        })  
+       
     })
 }
 
@@ -130,7 +152,7 @@ function errorAlert (title, content, action=null) {
         typeAnimated: true,
         buttons: {
             tryAgain: {
-                text: 'Try Again',
+                text: 'Okay',
                 btnClass: 'btn-red',
                 action
             }
