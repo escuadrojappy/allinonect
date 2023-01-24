@@ -105,6 +105,9 @@
         <button type="button" id="qr-code-submit" class="btn btn-success btn-lg waves-effect">
           Submit
         </button>
+        <button type="button" id="scanner-close-button" class="btn btn-light btn-lg waves-effect"  data-dismiss="modal">
+        Close
+      </button>
       `)
 
       // qrr.okBtn.appendTo('.scanner');
@@ -147,6 +150,9 @@
           })
         }
       })
+
+
+      
 
     },
 

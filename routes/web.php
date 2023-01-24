@@ -156,3 +156,15 @@ Route::get('/forgot-password', function () {
 Route::get('/reset-password', function () {
     return view('forgot_password_contents/reset_password', ['title' => 'Reset Password']);
 });
+
+Route::get('/citizen/health-status-logs', function () {
+    return view('visitor_contents/health_status_logs', ['title' => 'Health Status Logs']);
+});
+
+Route::get('/admin/covid-result-logs', function () {
+    return view('admin_contents/covid_result_logs', ['title' => 'Covid Result Logs']);
+});
+
+Route::get('/admin/recently-deleted', function () {
+    return view('admin_contents/recently_deleted', ['title' => 'Recently Deleted']);
+});

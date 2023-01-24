@@ -1,5 +1,21 @@
 @extends('visitor_master_template.master')
 @section('content')
+<style>
+span {
+    font-size: 20px;
+}
+
+h3 {
+    font-size: 30px;
+}
+
+p {
+    font-size: 25px;
+    font-weight:bold;
+}
+
+</style>
+
 <div class="col-xs-12 col-m-3">
     <div class="card profile-card">
         <div class="profile-header bg-indigo">&nbsp;</div>
@@ -40,7 +56,7 @@
     </div>
 </div>
 
-<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+<!-- <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
     <div class="card">
         <div class="header bg-indigo">
             <h2>
@@ -73,7 +89,7 @@
             </form>
         </div>
     </div>
-</div>
+</div> -->
 
 
 <script>

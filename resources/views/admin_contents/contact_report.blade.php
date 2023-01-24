@@ -29,7 +29,7 @@
                           <div class="col-sm-2" >
                             <b>Establishments:</b><br>
                             <select class="form-select form-control establishmentlist" aria-label="Default select example" id="establishmentlist" >
-                                
+                            <option value="">None</option>
                             </select>
                           </div>
                           <div class="col-sm-2">
@@ -157,7 +157,6 @@
         })
 
         $("#establishmentlist").select2({
-            placeholder: 'None',
             ajax: {
                 url: `${apiUrl}admin/establishment`,
                 delay: 250,

@@ -115,6 +115,10 @@
             #qr-code-submit {
                 width: 100%;
             }
+
+            #scanner-close-button{
+                display:none;
+            }
             </style>
     </head>
     <body class="theme-indigo">
