@@ -56,7 +56,7 @@ p {
     </div>
 </div>
 
-<!-- <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
     <div class="card">
         <div class="header bg-indigo">
             <h2>
@@ -65,22 +65,22 @@ p {
         </div>
         <div class="body">
             <form>
-                <label for="email_address">Old Password</label>
+                <label for="email_address">Current Password</label>
                 <div class="form-group">
                     <div class="form-line ">
-                        <input type="password" id="email_address" class="form-control" placeholder="Enter your old password">
+                        <input type="password" id="current_password" class="form-control" placeholder="Enter your current password">
                     </div>
                 </div>
                 <label for="text">New Password</label>
                 <div class="form-group">
                     <div class="form-line ">
-                        <input type="password" id="password" class="form-control" placeholder="Enter your new password">
+                        <input type="password" id="new_password" class="form-control" placeholder="Enter your new password">
                     </div>
                 </div>
-                <label for="email_address">Re-type Password</label>
+                <label for="email_address">Confirm New Password</label>
                 <div class="form-group">
                     <div class="form-line ">
-                        <input type="password" id="email_address" class="form-control" placeholder="Re-type password">
+                        <input type="password" id="confirm_password" class="form-control" placeholder="Confirm new password">
                     </div>
                 </div>
                 <button type="submit" class="btn btn-primary">
@@ -89,7 +89,7 @@ p {
             </form>
         </div>
     </div>
-</div> -->
+</div> 
 
 
 <script>
