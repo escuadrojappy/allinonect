@@ -72,4 +72,13 @@ class User extends Authenticatable
     {
         return $this->hasMany(Role::class);
     }
+
+    /**
+     * Get forgot passwords.
+     * 
+     */
+    public function forgotPassword()
+    {
+        return $this->hasMany(User::class);
+    }
 }

@@ -20,11 +20,16 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::prefix('auth')->group(function () {
     Route::post('login', 'AuthController@login');
-    
+    Route::post('forgot-password', 'AuthController@forgotPassword');
+    Route::post('reset-password/validate', 'AuthController@validateResetPasswordToken');
+    Route::put('reset-password/{token}', 'AuthController@resetPassword');
+
     // Verify Password Grant Token
     Route::middleware(['verify.password', 'identify.user'])->group(function () {
-        Route::get('/', 'AuthController@index'); 
+        Route::get('/', 'AuthController@index');
         Route::get('logout', 'AuthController@logout');
+
+        Route::post('change-password', 'AuthController@changePassword');
     });
     Route::post('test', 'AuthController@test');
 });

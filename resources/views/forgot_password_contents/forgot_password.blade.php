@@ -69,26 +69,13 @@
             }
 	</style>
 
-	{{-- <header>
-      <img src="{{ asset('images/logo.png')}}" alt="" id= "logo" >
-      <div class="menu-btn"></div>
-      <div class="navigation">
-        <div class="navigation-items">
-          <a href="{{config('app.url')}}welcome">Home </a>
-          <a href="{{config('app.url')}}about">About</a>
-          <a href="{{config('app.url')}}account" class="under">Account</a>
-          <a href="{{config('app.url')}}contact">Contact Us</a>
-        </div>
-      </div>
-    </header> --}}
     <form id="login-form">
-	<div class="bg-login">
-		<div class="main">
-			<a href="{{config('app.url')}}account" style="font-size:26px;"  class="fa">&#xf191;</a>
-			<input type="checkbox" id="chk" aria-hidden="true">
-			<div class="signup">
-				
-					<img src="{{ asset('images/logo.png') }}" class="logoestablishment">
+	    <div class="bg-login">
+		    <div class="main">
+			    <a href="{{config('app.url')}}account" style="font-size:26px;"  class="fa">&#xf191;</a>
+			    <input type="checkbox" id="chk" aria-hidden="true">
+			    <div class="signup">
+				    <img src="{{ asset('images/logo.png') }}" class="logoestablishment">
 					<label>Forgot your password?</label>
 					<p>Enter your email address to reset your password.</p>
 					<input type="email" id='email' name="email" placeholder="Enter email here" required>
@@ -96,41 +83,39 @@
 						Send Reset Password Link
                         <span class="btn-ring"></span>
 					</button>
-				</form>
-			</div>
-		</div>
-	</div>
+			    </div>
+		    </div>
+	    </div>
+    </form>
 
 	<script>
-    $(document).on('submit', '#login-form', function (e) {
-        e.preventDefault()
-        formLoader('#login-form')
-        $(".btn-ring").show();
-        $(".btn-process").prop('disabled',true); 
-        $(".btn-process").val('disabled'); 
-        setTimeout(function() {
-        $(".btn-ring").hide();
-        $(".btn-process").prop('disabled',false);
-         }, 3500);
-        var params = {
-            email: $('#email').val(),
+        var submitBtn = $('#login-form').find('button[type="submit"]')
 
-        }
-            $.post(`${apiUrl}forgot`, params).done((result) => {
+        $(document).on('submit', '#login-form', function (e) {
+            e.preventDefault()
+
+            var params = {
+                email: $('#email').val()
+            }
+            
+            $(submitBtn).html('Processing...')
+            $(submitBtn).prop('disabled', true)
+
+            post(`${apiUrl}auth/forgot-password`, params).done((response) => {
                 successAlert(
                     'Success!',
                     'A reset password link has been successfully delivered. Please check your email to reset.',
                     () => { 
-                        clearFormFields('#login-form')
-
+                        location.href = webUrl + 'account'
                     }
                 )
             }).fail((error) => {
                 errorAlert('Error!', error.responseJSON.message)
             }).always(() => {
-                rollBackButtons('#login-form')
+                $(submitBtn).html('Send Reset Password Link')
+                $(submitBtn).prop('disabled', false)
             })
-        
-    })
+            
+        })
     </script>
 @endsection
