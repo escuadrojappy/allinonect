@@ -154,4 +154,25 @@ class AuthRepository extends Repository
 
         return $token;
     }
+
+    /**
+     * Check if email is exists
+     *
+     * @param string $email
+     * @return object
+     */
+    public function checkEmailIfExists(string $email)
+    {
+        return $this->model->where('email', $email)->first();
+    }
+
+    /**
+     * Get Current User
+     *
+     * @return \App\Models\User
+     */
+    public function currentUser()
+    {
+        return auth()->user();
+    }
 }

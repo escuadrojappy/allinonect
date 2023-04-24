@@ -73,6 +73,39 @@ class Repository
         
         return $model;
     }
-    
 
+    /**
+     * Find By Column Repository Instance.
+     *
+     * @param string $column
+     * @param string $id
+     * @return \Illuminate\Database\Eloquent\Model
+     */
+    public function findByColumn(string $column, string $value)
+    {
+        return $this->model->where($column, $value)->first();
+    }
+
+    /**
+     * Destroy By Column Repository Instance.
+     *
+     * @param string $column
+     * @param string $id
+     * @return \Illuminate\Database\Eloquent\Model
+     */
+    public function destroyByColumn(string $column, string $value)
+    {
+        return $this->model->where($column, $value)->delete();
+    }
+    
+    /**
+     * Find Repository Instance.
+     *
+     * @param int $id
+     * @return \Illuminate\Database\Eloquent\Model
+     */
+    public function find($id)
+    {
+        return $this->model->findOrFail($id);
+    }
 }
